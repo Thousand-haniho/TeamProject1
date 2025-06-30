@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* 사이드바 */
+        .sidebar {
+            background: linear-gradient(135deg, #1dd1a1 0%, #55a3ff 100%);
+            width: 250px;
+            padding: 30px 20px;
+            color: white;
+            position: relative;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .username {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .user-title {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 15px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-icon {
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 메인 콘텐츠 */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome {
+            font-size: 24px;
+            color: #55a3ff;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-icon:hover {
+            background: #55a3ff;
+            color: white;
+            border-color: #55a3ff;
+        }
+
+        /* 대시보드 그리드 */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 세일즈 차트 카드 */
+        .sales-card {
+            background: linear-gradient(135deg, #1dd1a1 0%, #55a3ff 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sales-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .sales-type {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .sales-amount {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .chart-container {
+            height: 120px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100"><path d="M0,80 Q50,60 100,50 T200,40 T300,30 L400,25 L400,100 L0,100 Z" fill="rgba(255,255,255,0.2)"/><path d="M0,80 Q50,60 100,50 T200,40 T300,30 L400,25" stroke="rgba(255,255,255,0.8)" stroke-width="2" fill="none"/></svg>') no-repeat;
+            background-size: cover;
+        }
+
+        /* TOP 5 SALES */
+        .top-sales {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .period-btn {
+            background: #55a3ff;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .sales-list {
+            list-style: none;
+        }
+
+        .sales-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sales-item:last-child {
+            border-bottom: none;
+        }
+
+        .sales-rank {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #55a3ff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .sales-info {
+            flex: 1;
+        }
+
+        .sales-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .sales-details {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .sales-amount-small {
+            font-weight: bold;
+            color: #55a3ff;
+        }
+
+        /* 하단 그리드 */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* 프로그레스 바 */
+        .progress-item {
+            margin-bottom: 20px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.gray { background: #6c757d; }
+        .progress-fill.teal { background: #1dd1a1; }
+        .progress-fill.yellow { background: #ffc107; }
+
+        /* 원형 차트 */
+        .circular-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        .circle-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(#1dd1a1 0% 75%, #e9ecef 75% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-inner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1dd1a1;
+        }
+
+        .chart-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1dd1a1;
+        }
+
+        /* 뉴스 섹션 */
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .news-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #55a3ff;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #55a3ff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 14px;
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        .news-text {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .news-time {
+            font-size: 11px;
+            color: #999;
+        }
+
+        /* 캘린더 */
+        .calendar {
+            margin-top: 20px;
+        }
+
+        .calendar-header {
+            text-align: center;
+            font-weight: bold;
+            color: #55a3ff;
+            margin-bottom: 15px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+
+        .calendar-day {
+            padding: 8px 4px;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .calendar-day:hover {
+            background: #f0f0f0;
+        }
+
+        .calendar-day.header {
+            font-weight: bold;
+            color: #666;
+            cursor: default;
+        }
+
+        .calendar-day.today {
+            background: #55a3ff;
+            color: white;
+        }
+
+        .calendar-day.other-month {
+            color: #ccc;
+        }
+
+        /* 반응형 */
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bottom-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                padding: 20px;
+            }
+            
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 사이드바 -->
+        <div class="sidebar">
+            <div class="profile">
+                <div class="profile-img">👤</div>
+                <div class="username">USERNAME</div>
+                <div class="user-title">Lorem Ipsum Dolor</div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <span class="nav-icon">🏠</span>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📊</span>
+                        Statistic
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📦</span>
+                        Task Order
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🧩</span>
+                        Widget
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📰</span>
+                        News
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        Setting
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="logout">
+                <a href="#" class="logout-btn">
+                    <span class="nav-icon">🚪</span>
+                    Go Out
+                </a>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="header">
+                <h1 class="welcome">Hello Username, Welcome Back !</h1>
+                <div class="header-actions">
+                    <div class="btn-icon">📧</div>
+                    <div class="btn-icon">🔔</div>
+                </div>
+            </div>
+
+            <!-- 대시보드 그리드 -->
+            <div class="dashboard-grid">
+                <!-- 세일즈 차트 -->
+                <div class="card sales-card">
+                    <div class="sales-header">
+                        <div>
+                            <div class="sales-type">Total Sales</div>
+                            <div class="sales-amount">750.11</div>
+                            <small>+25.5% from last week</small>
+                        </div>
+                        <div>
+                            <div class="sales-type">Daily Sales</div>
+                            <div class="sales-amount" style="font-size: 24px;">42.5k</div>
+                            <small>+15.2% from yesterday</small>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-line"></div>
+                    </div>
+                </div>
+
+                <!-- TOP 5 SALES -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">TOP 5 SALES</h3>
+                        <button class="period-btn">Periods ▼</button>
+                    </div>
+                    <ul class="sales-list">
+                        <li class="sales-item">
+                            <div class="sales-rank">1</div>
+                            <div class="sales-info">
+                                <div class="sales-name">👤 Lorem ipsum dolor</div>
+                                <div class="sales-details">Lorem ipsum dolor sit</div>
+                            </div>
+                            <div class="sales-amount-small">$150</div>
+                        </li>
+                        <li class="sales-item">
+                            <div class="sales-rank">2</div>
+                            <div class="sales-info">
+                                <div class="sales-name">👤 Lorem ipsum dolor</div>
+                                <div class="sales-details">Lorem ipsum dolor sit</div>
+                            </div>
+                            <div class="sales-amount-small">$140</div>
+                        </li>
+                        <li class="sales-item">
+                            <div class="sales-rank">3</div>
+                            <div class="sales-info">
+                                <div class="sales-name">👤 Lorem ipsum dolor</div>
+                                <div class="sales-details">Lorem ipsum dolor sit</div>
+                            </div>
+                            <div class="sales-amount-small">$130</div>
+                        </li>
+                        <li class="sales-item">
+                            <div class="sales-rank">4</div>
+                            <div class="sales-info">
+                                <div class="sales-name">👤 Lorem ipsum dolor</div>
+                                <div class="sales-details">Lorem ipsum dolor sit</div>
+                            </div>
+                            <div class="sales-amount-small">$120</div>
+                        </li>
+                        <li class="sales-item">
+                            <div class="sales-rank">5</div>
+                            <div class="sales-info">
+                                <div class="sales-name">👤 Lorem ipsum dolor</div>
+                                <div class="sales-details">Lorem ipsum dolor sit</div>
+                            </div>
+                            <div class="sales-amount-small">$110</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 하단 그리드 -->
+            <div class="bottom-grid">
+                <!-- TOP 3 SALES MARKET -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">TOP 3 SALES MARKET</h3>
+                        <button class="period-btn">Periods ▼</button>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>Lorem Ipsum</span>
+                            <span><strong>50%</strong></span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill gray" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>Lorem Ipsum</span>
+                            <span><strong>86%</strong></span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill teal" style="width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label">
+                            <span>Lorem Ipsum</span>
+                            <span><strong>65%</strong></span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill yellow" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                        <div class="stat-item">
+                            <div class="stat-label">Lorem Ipsum 01</div>
+                            <div class="stat-value" style="color: #6c757d;">50%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Lorem Ipsum 02</div>
+                            <div class="stat-value">86%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Lorem Ipsum 03</div>
+                            <div class="stat-value" style="color: #ffc107;">65%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERCENTAGE SALES -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">PERCENTAGE SALES</h3>
+                    </div>
+                    <div class="circular-chart">
+                        <div class="circle-container">
+                            <div class="circle-bg">
+                                <div class="circle-inner">75%</div>
+                            </div>
+                        </div>
+                        <div class="chart-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Target</div>
+                                <div class="stat-value">$999</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Sales</div>
+                                <div class="stat-value">$750</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT NEWS -->
+                <div class="card">
+                    <div class="news-header">
+                        <h3 class="news-title">📰 RECENT NEWS</h3>
+                    </div>
+                    <ul class="news-list">
+                        <li class="news-item">
+                            <div class="news-avatar">U</div>
+                            <div class="news-content">
+                                <div class="news-text">UserName - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                                <div class="news-time">Today - 09:30</div>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="news-avatar">U</div>
+                            <div class="news-content">
+                                <div class="news-text">UserName - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                                <div class="news-time">Today - 12:20</div>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="news-avatar">U</div>
+                            <div class="news-content">
+                                <div class="news-text">UserName - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                                <div class="news-time">Yesterday - 4 Min</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- 캘린더 -->
+                    <div class="calendar">
+                        <div class="calendar-header">DECEMBER</div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day header">Sun</div>
+                            <div class="calendar-day header">Mon</div>
+                            <div class="calendar-day header">Tue</div>
+                            <div class="calendar-day header">Wed</div>
+                            <div class="calendar-day header">Thu</div>
+                            <div class="calendar-day header">Fri</div>
+                            <div class="calendar-day header">Sat</div>
+                            
+                            <div class="calendar-day other-month">29</div>
+                            <div class="calendar-day other-month">30</div>
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day">12</div>
+                            
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-day">14</div>
+                            <div class="calendar-day today">15</div>
+                            <div class="calendar-day">16</div>
+                            <div class="calendar-day">17</div>
+                            <div class="calendar-day">18</div>
+                            <div class="calendar-day">19</div>
+                            
+                            <div class="calendar-day">20</div>
+                            <div class="calendar-day">21</div>
+                            <div class="calendar-day">22</div>
+                            <div class="calendar-day">23</div>
+                            <div class="calendar-day">24</div>
+                            <div class="calendar-day">25</div>
+                            <div class="calendar-day">26</div>
+                            
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-day">28</div>
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-day">30</div>
+                            <div class="calendar-day">31</div>
+                            <div class="calendar-day other-month">1</div>
+                            <div class="calendar-day other-month">2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
