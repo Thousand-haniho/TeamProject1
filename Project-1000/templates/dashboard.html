@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>스마트팜 대시보드</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>🌿 SmartFarm</h2>
+      <nav>
+        <ul>
+          <li><a href="#">개요</a></li>
+          <li><a href="#">센서 데이터</a></li>
+          <li><a href="#">리포트</a></li>
+          <li><a href="#">설정</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <h1>스마트팜 모니터링</h1>
+        <div class="user-info">
+          <span>관리자</span>
+          <button onclick="location.href='/map'">Map🗺</button>
+        </div>
+      </header>
+      <section class="cards">
+        <div class="card">
+          <h3>기온</h3>
+          <p>{{ temp_value }} °C</p>
+        </div>
+        <div class="card">
+          <h3>습도</h3>
+          <p>{{ humi_value }} %</p>
+        </div>
+        <div class="card">
+          <h3>1시간 강수량</h3>
+          <p>{{ rain_value }} mm</p>
+        </div>
+        <div class="card">
+          <h3>풍속</h3>
+          <p>{{ wind_value }} m/s</p>
+        </div>
+      </section>
+      <section class="charts">
+        <div class="chart-box">
+          <h3>시간별 온도</h3>
+          <canvas id="tempChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>시간별 습도</h3>
+          <canvas id="humidityChart"></canvas>
+        </div>
+      </section>
+      <section class="ranking">
+        <div class="ranking-table-container">
+          <div class="ranking-table-header">
+            <h2>인기식물 순위</h2>
+            <button class="ranking-select-btn">SELECT</button>
+          </div>
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>순위</th>
+                <th>식물명</th>
+                <th>소매가격</th>
+                <th>등락률</th>
+              </tr>
+            </thead>
+            <tbody>
+              {# 1~9위 모두 표시하도록 range를 돌리고 #}
+              {% for i in range(1, 10) %}
+                {% set row = ranking_data | selectattr("rank", "equalto", i) | list | first %}
+                <tr>
+                  <td>{{ i }}</td>
+                  <td>{{ row.name if row else '' }}</td>
+                  <td>{{ row.price if row else '' }}</td>
+                  <td>{{ row.change if row else '' }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // 온도 차트
+    new Chart(document.getElementById('tempChart').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['08:00', '10:00', '12:00', '14:00', '16:00'],
+        datasets: [{
+          label: '온도 (°C)',
+          data: [20, 21, 23, 22, 21],
+          borderColor: '#42A5F5',
+          fill: false,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    // 습도 차트
+    new Chart(document.getElementById('humidityChart').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['08:00', '10:00', '12:00', '14:00', '16:00'],
+        datasets: [{
+          label: '습도 (%)',
+          data: [55, 58, 60, 62, 59],
+          backgroundColor: '#66BB6A'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
