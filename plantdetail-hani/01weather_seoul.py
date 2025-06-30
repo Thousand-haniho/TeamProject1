@@ -3,6 +3,7 @@ import requests
 import xmltodict
 import json
 import csv
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -11,13 +12,45 @@ api_key = os.getenv('WEATHER_API_KEY')
 # 초단기실황조회 서비스
 url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst'
 
+now = datetime.now()
+base_time = now.replace(minute=0, second=0, microsecond=0)
+if now.minute < 40:
+    base_time -= timedelta(hours=1)
+
+base_date = base_time.strftime('%Y%m%d')
+base_time_str = base_time.strftime('%H%M')
+
+# 지역별 격자 좌표
+'''
+locaions = {
+    '서울': (60, 127),
+    '부산': (98, 76),
+    '대구': (89, 90),
+    '인천': (55, 124),
+    '광주': (58, 74),
+    '대전': (67, 100),
+    '울산': (102, 84),
+    '세종': (66, 103),
+    '경기북부' : (61, 130),
+    '경기남부': (60, 120),
+    '강원': (73, 134),
+    '충북': (69, 107),
+    '충남': (68, 100),
+    '전북': (63, 89),
+    '전남': (51, 67),
+    '경북': (89, 91),
+    '경남': (91, 77),
+    '제주': (52, 38)
+}
+'''
+
 params ={
   'serviceKey' : api_key,
   'pageNo' : '1',
   'numOfRows' : '100',
   'dataType' : 'XML',
-  'base_date' : '20250628',
-  'base_time' : '0800',
+  'base_date' : base_date,
+  'base_time' : base_time_str,
   'nx' : '60',
   'ny' : '127'
 }
