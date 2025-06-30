@@ -34,6 +34,11 @@ def map():
     return render_template('map.html')
 
 
+@app.route('/flowershop')
+def flowershop():
+    return render_template('flowershop.html')
+
+
 
 @app.errorhandler(404) 
 def page_not_found(error):

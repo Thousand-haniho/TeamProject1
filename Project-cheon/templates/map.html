@@ -1,11 +1,2877 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAP</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_afd5cb74d9e14726023a4845175d16de {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
 </head>
 <body>
-  <h2>지도 페이지</h2>
+
+
+            <div class="folium-map" id="map_afd5cb74d9e14726023a4845175d16de" ></div>
+
 </body>
+<script>
+
+
+            var map_afd5cb74d9e14726023a4845175d16de = L.map(
+                "map_afd5cb74d9e14726023a4845175d16de",
+                {
+                    center: [37.47, 126.88],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_6a03f0b5f9ff64ddf8f42264e31f770c = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var marker_eb7e8a4295ddfe12ecec932ec6aa9344 = L.marker(
+                [37.46569942, 127.089786],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_a81e63134d87cf331349ad09072c8ca4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_eb7e8a4295ddfe12ecec932ec6aa9344.setIcon(icon_a81e63134d87cf331349ad09072c8ca4);
+
+
+        var popup_2bb3209fde79cbb01518d2d6e174a2a6 = L.popup({"maxWidth": 250});
+
+
+
+                var html_2922804cf4056e2248288adb3e72f74c = $(`<div id="html_2922804cf4056e2248288adb3e72f74c" style="width: 100.0%; height: 100.0%;"><b>서울특별시 농업기술센터</b></div>`)[0];
+                popup_2bb3209fde79cbb01518d2d6e174a2a6.setContent(html_2922804cf4056e2248288adb3e72f74c);
+
+
+
+        marker_eb7e8a4295ddfe12ecec932ec6aa9344.bindPopup(popup_2bb3209fde79cbb01518d2d6e174a2a6)
+        ;
+
+
+
+
+            var marker_faf1bf40e6e8df9c8365ed824fb136bc = L.marker(
+                [37.46493908, 127.0884287],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_a7f196e18373d08821c2938f9f1985d1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_faf1bf40e6e8df9c8365ed824fb136bc.setIcon(icon_a7f196e18373d08821c2938f9f1985d1);
+
+
+        var popup_868d0acbb0b2823bee852693b6c51592 = L.popup({"maxWidth": 250});
+
+
+
+                var html_b42894f33ba480bfc0be139407124411 = $(`<div id="html_b42894f33ba480bfc0be139407124411" style="width: 100.0%; height: 100.0%;"><b>서울특별시 농업기술센터 스마트농장형 치유농업교육장</b></div>`)[0];
+                popup_868d0acbb0b2823bee852693b6c51592.setContent(html_b42894f33ba480bfc0be139407124411);
+
+
+
+        marker_faf1bf40e6e8df9c8365ed824fb136bc.bindPopup(popup_868d0acbb0b2823bee852693b6c51592)
+        ;
+
+
+
+
+            var marker_701fbfe7b1d1f43f9ee3c0e6be135759 = L.marker(
+                [37.48334605, 127.0229069],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_b5d57ce73146a9f4e06280ab9ec15626 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_701fbfe7b1d1f43f9ee3c0e6be135759.setIcon(icon_b5d57ce73146a9f4e06280ab9ec15626);
+
+
+        var popup_a560e16adc7aebd840cb5a0fac2bc72f = L.popup({"maxWidth": 250});
+
+
+
+                var html_074bc449030b737779bde0977f9c15b3 = $(`<div id="html_074bc449030b737779bde0977f9c15b3" style="width: 100.0%; height: 100.0%;"><b>대동 KIRO 로보틱스센터</b></div>`)[0];
+                popup_a560e16adc7aebd840cb5a0fac2bc72f.setContent(html_074bc449030b737779bde0977f9c15b3);
+
+
+
+        marker_701fbfe7b1d1f43f9ee3c0e6be135759.bindPopup(popup_a560e16adc7aebd840cb5a0fac2bc72f)
+        ;
+
+
+
+
+            var marker_19dfa59ff74d4949916c83c9bfabbed6 = L.marker(
+                [37.60110012, 126.935146],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_61510b9820a9b1f6adf6cba6353841b0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_19dfa59ff74d4949916c83c9bfabbed6.setIcon(icon_61510b9820a9b1f6adf6cba6353841b0);
+
+
+        var popup_0615d4b55689de2f9feaac1f22288437 = L.popup({"maxWidth": 250});
+
+
+
+                var html_ffccc193442d87a444d40700811dad2f = $(`<div id="html_ffccc193442d87a444d40700811dad2f" style="width: 100.0%; height: 100.0%;"><b>텃밭보급소</b></div>`)[0];
+                popup_0615d4b55689de2f9feaac1f22288437.setContent(html_ffccc193442d87a444d40700811dad2f);
+
+
+
+        marker_19dfa59ff74d4949916c83c9bfabbed6.bindPopup(popup_0615d4b55689de2f9feaac1f22288437)
+        ;
+
+
+
+
+            var marker_2aaab9a64c3678933c66d4487c977dba = L.marker(
+                [37.47316698, 126.840239],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_d7dc1dc67cc0b9318a00f55ab684b13a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2aaab9a64c3678933c66d4487c977dba.setIcon(icon_d7dc1dc67cc0b9318a00f55ab684b13a);
+
+
+        var popup_3bffef2fdc01bc66c57d5aa65bd0f2d5 = L.popup({"maxWidth": 250});
+
+
+
+                var html_5bbad8ef21de1dcb4de6a5b6567fc62a = $(`<div id="html_5bbad8ef21de1dcb4de6a5b6567fc62a" style="width: 100.0%; height: 100.0%;"><b>광명텃밭보급소</b></div>`)[0];
+                popup_3bffef2fdc01bc66c57d5aa65bd0f2d5.setContent(html_5bbad8ef21de1dcb4de6a5b6567fc62a);
+
+
+
+        marker_2aaab9a64c3678933c66d4487c977dba.bindPopup(popup_3bffef2fdc01bc66c57d5aa65bd0f2d5)
+        ;
+
+
+
+
+            var marker_ee393a5a449e6d2d7839b6e22ba535dd = L.marker(
+                [37.60110012, 126.935146],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_31b3cf98d9c866225fb202da9cca99f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ee393a5a449e6d2d7839b6e22ba535dd.setIcon(icon_31b3cf98d9c866225fb202da9cca99f8);
+
+
+        var popup_508cec1cd09ca3ef101803c7def2e0c8 = L.popup({"maxWidth": 250});
+
+
+
+                var html_54a246967cd3d568f8b32666e123ea8c = $(`<div id="html_54a246967cd3d568f8b32666e123ea8c" style="width: 100.0%; height: 100.0%;"><b>사단법인 텃밭보급소</b></div>`)[0];
+                popup_508cec1cd09ca3ef101803c7def2e0c8.setContent(html_54a246967cd3d568f8b32666e123ea8c);
+
+
+
+        marker_ee393a5a449e6d2d7839b6e22ba535dd.bindPopup(popup_508cec1cd09ca3ef101803c7def2e0c8)
+        ;
+
+
+
+
+            var marker_d6ed54aa8e6da8a4d6eefd84a66f3847 = L.marker(
+                [35.2132661, 128.9866578],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_0068b0942afaeb6be5ce2f3588f0dc4d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d6ed54aa8e6da8a4d6eefd84a66f3847.setIcon(icon_0068b0942afaeb6be5ce2f3588f0dc4d);
+
+
+        var popup_508f9ae5816c7e697c0ef4ad0f8cf386 = L.popup({"maxWidth": 250});
+
+
+
+                var html_d38caf19ae0def2f2eb5252fd856c7b3 = $(`<div id="html_d38caf19ae0def2f2eb5252fd856c7b3" style="width: 100.0%; height: 100.0%;"><b>부산광역시 농업기술센터</b></div>`)[0];
+                popup_508f9ae5816c7e697c0ef4ad0f8cf386.setContent(html_d38caf19ae0def2f2eb5252fd856c7b3);
+
+
+
+        marker_d6ed54aa8e6da8a4d6eefd84a66f3847.bindPopup(popup_508f9ae5816c7e697c0ef4ad0f8cf386)
+        ;
+
+
+
+
+            var marker_4f8f0b3e12184b3305b1c053db723750 = L.marker(
+                [35.25261404, 129.1950196],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_a09af3e5684b8eb28f7c71f65e52d849 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4f8f0b3e12184b3305b1c053db723750.setIcon(icon_a09af3e5684b8eb28f7c71f65e52d849);
+
+
+        var popup_f64c391c1831eff832f9ad07d00b4ebc = L.popup({"maxWidth": 250});
+
+
+
+                var html_1386b47323aa5a847774e733a60642aa = $(`<div id="html_1386b47323aa5a847774e733a60642aa" style="width: 100.0%; height: 100.0%;"><b>기장군농업기술센터</b></div>`)[0];
+                popup_f64c391c1831eff832f9ad07d00b4ebc.setContent(html_1386b47323aa5a847774e733a60642aa);
+
+
+
+        marker_4f8f0b3e12184b3305b1c053db723750.bindPopup(popup_f64c391c1831eff832f9ad07d00b4ebc)
+        ;
+
+
+
+
+            var marker_747f24e0afa35b6699444628bec0b927 = L.marker(
+                [35.17855047, 128.9564846],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_4a33e9e815822efcd58c481faf125af4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_747f24e0afa35b6699444628bec0b927.setIcon(icon_4a33e9e815822efcd58c481faf125af4);
+
+
+        var popup_3f5af3dfc2d1494b76f8b7995e1e35da = L.popup({"maxWidth": 250});
+
+
+
+                var html_adeb30562b3da6bb0775b8ebe1d29b93 = $(`<div id="html_adeb30562b3da6bb0775b8ebe1d29b93" style="width: 100.0%; height: 100.0%;"><b>부산시농업기술센터 대저2지소</b></div>`)[0];
+                popup_3f5af3dfc2d1494b76f8b7995e1e35da.setContent(html_adeb30562b3da6bb0775b8ebe1d29b93);
+
+
+
+        marker_747f24e0afa35b6699444628bec0b927.bindPopup(popup_3f5af3dfc2d1494b76f8b7995e1e35da)
+        ;
+
+
+
+
+            var marker_b7fdbfe3e9ce76636609addcc13e7aaa = L.marker(
+                [35.19890528, 129.0749494],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_fe2cac7a0fc826d5db11e11972c4dfcc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b7fdbfe3e9ce76636609addcc13e7aaa.setIcon(icon_fe2cac7a0fc826d5db11e11972c4dfcc);
+
+
+        var popup_584c49dd81fee66425dba70d3a8639a5 = L.popup({"maxWidth": 250});
+
+
+
+                var html_d463f33385876f579bb81568ad14ee52 = $(`<div id="html_d463f33385876f579bb81568ad14ee52" style="width: 100.0%; height: 100.0%;"><b>부산귀농운동본부</b></div>`)[0];
+                popup_584c49dd81fee66425dba70d3a8639a5.setContent(html_d463f33385876f579bb81568ad14ee52);
+
+
+
+        marker_b7fdbfe3e9ce76636609addcc13e7aaa.bindPopup(popup_584c49dd81fee66425dba70d3a8639a5)
+        ;
+
+
+
+
+            var marker_e61bc94858fb99a4f413ab009c3b4fd4 = L.marker(
+                [35.09773868, 128.9196205],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_15aa259f7f7d24bec78e12c4714620f0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e61bc94858fb99a4f413ab009c3b4fd4.setIcon(icon_15aa259f7f7d24bec78e12c4714620f0);
+
+
+        var popup_bc2beb72de299a933ecca76bb9a8c1ff = L.popup({"maxWidth": 250});
+
+
+
+                var html_31d3e45b6f567a8b8bb43c0f177dbabd = $(`<div id="html_31d3e45b6f567a8b8bb43c0f177dbabd" style="width: 100.0%; height: 100.0%;"><b>명지농협 국제신도시지점</b></div>`)[0];
+                popup_bc2beb72de299a933ecca76bb9a8c1ff.setContent(html_31d3e45b6f567a8b8bb43c0f177dbabd);
+
+
+
+        marker_e61bc94858fb99a4f413ab009c3b4fd4.bindPopup(popup_bc2beb72de299a933ecca76bb9a8c1ff)
+        ;
+
+
+
+
+            var marker_12dddafab86b6bfcb9ea4ae1888ba7fa = L.marker(
+                [35.32085717, 129.1894781],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_0e351468870026ec1d21d788417aa607 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_12dddafab86b6bfcb9ea4ae1888ba7fa.setIcon(icon_0e351468870026ec1d21d788417aa607);
+
+
+        var popup_f37b44849ce811077ddccf9a0941c7cb = L.popup({"maxWidth": 250});
+
+
+
+                var html_5c6fa8b7676b01c051bae05bd4c60a5c = $(`<div id="html_5c6fa8b7676b01c051bae05bd4c60a5c" style="width: 100.0%; height: 100.0%;"><b>양산기장축산농협 정관신도시지점</b></div>`)[0];
+                popup_f37b44849ce811077ddccf9a0941c7cb.setContent(html_5c6fa8b7676b01c051bae05bd4c60a5c);
+
+
+
+        marker_12dddafab86b6bfcb9ea4ae1888ba7fa.bindPopup(popup_f37b44849ce811077ddccf9a0941c7cb)
+        ;
+
+
+
+
+            var marker_27dfbecd4485a11b4d1504647458094f = L.marker(
+                [37.53408708, 126.7446408],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_9b7f146009c4b34a94b52c1f9da4159a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_27dfbecd4485a11b4d1504647458094f.setIcon(icon_9b7f146009c4b34a94b52c1f9da4159a);
+
+
+        var popup_cfb5b3513130175fd065d422e503c974 = L.popup({"maxWidth": 250});
+
+
+
+                var html_b9158dd7cc59090bba5edf44c5a73c49 = $(`<div id="html_b9158dd7cc59090bba5edf44c5a73c49" style="width: 100.0%; height: 100.0%;"><b>인천광역시 농업기술센터</b></div>`)[0];
+                popup_cfb5b3513130175fd065d422e503c974.setContent(html_b9158dd7cc59090bba5edf44c5a73c49);
+
+
+
+        marker_27dfbecd4485a11b4d1504647458094f.bindPopup(popup_cfb5b3513130175fd065d422e503c974)
+        ;
+
+
+
+
+            var marker_8f6e47f9fc28be9a52a464cad9f937a4 = L.marker(
+                [37.7040039, 126.4352806],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_6fd53d15f6209a8a6a1dd0007ec7c2aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8f6e47f9fc28be9a52a464cad9f937a4.setIcon(icon_6fd53d15f6209a8a6a1dd0007ec7c2aa);
+
+
+        var popup_0e0d032c2f302666071a21981fad11d2 = L.popup({"maxWidth": 250});
+
+
+
+                var html_800e24fc436f8fbcad443b4df2fc6925 = $(`<div id="html_800e24fc436f8fbcad443b4df2fc6925" style="width: 100.0%; height: 100.0%;"><b>강화군농업기술센터</b></div>`)[0];
+                popup_0e0d032c2f302666071a21981fad11d2.setContent(html_800e24fc436f8fbcad443b4df2fc6925);
+
+
+
+        marker_8f6e47f9fc28be9a52a464cad9f937a4.bindPopup(popup_0e0d032c2f302666071a21981fad11d2)
+        ;
+
+
+
+
+            var marker_580edc2feb44b3d5a786375a50a84fa5 = L.marker(
+                [37.46014925, 126.6320419],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_2f23e559ccf6a91abf1ac4b512a2103a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_580edc2feb44b3d5a786375a50a84fa5.setIcon(icon_2f23e559ccf6a91abf1ac4b512a2103a);
+
+
+        var popup_c45d6566f916df365a0a7043b372f872 = L.popup({"maxWidth": 250});
+
+
+
+                var html_3d61db19a22de3a194244aed94873a5d = $(`<div id="html_3d61db19a22de3a194244aed94873a5d" style="width: 100.0%; height: 100.0%;"><b>옹진군농업기술센터</b></div>`)[0];
+                popup_c45d6566f916df365a0a7043b372f872.setContent(html_3d61db19a22de3a194244aed94873a5d);
+
+
+
+        marker_580edc2feb44b3d5a786375a50a84fa5.bindPopup(popup_c45d6566f916df365a0a7043b372f872)
+        ;
+
+
+
+
+            var marker_ac6a1b2db8dede17c78edff6e03aa2e5 = L.marker(
+                [37.44636153, 126.7080307],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_1523d41e99b4352bef391bdcc6a853be = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ac6a1b2db8dede17c78edff6e03aa2e5.setIcon(icon_1523d41e99b4352bef391bdcc6a853be);
+
+
+        var popup_a7340e2f0d670f91b6a4e8b63bcaa4f0 = L.popup({"maxWidth": 250});
+
+
+
+                var html_c08344414184bc375f63c216263389e2 = $(`<div id="html_c08344414184bc375f63c216263389e2" style="width: 100.0%; height: 100.0%;"><b>인천도시농업네트워크</b></div>`)[0];
+                popup_a7340e2f0d670f91b6a4e8b63bcaa4f0.setContent(html_c08344414184bc375f63c216263389e2);
+
+
+
+        marker_ac6a1b2db8dede17c78edff6e03aa2e5.bindPopup(popup_a7340e2f0d670f91b6a4e8b63bcaa4f0)
+        ;
+
+
+
+
+            var marker_b30ff7911197fe06e1012742c3ad6ace = L.marker(
+                [36.30791127, 127.3063053],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_a22c3e8ce2beee3b4eca7d0896144054 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b30ff7911197fe06e1012742c3ad6ace.setIcon(icon_a22c3e8ce2beee3b4eca7d0896144054);
+
+
+        var popup_c22f9c894933b885eab1568f726a3675 = L.popup({"maxWidth": 250});
+
+
+
+                var html_72eb4daab1b05bf35cbb9702547f6603 = $(`<div id="html_72eb4daab1b05bf35cbb9702547f6603" style="width: 100.0%; height: 100.0%;"><b>대전광역시 농업기술센터</b></div>`)[0];
+                popup_c22f9c894933b885eab1568f726a3675.setContent(html_72eb4daab1b05bf35cbb9702547f6603);
+
+
+
+        marker_b30ff7911197fe06e1012742c3ad6ace.bindPopup(popup_c22f9c894933b885eab1568f726a3675)
+        ;
+
+
+
+
+            var marker_3573ec5b57d8fd27b0e1bd784f3da66b = L.marker(
+                [36.30884558, 127.3074447],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_21094728298731b4369c21253cf23d73 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3573ec5b57d8fd27b0e1bd784f3da66b.setIcon(icon_21094728298731b4369c21253cf23d73);
+
+
+        var popup_91adaf4c13a3dff0bd04ae50722d7656 = L.popup({"maxWidth": 250});
+
+
+
+                var html_393a920b97d0b33596be1abd95fd24c5 = $(`<div id="html_393a920b97d0b33596be1abd95fd24c5" style="width: 100.0%; height: 100.0%;"><b>대전시농업기술센터 케어팜 도시정원</b></div>`)[0];
+                popup_91adaf4c13a3dff0bd04ae50722d7656.setContent(html_393a920b97d0b33596be1abd95fd24c5);
+
+
+
+        marker_3573ec5b57d8fd27b0e1bd784f3da66b.bindPopup(popup_91adaf4c13a3dff0bd04ae50722d7656)
+        ;
+
+
+
+
+            var marker_60d2fef34ff308bb862f21c7021a5c49 = L.marker(
+                [36.36918539, 127.35353],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_751ff3963d1178fe29acc57c9c57d1ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_60d2fef34ff308bb862f21c7021a5c49.setIcon(icon_751ff3963d1178fe29acc57c9c57d1ff);
+
+
+        var popup_b522563f2ea0a4a1b29c2567f052cc12 = L.popup({"maxWidth": 250});
+
+
+
+                var html_134908e98eab058d11764df9ece2bcc7 = $(`<div id="html_134908e98eab058d11764df9ece2bcc7" style="width: 100.0%; height: 100.0%;"><b>충남대학교 농업과학기술센터</b></div>`)[0];
+                popup_b522563f2ea0a4a1b29c2567f052cc12.setContent(html_134908e98eab058d11764df9ece2bcc7);
+
+
+
+        marker_60d2fef34ff308bb862f21c7021a5c49.bindPopup(popup_b522563f2ea0a4a1b29c2567f052cc12)
+        ;
+
+
+
+
+            var marker_53c6257ca7b1cf362007900205595173 = L.marker(
+                [36.57264179, 127.2832569],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_12f88eab8007941071d1118891db13a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_53c6257ca7b1cf362007900205595173.setIcon(icon_12f88eab8007941071d1118891db13a3);
+
+
+        var popup_28339ef521175acf62ac35aea2d69d74 = L.popup({"maxWidth": 250});
+
+
+
+                var html_bee5a618f8641c02b688143ffb560b93 = $(`<div id="html_bee5a618f8641c02b688143ffb560b93" style="width: 100.0%; height: 100.0%;"><b>세종특별자치시 농업기술센터</b></div>`)[0];
+                popup_28339ef521175acf62ac35aea2d69d74.setContent(html_bee5a618f8641c02b688143ffb560b93);
+
+
+
+        marker_53c6257ca7b1cf362007900205595173.bindPopup(popup_28339ef521175acf62ac35aea2d69d74)
+        ;
+
+
+
+
+            var marker_63cb1fa573b7349546e0674f06e033a2 = L.marker(
+                [36.5354375, 127.3453161],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_e19503916eceed76a769275e5f570e52 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_63cb1fa573b7349546e0674f06e033a2.setIcon(icon_e19503916eceed76a769275e5f570e52);
+
+
+        var popup_8aab69c5aa2f120a921ea3c2d37bbbd1 = L.popup({"maxWidth": 250});
+
+
+
+                var html_e567ed708fcfa584e06324f3a394a4ba = $(`<div id="html_e567ed708fcfa584e06324f3a394a4ba" style="width: 100.0%; height: 100.0%;"><b>농기계임대사업소 중부분점</b></div>`)[0];
+                popup_8aab69c5aa2f120a921ea3c2d37bbbd1.setContent(html_e567ed708fcfa584e06324f3a394a4ba);
+
+
+
+        marker_63cb1fa573b7349546e0674f06e033a2.bindPopup(popup_8aab69c5aa2f120a921ea3c2d37bbbd1)
+        ;
+
+
+
+
+            var marker_58f20cdd6b7b47454359b37e9d1485d6 = L.marker(
+                [36.57321084, 127.2819361],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_50e0d3f52affa11c1f1d88d2406965db = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_58f20cdd6b7b47454359b37e9d1485d6.setIcon(icon_50e0d3f52affa11c1f1d88d2406965db);
+
+
+        var popup_b898dd437a548354b62cf176be7d0cef = L.popup({"maxWidth": 250});
+
+
+
+                var html_3b6c23cbceb2e0ccda2b72e9846057e1 = $(`<div id="html_3b6c23cbceb2e0ccda2b72e9846057e1" style="width: 100.0%; height: 100.0%;"><b>세종특별자치시 농기계임대사업소 본점</b></div>`)[0];
+                popup_b898dd437a548354b62cf176be7d0cef.setContent(html_3b6c23cbceb2e0ccda2b72e9846057e1);
+
+
+
+        marker_58f20cdd6b7b47454359b37e9d1485d6.bindPopup(popup_b898dd437a548354b62cf176be7d0cef)
+        ;
+
+
+
+
+            var marker_70b249630c0661b495b816cd3dd2fd43 = L.marker(
+                [37.45900263, 126.9910482],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_3bc640687493749e4e3997fde6846893 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_70b249630c0661b495b816cd3dd2fd43.setIcon(icon_3bc640687493749e4e3997fde6846893);
+
+
+        var popup_4774b25849f8b9043e18d124435366af = L.popup({"maxWidth": 250});
+
+
+
+                var html_3352dc3952c5a41f7c8e50897ea643ee = $(`<div id="html_3352dc3952c5a41f7c8e50897ea643ee" style="width: 100.0%; height: 100.0%;"><b>한국사이버원예대학 꽃숲치유팜</b></div>`)[0];
+                popup_4774b25849f8b9043e18d124435366af.setContent(html_3352dc3952c5a41f7c8e50897ea643ee);
+
+
+
+        marker_70b249630c0661b495b816cd3dd2fd43.bindPopup(popup_4774b25849f8b9043e18d124435366af)
+        ;
+
+
+
+
+            var marker_4cd545aac3f5ed97a121ce85096af2f0 = L.marker(
+                [37.45297698, 127.001736],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_7fae290efe47e7e636cfebf2954700c2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4cd545aac3f5ed97a121ce85096af2f0.setIcon(icon_7fae290efe47e7e636cfebf2954700c2);
+
+
+        var popup_e5722487261a6e6edf6589e4aea3e428 = L.popup({"maxWidth": 250});
+
+
+
+                var html_c8eead1ca9515853045619ffa8c438c8 = $(`<div id="html_c8eead1ca9515853045619ffa8c438c8" style="width: 100.0%; height: 100.0%;"><b>한국사이버원예대학 부설도시농업지원센터</b></div>`)[0];
+                popup_e5722487261a6e6edf6589e4aea3e428.setContent(html_c8eead1ca9515853045619ffa8c438c8);
+
+
+
+        marker_4cd545aac3f5ed97a121ce85096af2f0.bindPopup(popup_e5722487261a6e6edf6589e4aea3e428)
+        ;
+
+
+
+
+            var marker_e28fba7d0b367439bef624a0e0fd1bd9 = L.marker(
+                [37.92332042, 127.2260989],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_b6f82076da43c9e5d8d706fe4a3d882f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e28fba7d0b367439bef624a0e0fd1bd9.setIcon(icon_b6f82076da43c9e5d8d706fe4a3d882f);
+
+
+        var popup_ebf9dd5bd5f46c4c7646ad64a6501568 = L.popup({"maxWidth": 250});
+
+
+
+                var html_cb254f528f6d330164763809371ca246 = $(`<div id="html_cb254f528f6d330164763809371ca246" style="width: 100.0%; height: 100.0%;"><b>포천시농업기술센터 본소</b></div>`)[0];
+                popup_ebf9dd5bd5f46c4c7646ad64a6501568.setContent(html_cb254f528f6d330164763809371ca246);
+
+
+
+        marker_e28fba7d0b367439bef624a0e0fd1bd9.bindPopup(popup_ebf9dd5bd5f46c4c7646ad64a6501568)
+        ;
+
+
+
+
+            var marker_b5e3f0344861046d3252d5d959a5b635 = L.marker(
+                [37.92329511, 127.2252061],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_66c9ee1612c333a851e6277624a0d14a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b5e3f0344861046d3252d5d959a5b635.setIcon(icon_66c9ee1612c333a851e6277624a0d14a);
+
+
+        var popup_30fa2c766f9326485f24f7747b037876 = L.popup({"maxWidth": 250});
+
+
+
+                var html_fd509a31d954c6435e7c92498d0d5d59 = $(`<div id="html_fd509a31d954c6435e7c92498d0d5d59" style="width: 100.0%; height: 100.0%;"><b>포천시농업기술센터 유용미생물배양센터</b></div>`)[0];
+                popup_30fa2c766f9326485f24f7747b037876.setContent(html_fd509a31d954c6435e7c92498d0d5d59);
+
+
+
+        marker_b5e3f0344861046d3252d5d959a5b635.bindPopup(popup_30fa2c766f9326485f24f7747b037876)
+        ;
+
+
+
+
+            var marker_d61401511300545857f450d183b01925 = L.marker(
+                [37.99152862, 127.1886499],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_724ab35f3cd849e910fad729e3625542 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d61401511300545857f450d183b01925.setIcon(icon_724ab35f3cd849e910fad729e3625542);
+
+
+        var popup_5358aa7954dbd1c2007ae2b7f51145ea = L.popup({"maxWidth": 250});
+
+
+
+                var html_76596f9b505e4c77ff1c661fefabe188 = $(`<div id="html_76596f9b505e4c77ff1c661fefabe188" style="width: 100.0%; height: 100.0%;"><b>포천시농업기술센터 창수농업인상담소</b></div>`)[0];
+                popup_5358aa7954dbd1c2007ae2b7f51145ea.setContent(html_76596f9b505e4c77ff1c661fefabe188);
+
+
+
+        marker_d61401511300545857f450d183b01925.bindPopup(popup_5358aa7954dbd1c2007ae2b7f51145ea)
+        ;
+
+
+
+
+            var marker_922f2d86d929e0069d3d20491d5966e9 = L.marker(
+                [37.47316698, 126.840239],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_4292939c30a69a759df768a4f5397b66 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_922f2d86d929e0069d3d20491d5966e9.setIcon(icon_4292939c30a69a759df768a4f5397b66);
+
+
+        var popup_b7a7c681c6d175fe0f36c6d4b5b52785 = L.popup({"maxWidth": 250});
+
+
+
+                var html_38acfc1bf5e47c65a38883decf23868a = $(`<div id="html_38acfc1bf5e47c65a38883decf23868a" style="width: 100.0%; height: 100.0%;"><b>광명텃밭보급소</b></div>`)[0];
+                popup_b7a7c681c6d175fe0f36c6d4b5b52785.setContent(html_38acfc1bf5e47c65a38883decf23868a);
+
+
+
+        marker_922f2d86d929e0069d3d20491d5966e9.bindPopup(popup_b7a7c681c6d175fe0f36c6d4b5b52785)
+        ;
+
+
+
+
+            var marker_369b29656319c52d1a54625170bfdddf = L.marker(
+                [37.07639758, 126.8728219],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_e3087d17abab5a287a395855e7ef258c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_369b29656319c52d1a54625170bfdddf.setIcon(icon_e3087d17abab5a287a395855e7ef258c);
+
+
+        var popup_7d7dbefd1fb9c21e255457a5e3b1b947 = L.popup({"maxWidth": 250});
+
+
+
+                var html_8c17455ddfa0aacb40bc05316f450098 = $(`<div id="html_8c17455ddfa0aacb40bc05316f450098" style="width: 100.0%; height: 100.0%;"><b>화성시농업기술센터</b></div>`)[0];
+                popup_7d7dbefd1fb9c21e255457a5e3b1b947.setContent(html_8c17455ddfa0aacb40bc05316f450098);
+
+
+
+        marker_369b29656319c52d1a54625170bfdddf.bindPopup(popup_7d7dbefd1fb9c21e255457a5e3b1b947)
+        ;
+
+
+
+
+            var marker_2057f823f86da8798208258ab0052d26 = L.marker(
+                [37.22247021, 127.0428634],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_90c4bf1e08557819e2715e52df1ad271 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2057f823f86da8798208258ab0052d26.setIcon(icon_90c4bf1e08557819e2715e52df1ad271);
+
+
+        var popup_e392d5c85cbe9b632b293d36ebb02d9f = L.popup({"maxWidth": 250});
+
+
+
+                var html_cc4617ccf4dec595013f1e16bc16a88b = $(`<div id="html_cc4617ccf4dec595013f1e16bc16a88b" style="width: 100.0%; height: 100.0%;"><b>경기도농업기술원</b></div>`)[0];
+                popup_e392d5c85cbe9b632b293d36ebb02d9f.setContent(html_cc4617ccf4dec595013f1e16bc16a88b);
+
+
+
+        marker_2057f823f86da8798208258ab0052d26.bindPopup(popup_e392d5c85cbe9b632b293d36ebb02d9f)
+        ;
+
+
+
+
+            var marker_fadc531b01c46b2bb8c63d52b05043b2 = L.marker(
+                [37.22243503, 127.0429648],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_db5b21f9801f52994f947635bbb9718c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fadc531b01c46b2bb8c63d52b05043b2.setIcon(icon_db5b21f9801f52994f947635bbb9718c);
+
+
+        var popup_882e5b7c7ea34f8dd3b20d8d01150c01 = L.popup({"maxWidth": 250});
+
+
+
+                var html_cfc57a9949436fa1c2f4ef91e242c923 = $(`<div id="html_cfc57a9949436fa1c2f4ef91e242c923" style="width: 100.0%; height: 100.0%;"><b>경기도농업기술원 본원</b></div>`)[0];
+                popup_882e5b7c7ea34f8dd3b20d8d01150c01.setContent(html_cfc57a9949436fa1c2f4ef91e242c923);
+
+
+
+        marker_fadc531b01c46b2bb8c63d52b05043b2.bindPopup(popup_882e5b7c7ea34f8dd3b20d8d01150c01)
+        ;
+
+
+
+
+            var marker_cbd3e9e14c7e4cfb29c4b9099aa7a07a = L.marker(
+                [37.25012445, 126.9631647],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_c882844ce0b9bbd130bb621672c47f70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_cbd3e9e14c7e4cfb29c4b9099aa7a07a.setIcon(icon_c882844ce0b9bbd130bb621672c47f70);
+
+
+        var popup_cbd6279ca3acd6144cb9da03d63e8ed0 = L.popup({"maxWidth": 250});
+
+
+
+                var html_736d22183828a12700d33d5b17cefc43 = $(`<div id="html_736d22183828a12700d33d5b17cefc43" style="width: 100.0%; height: 100.0%;"><b>수원시농업기술센터 농업기술과</b></div>`)[0];
+                popup_cbd6279ca3acd6144cb9da03d63e8ed0.setContent(html_736d22183828a12700d33d5b17cefc43);
+
+
+
+        marker_cbd3e9e14c7e4cfb29c4b9099aa7a07a.bindPopup(popup_cbd6279ca3acd6144cb9da03d63e8ed0)
+        ;
+
+
+
+
+            var marker_b76a3d854acf3542e8b904a4b5af9bd5 = L.marker(
+                [37.25012355, 126.9631658],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_69f97668593d90cb192dd5574b927284 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b76a3d854acf3542e8b904a4b5af9bd5.setIcon(icon_69f97668593d90cb192dd5574b927284);
+
+
+        var popup_b282216ca04d818fe40a86aaa0277adb = L.popup({"maxWidth": 250});
+
+
+
+                var html_fbb92096c91bdb068bbe3c63749a6442 = $(`<div id="html_fbb92096c91bdb068bbe3c63749a6442" style="width: 100.0%; height: 100.0%;"><b>수원시농업기술센터</b></div>`)[0];
+                popup_b282216ca04d818fe40a86aaa0277adb.setContent(html_fbb92096c91bdb068bbe3c63749a6442);
+
+
+
+        marker_b76a3d854acf3542e8b904a4b5af9bd5.bindPopup(popup_b282216ca04d818fe40a86aaa0277adb)
+        ;
+
+
+
+
+            var marker_8afb99a8771e37be7b1c5c3f5c7ad423 = L.marker(
+                [37.25505136, 127.03047],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_db52fa6c7de9d2361e15183b9c68d0a8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8afb99a8771e37be7b1c5c3f5c7ad423.setIcon(icon_db52fa6c7de9d2361e15183b9c68d0a8);
+
+
+        var popup_75ca6178dd874c54344f55657b4da7ee = L.popup({"maxWidth": 250});
+
+
+
+                var html_131d7f1ca0cd3f37e48632e2ec7b2763 = $(`<div id="html_131d7f1ca0cd3f37e48632e2ec7b2763" style="width: 100.0%; height: 100.0%;"><b>수원시농업기술센터 생명산업과</b></div>`)[0];
+                popup_75ca6178dd874c54344f55657b4da7ee.setContent(html_131d7f1ca0cd3f37e48632e2ec7b2763);
+
+
+
+        marker_8afb99a8771e37be7b1c5c3f5c7ad423.bindPopup(popup_75ca6178dd874c54344f55657b4da7ee)
+        ;
+
+
+
+
+            var marker_d7a55a250710f84b08045997b2ccfc84 = L.marker(
+                [36.5881164, 127.5048172],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_a18f38f748aff70e7e8e73d4ae4a8dcb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d7a55a250710f84b08045997b2ccfc84.setIcon(icon_a18f38f748aff70e7e8e73d4ae4a8dcb);
+
+
+        var popup_82440ff83a191c35fc16b1e6e9c98380 = L.popup({"maxWidth": 250});
+
+
+
+                var html_bf01e348384b8d8b6769281a9f367cc3 = $(`<div id="html_bf01e348384b8d8b6769281a9f367cc3" style="width: 100.0%; height: 100.0%;"><b>청주시농업기술센터</b></div>`)[0];
+                popup_82440ff83a191c35fc16b1e6e9c98380.setContent(html_bf01e348384b8d8b6769281a9f367cc3);
+
+
+
+        marker_d7a55a250710f84b08045997b2ccfc84.bindPopup(popup_82440ff83a191c35fc16b1e6e9c98380)
+        ;
+
+
+
+
+            var marker_b82f3e2a5808469b593dab9127d935e9 = L.marker(
+                [36.58837197, 127.5038355],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_049dce0753cdb87f08f1d9770afe16bf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b82f3e2a5808469b593dab9127d935e9.setIcon(icon_049dce0753cdb87f08f1d9770afe16bf);
+
+
+        var popup_1d51090d57aa5172c370f85adfa15723 = L.popup({"maxWidth": 250});
+
+
+
+                var html_f3d36c6125ac1af57cb72338fa708f87 = $(`<div id="html_f3d36c6125ac1af57cb72338fa708f87" style="width: 100.0%; height: 100.0%;"><b>청주시농업기술센터 농산물가공기술지원관</b></div>`)[0];
+                popup_1d51090d57aa5172c370f85adfa15723.setContent(html_f3d36c6125ac1af57cb72338fa708f87);
+
+
+
+        marker_b82f3e2a5808469b593dab9127d935e9.bindPopup(popup_1d51090d57aa5172c370f85adfa15723)
+        ;
+
+
+
+
+            var marker_081e2a5adfd8b4778381d41a7d087377 = L.marker(
+                [36.58813347, 127.5048307],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_580bf46d001bcf0ac723e98206026e07 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_081e2a5adfd8b4778381d41a7d087377.setIcon(icon_580bf46d001bcf0ac723e98206026e07);
+
+
+        var popup_b433834efbca57965330ac20e258d42b = L.popup({"maxWidth": 250});
+
+
+
+                var html_4f39cd353de1ef47525fc238f7f38c28 = $(`<div id="html_4f39cd353de1ef47525fc238f7f38c28" style="width: 100.0%; height: 100.0%;"><b>청원군농업기술센터 농심관</b></div>`)[0];
+                popup_b433834efbca57965330ac20e258d42b.setContent(html_4f39cd353de1ef47525fc238f7f38c28);
+
+
+
+        marker_081e2a5adfd8b4778381d41a7d087377.bindPopup(popup_b433834efbca57965330ac20e258d42b)
+        ;
+
+
+
+
+            var marker_41376873624f2e9d6eff10aa77b7a9be = L.marker(
+                [36.04056034, 126.9584431],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_8002b668a5369d6c3c6b4159749e2a4f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_41376873624f2e9d6eff10aa77b7a9be.setIcon(icon_8002b668a5369d6c3c6b4159749e2a4f);
+
+
+        var popup_0e4b5214f9a01477a4bdf4c090a79a03 = L.popup({"maxWidth": 250});
+
+
+
+                var html_0c7498fc7989f5aff06b0b774d5a94c7 = $(`<div id="html_0c7498fc7989f5aff06b0b774d5a94c7" style="width: 100.0%; height: 100.0%;"><b>익산시농업기술센터</b></div>`)[0];
+                popup_0e4b5214f9a01477a4bdf4c090a79a03.setContent(html_0c7498fc7989f5aff06b0b774d5a94c7);
+
+
+
+        marker_41376873624f2e9d6eff10aa77b7a9be.bindPopup(popup_0e4b5214f9a01477a4bdf4c090a79a03)
+        ;
+
+
+
+
+            var marker_0de2648ec475b56d4883fe5ea71da2c9 = L.marker(
+                [36.04015304, 126.9586098],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_62ee01d9840b074eb797de6848e92dc6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0de2648ec475b56d4883fe5ea71da2c9.setIcon(icon_62ee01d9840b074eb797de6848e92dc6);
+
+
+        var popup_886198d958779e4af9aca03ae391f5b0 = L.popup({"maxWidth": 250});
+
+
+
+                var html_fca09c6fda18da0bd7c3b22c973bd08f = $(`<div id="html_fca09c6fda18da0bd7c3b22c973bd08f" style="width: 100.0%; height: 100.0%;"><b>익산시농업기술센터 농산과</b></div>`)[0];
+                popup_886198d958779e4af9aca03ae391f5b0.setContent(html_fca09c6fda18da0bd7c3b22c973bd08f);
+
+
+
+        marker_0de2648ec475b56d4883fe5ea71da2c9.bindPopup(popup_886198d958779e4af9aca03ae391f5b0)
+        ;
+
+
+
+
+            var marker_e2073c9aada6f60d61f471595ded007f = L.marker(
+                [35.93494804, 126.9277796],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_7c54941a2eccdae12fc9c3d073e23771 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e2073c9aada6f60d61f471595ded007f.setIcon(icon_7c54941a2eccdae12fc9c3d073e23771);
+
+
+        var popup_4a5f5e3fbaf0f420734fea6fa876dcbc = L.popup({"maxWidth": 250});
+
+
+
+                var html_13229fbab00d34fd59b44f86c27149b1 = $(`<div id="html_13229fbab00d34fd59b44f86c27149b1" style="width: 100.0%; height: 100.0%;"><b>한국농업기술진흥원 ICT검인증센터</b></div>`)[0];
+                popup_4a5f5e3fbaf0f420734fea6fa876dcbc.setContent(html_13229fbab00d34fd59b44f86c27149b1);
+
+
+
+        marker_e2073c9aada6f60d61f471595ded007f.bindPopup(popup_4a5f5e3fbaf0f420734fea6fa876dcbc)
+        ;
+
+
+
+
+            var marker_63a659443c6e7040cd0866c581af6d8c = L.marker(
+                [36.56942809, 128.7371098],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_06e0d75d90c1c4aa0a009c4c7ad353e0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_63a659443c6e7040cd0866c581af6d8c.setIcon(icon_06e0d75d90c1c4aa0a009c4c7ad353e0);
+
+
+        var popup_db8c405322418f659106554671bf2822 = L.popup({"maxWidth": 250});
+
+
+
+                var html_156b2e60a145fe6e61f25032ff426e0a = $(`<div id="html_156b2e60a145fe6e61f25032ff426e0a" style="width: 100.0%; height: 100.0%;"><b>가톨릭상지대학교</b></div>`)[0];
+                popup_db8c405322418f659106554671bf2822.setContent(html_156b2e60a145fe6e61f25032ff426e0a);
+
+
+
+        marker_63a659443c6e7040cd0866c581af6d8c.bindPopup(popup_db8c405322418f659106554671bf2822)
+        ;
+
+
+
+
+            var marker_b6c96921ee7ff2161a61ebd46ae1de80 = L.marker(
+                [36.5680974, 128.7357407],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_092f87e8a10e3a7a9cc0f566230f00c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b6c96921ee7ff2161a61ebd46ae1de80.setIcon(icon_092f87e8a10e3a7a9cc0f566230f00c8);
+
+
+        var popup_1f482cb3ce569215e856c6bfc9178871 = L.popup({"maxWidth": 250});
+
+
+
+                var html_75e7b78d394360d5d7791752f6af79ed = $(`<div id="html_75e7b78d394360d5d7791752f6af79ed" style="width: 100.0%; height: 100.0%;"><b>가톨릭상지대학교 예지관</b></div>`)[0];
+                popup_1f482cb3ce569215e856c6bfc9178871.setContent(html_75e7b78d394360d5d7791752f6af79ed);
+
+
+
+        marker_b6c96921ee7ff2161a61ebd46ae1de80.bindPopup(popup_1f482cb3ce569215e856c6bfc9178871)
+        ;
+
+
+
+
+            var marker_7714d80f741494153c98c23f6b07a463 = L.marker(
+                [36.57016359, 128.7359165],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_5f9ce6b732b2ee488cf9099942dd6030 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7714d80f741494153c98c23f6b07a463.setIcon(icon_5f9ce6b732b2ee488cf9099942dd6030);
+
+
+        var popup_aa334f2c85fe99167bc49bea863218e0 = L.popup({"maxWidth": 250});
+
+
+
+                var html_a51100a1d5180780bc24e0cdfe15306c = $(`<div id="html_a51100a1d5180780bc24e0cdfe15306c" style="width: 100.0%; height: 100.0%;"><b>가톨릭상지대학교 아녜스관</b></div>`)[0];
+                popup_aa334f2c85fe99167bc49bea863218e0.setContent(html_a51100a1d5180780bc24e0cdfe15306c);
+
+
+
+        marker_7714d80f741494153c98c23f6b07a463.bindPopup(popup_aa334f2c85fe99167bc49bea863218e0)
+        ;
+
+
+
+
+            var marker_220228049ebe61fdb21b4dd29b0cac00 = L.marker(
+                [37.40066006, 126.8083994],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_d6d81908410b3028d428252053dba4ce = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_220228049ebe61fdb21b4dd29b0cac00.setIcon(icon_d6d81908410b3028d428252053dba4ce);
+
+
+        var popup_7cc9e04cc3a4077f52eb95f416cce0bd = L.popup({"maxWidth": 250});
+
+
+
+                var html_d3f5300305190947e88de71ad869607b = $(`<div id="html_d3f5300305190947e88de71ad869607b" style="width: 100.0%; height: 100.0%;"><b>시흥시농업기술센터</b></div>`)[0];
+                popup_7cc9e04cc3a4077f52eb95f416cce0bd.setContent(html_d3f5300305190947e88de71ad869607b);
+
+
+
+        marker_220228049ebe61fdb21b4dd29b0cac00.bindPopup(popup_7cc9e04cc3a4077f52eb95f416cce0bd)
+        ;
+
+
+
+
+            var marker_6b509b9d0fc70c72c73debe09843229b = L.marker(
+                [37.40062053, 126.8084717],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_244a601676924f8cd5e55c8ba172f901 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6b509b9d0fc70c72c73debe09843229b.setIcon(icon_244a601676924f8cd5e55c8ba172f901);
+
+
+        var popup_a786359fc54602db48545d9d152d42a3 = L.popup({"maxWidth": 250});
+
+
+
+                var html_60ef4a53ba5407f047f4c3d8449319f1 = $(`<div id="html_60ef4a53ba5407f047f4c3d8449319f1" style="width: 100.0%; height: 100.0%;"><b>시흥시농업기술센터 천문관</b></div>`)[0];
+                popup_a786359fc54602db48545d9d152d42a3.setContent(html_60ef4a53ba5407f047f4c3d8449319f1);
+
+
+
+        marker_6b509b9d0fc70c72c73debe09843229b.bindPopup(popup_a786359fc54602db48545d9d152d42a3)
+        ;
+
+
+
+
+            var marker_30d34969142b2deda96afa019471079b = L.marker(
+                [37.48579885, 126.993736],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_6a42ae288cf77db87bcae7946320a7de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_30d34969142b2deda96afa019471079b.setIcon(icon_6a42ae288cf77db87bcae7946320a7de);
+
+
+        var popup_22b76cf1d35a360dcc9d10c2c24e7457 = L.popup({"maxWidth": 250});
+
+
+
+                var html_a92955591015f9c49ebac48cc1a89ce7 = $(`<div id="html_a92955591015f9c49ebac48cc1a89ce7" style="width: 100.0%; height: 100.0%;"><b>전국도시농업시민협의회</b></div>`)[0];
+                popup_22b76cf1d35a360dcc9d10c2c24e7457.setContent(html_a92955591015f9c49ebac48cc1a89ce7);
+
+
+
+        marker_30d34969142b2deda96afa019471079b.bindPopup(popup_22b76cf1d35a360dcc9d10c2c24e7457)
+        ;
+
+
+
+
+            var marker_2797160d567dd51158a96d54322a03a9 = L.marker(
+                [37.69478633, 126.5560316],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_94831bf094a7a12fb1de189ea65a7814 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2797160d567dd51158a96d54322a03a9.setIcon(icon_94831bf094a7a12fb1de189ea65a7814);
+
+
+        var popup_e7d44d8c7b3d248fba869cde9c998fab = L.popup({"maxWidth": 250});
+
+
+
+                var html_33e20b6266db538ea5d334e297e9f7b4 = $(`<div id="html_33e20b6266db538ea5d334e297e9f7b4" style="width: 100.0%; height: 100.0%;"><b>김포시농업기술센터</b></div>`)[0];
+                popup_e7d44d8c7b3d248fba869cde9c998fab.setContent(html_33e20b6266db538ea5d334e297e9f7b4);
+
+
+
+        marker_2797160d567dd51158a96d54322a03a9.bindPopup(popup_e7d44d8c7b3d248fba869cde9c998fab)
+        ;
+
+
+
+
+            var marker_8b9aaf95916e93f9a266202cf7aca882 = L.marker(
+                [37.53408708, 126.7446408],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_042565c0e54f70b1c2d20942ef80cc0f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8b9aaf95916e93f9a266202cf7aca882.setIcon(icon_042565c0e54f70b1c2d20942ef80cc0f);
+
+
+        var popup_3870a49a8d32f515b564d27e9f814d4b = L.popup({"maxWidth": 250});
+
+
+
+                var html_38ff944a21ca724ffc7c8b3134269456 = $(`<div id="html_38ff944a21ca724ffc7c8b3134269456" style="width: 100.0%; height: 100.0%;"><b>인천광역시 농업기술센터</b></div>`)[0];
+                popup_3870a49a8d32f515b564d27e9f814d4b.setContent(html_38ff944a21ca724ffc7c8b3134269456);
+
+
+
+        marker_8b9aaf95916e93f9a266202cf7aca882.bindPopup(popup_3870a49a8d32f515b564d27e9f814d4b)
+        ;
+
+
+
+
+            var marker_be0b8f1e4430bf49448c39279268588d = L.marker(
+                [37.53385359, 126.744998],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_f33f40a8dbf787776e1c215d6a6634cf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_be0b8f1e4430bf49448c39279268588d.setIcon(icon_f33f40a8dbf787776e1c215d6a6634cf);
+
+
+        var popup_db64b6abeeeb743091933e9c6ddefdf1 = L.popup({"maxWidth": 250});
+
+
+
+                var html_4be4aec0cc2d36d1e0c2144d4e1e49d4 = $(`<div id="html_4be4aec0cc2d36d1e0c2144d4e1e49d4" style="width: 100.0%; height: 100.0%;"><b>인천광역시 농업기술센터 인희재</b></div>`)[0];
+                popup_db64b6abeeeb743091933e9c6ddefdf1.setContent(html_4be4aec0cc2d36d1e0c2144d4e1e49d4);
+
+
+
+        marker_be0b8f1e4430bf49448c39279268588d.bindPopup(popup_db64b6abeeeb743091933e9c6ddefdf1)
+        ;
+
+
+
+
+            var marker_9a28344c6143888c068b526c32067250 = L.marker(
+                [37.22247021, 127.0428634],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_4a3858c765362df3a41e581cf84d1d7f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9a28344c6143888c068b526c32067250.setIcon(icon_4a3858c765362df3a41e581cf84d1d7f);
+
+
+        var popup_f7ac40a7015898eaf7f3f4cd682f81f7 = L.popup({"maxWidth": 250});
+
+
+
+                var html_0c4296347f2a42db08bc18d6a2208753 = $(`<div id="html_0c4296347f2a42db08bc18d6a2208753" style="width: 100.0%; height: 100.0%;"><b>경기도농업기술원</b></div>`)[0];
+                popup_f7ac40a7015898eaf7f3f4cd682f81f7.setContent(html_0c4296347f2a42db08bc18d6a2208753);
+
+
+
+        marker_9a28344c6143888c068b526c32067250.bindPopup(popup_f7ac40a7015898eaf7f3f4cd682f81f7)
+        ;
+
+
+
+
+            var marker_0b6c468aa294c1b9796a6b6236bbc1b0 = L.marker(
+                [37.22243503, 127.0429648],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_743e7ba84edba61ce34043ae756fe89e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0b6c468aa294c1b9796a6b6236bbc1b0.setIcon(icon_743e7ba84edba61ce34043ae756fe89e);
+
+
+        var popup_6ea2e2e89627c6fcd206121c1fd198fa = L.popup({"maxWidth": 250});
+
+
+
+                var html_0d033834243f6da90c6e69847cea04c9 = $(`<div id="html_0d033834243f6da90c6e69847cea04c9" style="width: 100.0%; height: 100.0%;"><b>경기도농업기술원 본원</b></div>`)[0];
+                popup_6ea2e2e89627c6fcd206121c1fd198fa.setContent(html_0d033834243f6da90c6e69847cea04c9);
+
+
+
+        marker_0b6c468aa294c1b9796a6b6236bbc1b0.bindPopup(popup_6ea2e2e89627c6fcd206121c1fd198fa)
+        ;
+
+
+
+
+            var marker_19e761c4f374aa8010a0585a34caecb5 = L.marker(
+                [37.22178072, 127.0433678],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_474b588671c9ff0a5f38281bc44e134f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_19e761c4f374aa8010a0585a34caecb5.setIcon(icon_474b588671c9ff0a5f38281bc44e134f);
+
+
+        var popup_ff465f59760a0a6450700e95365e3edb = L.popup({"maxWidth": 250});
+
+
+
+                var html_241057e2a8123d38b58216fe5754d554 = $(`<div id="html_241057e2a8123d38b58216fe5754d554" style="width: 100.0%; height: 100.0%;"><b>경기도농업기술원 치유농업센터</b></div>`)[0];
+                popup_ff465f59760a0a6450700e95365e3edb.setContent(html_241057e2a8123d38b58216fe5754d554);
+
+
+
+        marker_19e761c4f374aa8010a0585a34caecb5.bindPopup(popup_ff465f59760a0a6450700e95365e3edb)
+        ;
+
+
+
+
+            var marker_5f3534ab16770bf6cea738c8b52bb054 = L.marker(
+                [37.82243027, 126.9740924],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_80a579b89cb991a40b6ae991de6b667f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5f3534ab16770bf6cea738c8b52bb054.setIcon(icon_80a579b89cb991a40b6ae991de6b667f);
+
+
+        var popup_13208464082a76d7eb1973f03864a685 = L.popup({"maxWidth": 250});
+
+
+
+                var html_1f89698bcf4ca19b8661beb1d8971e15 = $(`<div id="html_1f89698bcf4ca19b8661beb1d8971e15" style="width: 100.0%; height: 100.0%;"><b>양주시농업기술센터</b></div>`)[0];
+                popup_13208464082a76d7eb1973f03864a685.setContent(html_1f89698bcf4ca19b8661beb1d8971e15);
+
+
+
+        marker_5f3534ab16770bf6cea738c8b52bb054.bindPopup(popup_13208464082a76d7eb1973f03864a685)
+        ;
+
+
+
+
+            var marker_ca054217ce6a775e669136bf898d9938 = L.marker(
+                [36.42016926, 127.377306],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_fc6a765c762bcf169dfbebfcca790886 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ca054217ce6a775e669136bf898d9938.setIcon(icon_fc6a765c762bcf169dfbebfcca790886);
+
+
+        var popup_2ed826462c3084247a77316d8b685ad4 = L.popup({"maxWidth": 250});
+
+
+
+                var html_cb2a84474d04ee3021787356663729a1 = $(`<div id="html_cb2a84474d04ee3021787356663729a1" style="width: 100.0%; height: 100.0%;"><b>손수레</b></div>`)[0];
+                popup_2ed826462c3084247a77316d8b685ad4.setContent(html_cb2a84474d04ee3021787356663729a1);
+
+
+
+        marker_ca054217ce6a775e669136bf898d9938.bindPopup(popup_2ed826462c3084247a77316d8b685ad4)
+        ;
+
+
+
+
+            var marker_b132cc25c85f130a22c1908b810d034a = L.marker(
+                [35.8621193, 128.5877502],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_be5bc0a0e0b1832909a3a980390e6459 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b132cc25c85f130a22c1908b810d034a.setIcon(icon_be5bc0a0e0b1832909a3a980390e6459);
+
+
+        var popup_793f74271068d865ea01a0785e997aba = L.popup({"maxWidth": 250});
+
+
+
+                var html_5b9055d15ba13eff620b8bb3a834463d = $(`<div id="html_5b9055d15ba13eff620b8bb3a834463d" style="width: 100.0%; height: 100.0%;"><b>대구가톨릭대학교 유스티노캠퍼스</b></div>`)[0];
+                popup_793f74271068d865ea01a0785e997aba.setContent(html_5b9055d15ba13eff620b8bb3a834463d);
+
+
+
+        marker_b132cc25c85f130a22c1908b810d034a.bindPopup(popup_793f74271068d865ea01a0785e997aba)
+        ;
+
+
+
+
+            var marker_f1cc3a2183bb115ecbad530b4fc8006a = L.marker(
+                [35.84398406, 128.565545],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_dc56f8eef4167509b6881083e500026d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f1cc3a2183bb115ecbad530b4fc8006a.setIcon(icon_dc56f8eef4167509b6881083e500026d);
+
+
+        var popup_e0e3a380ed5939d6cf1034930e954642 = L.popup({"maxWidth": 250});
+
+
+
+                var html_cc43e8f0871782507b64eb0a91e10955 = $(`<div id="html_cc43e8f0871782507b64eb0a91e10955" style="width: 100.0%; height: 100.0%;"><b>대구가톨릭대학교 루가캠퍼스</b></div>`)[0];
+                popup_e0e3a380ed5939d6cf1034930e954642.setContent(html_cc43e8f0871782507b64eb0a91e10955);
+
+
+
+        marker_f1cc3a2183bb115ecbad530b4fc8006a.bindPopup(popup_e0e3a380ed5939d6cf1034930e954642)
+        ;
+
+
+
+
+            var marker_8e7533754dbf1d71747b8ff9063908f9 = L.marker(
+                [35.91124375, 128.8079076],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_9feb8ea694f958b66251d76b19715ffe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8e7533754dbf1d71747b8ff9063908f9.setIcon(icon_9feb8ea694f958b66251d76b19715ffe);
+
+
+        var popup_2755c2a15be0a9fb49e518f5a6ed7bc0 = L.popup({"maxWidth": 250});
+
+
+
+                var html_dcf2e7b253ef10dd6b1ec252ddd9799f = $(`<div id="html_dcf2e7b253ef10dd6b1ec252ddd9799f" style="width: 100.0%; height: 100.0%;"><b>대구가톨릭대학교 효성캠퍼스</b></div>`)[0];
+                popup_2755c2a15be0a9fb49e518f5a6ed7bc0.setContent(html_dcf2e7b253ef10dd6b1ec252ddd9799f);
+
+
+
+        marker_8e7533754dbf1d71747b8ff9063908f9.bindPopup(popup_2755c2a15be0a9fb49e518f5a6ed7bc0)
+        ;
+
+
+
+
+            var marker_1864f1e945b1027b00312c23e66821a6 = L.marker(
+                [35.02298721, 126.8320146],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_89e656d7dc829b08db5bda383d86896d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1864f1e945b1027b00312c23e66821a6.setIcon(icon_89e656d7dc829b08db5bda383d86896d);
+
+
+        var popup_b4f82a431cdbec61f28e920acdc01e0d = L.popup({"maxWidth": 250});
+
+
+
+                var html_a3a15a9cbb2404b85d3c5521071fe339 = $(`<div id="html_a3a15a9cbb2404b85d3c5521071fe339" style="width: 100.0%; height: 100.0%;"><b>전라남도농업기술원</b></div>`)[0];
+                popup_b4f82a431cdbec61f28e920acdc01e0d.setContent(html_a3a15a9cbb2404b85d3c5521071fe339);
+
+
+
+        marker_1864f1e945b1027b00312c23e66821a6.bindPopup(popup_b4f82a431cdbec61f28e920acdc01e0d)
+        ;
+
+
+
+
+            var marker_e8e3b1fa91e4185193dac2ef6bb5af5d = L.marker(
+                [35.02367286, 126.8324471],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_f37422adada419c0f86921429273a945 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e8e3b1fa91e4185193dac2ef6bb5af5d.setIcon(icon_f37422adada419c0f86921429273a945);
+
+
+        var popup_abfb34cb7c35576b602dfc953416364d = L.popup({"maxWidth": 250});
+
+
+
+                var html_08dbaf09a50c3e7916e91c52f0882ea1 = $(`<div id="html_08dbaf09a50c3e7916e91c52f0882ea1" style="width: 100.0%; height: 100.0%;"><b>전라남도농업기술원 교육관</b></div>`)[0];
+                popup_abfb34cb7c35576b602dfc953416364d.setContent(html_08dbaf09a50c3e7916e91c52f0882ea1);
+
+
+
+        marker_e8e3b1fa91e4185193dac2ef6bb5af5d.bindPopup(popup_abfb34cb7c35576b602dfc953416364d)
+        ;
+
+
+
+
+            var marker_09c614edd10dd19c489475629c123b67 = L.marker(
+                [35.02308036, 126.8322346],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_a92c9d1cd4150ea5063da16f3715329a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_09c614edd10dd19c489475629c123b67.setIcon(icon_a92c9d1cd4150ea5063da16f3715329a);
+
+
+        var popup_a8f226070b089a2328ea55a808892ea1 = L.popup({"maxWidth": 250});
+
+
+
+                var html_b22557f74894d2042e5e9858f3190391 = $(`<div id="html_b22557f74894d2042e5e9858f3190391" style="width: 100.0%; height: 100.0%;"><b>전라남도농업기술원 원예연구소</b></div>`)[0];
+                popup_a8f226070b089a2328ea55a808892ea1.setContent(html_b22557f74894d2042e5e9858f3190391);
+
+
+
+        marker_09c614edd10dd19c489475629c123b67.bindPopup(popup_a8f226070b089a2328ea55a808892ea1)
+        ;
+
+
+
+
+            var marker_1a64731bf4009a14761a77edbe0e771b = L.marker(
+                [35.21404278, 128.8706219],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_71f52cfb5cd45a74ce981d46f7cb6a4f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1a64731bf4009a14761a77edbe0e771b.setIcon(icon_71f52cfb5cd45a74ce981d46f7cb6a4f);
+
+
+        var popup_90df343c14f93daa79e16684ec8d76c6 = L.popup({"maxWidth": 250});
+
+
+
+                var html_fc8cdc38bbdb2cbe64d1854e8714e321 = $(`<div id="html_fc8cdc38bbdb2cbe64d1854e8714e321" style="width: 100.0%; height: 100.0%;"><b>김해시농업기술센터</b></div>`)[0];
+                popup_90df343c14f93daa79e16684ec8d76c6.setContent(html_fc8cdc38bbdb2cbe64d1854e8714e321);
+
+
+
+        marker_1a64731bf4009a14761a77edbe0e771b.bindPopup(popup_90df343c14f93daa79e16684ec8d76c6)
+        ;
+
+
+
+
+            var marker_6fb8cc1669e61506746ec446e85fa14d = L.marker(
+                [35.2132661, 128.9866578],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_56294cd0685ba4b19fab0dc56e1dacfd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6fb8cc1669e61506746ec446e85fa14d.setIcon(icon_56294cd0685ba4b19fab0dc56e1dacfd);
+
+
+        var popup_c49866b32bc6c85fa28f5f052a455341 = L.popup({"maxWidth": 250});
+
+
+
+                var html_8724d0dd57fb585fd25d9ebb4d4a0bf8 = $(`<div id="html_8724d0dd57fb585fd25d9ebb4d4a0bf8" style="width: 100.0%; height: 100.0%;"><b>부산광역시 농업기술센터</b></div>`)[0];
+                popup_c49866b32bc6c85fa28f5f052a455341.setContent(html_8724d0dd57fb585fd25d9ebb4d4a0bf8);
+
+
+
+        marker_6fb8cc1669e61506746ec446e85fa14d.bindPopup(popup_c49866b32bc6c85fa28f5f052a455341)
+        ;
+
+
+
+
+            var marker_feaedf77f819a133674e23d66ecee22e = L.marker(
+                [35.17855047, 128.9564846],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_b115aed085a624b4ee26bd4ed0bfb151 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_feaedf77f819a133674e23d66ecee22e.setIcon(icon_b115aed085a624b4ee26bd4ed0bfb151);
+
+
+        var popup_7ec48e10a8513f57d4fa3147312aef62 = L.popup({"maxWidth": 250});
+
+
+
+                var html_fcbaed1af8386c37f4745900a6563592 = $(`<div id="html_fcbaed1af8386c37f4745900a6563592" style="width: 100.0%; height: 100.0%;"><b>부산시농업기술센터 대저2지소</b></div>`)[0];
+                popup_7ec48e10a8513f57d4fa3147312aef62.setContent(html_fcbaed1af8386c37f4745900a6563592);
+
+
+
+        marker_feaedf77f819a133674e23d66ecee22e.bindPopup(popup_7ec48e10a8513f57d4fa3147312aef62)
+        ;
+
+
+
+
+            var marker_cdf020c9d565425b034aa303df425ed1 = L.marker(
+                [35.23898946, 128.6466604],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_c6298a9f65cfd52503d287584340e979 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_cdf020c9d565425b034aa303df425ed1.setIcon(icon_c6298a9f65cfd52503d287584340e979);
+
+
+        var popup_e1860359f49ee41dccbd9a55af059810 = L.popup({"maxWidth": 250});
+
+
+
+                var html_b8761ec2a175316d8bb86f4558c1c34b = $(`<div id="html_b8761ec2a175316d8bb86f4558c1c34b" style="width: 100.0%; height: 100.0%;"><b>창원시농업기술센터</b></div>`)[0];
+                popup_e1860359f49ee41dccbd9a55af059810.setContent(html_b8761ec2a175316d8bb86f4558c1c34b);
+
+
+
+        marker_cdf020c9d565425b034aa303df425ed1.bindPopup(popup_e1860359f49ee41dccbd9a55af059810)
+        ;
+
+
+
+
+            var marker_3dd19b3fd0cdf9a72d1e54e26530c52c = L.marker(
+                [35.11399798, 128.7542272],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_ac497eb0d4801ab6b3747a63d5787095 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3dd19b3fd0cdf9a72d1e54e26530c52c.setIcon(icon_ac497eb0d4801ab6b3747a63d5787095);
+
+
+        var popup_3b9d02a4584d7877b3bb878bf06292d5 = L.popup({"maxWidth": 250});
+
+
+
+                var html_e532cc5507f5fd2444bae943c01d0a38 = $(`<div id="html_e532cc5507f5fd2444bae943c01d0a38" style="width: 100.0%; height: 100.0%;"><b>창원농업기술센터 진해기술지원과</b></div>`)[0];
+                popup_3b9d02a4584d7877b3bb878bf06292d5.setContent(html_e532cc5507f5fd2444bae943c01d0a38);
+
+
+
+        marker_3dd19b3fd0cdf9a72d1e54e26530c52c.bindPopup(popup_3b9d02a4584d7877b3bb878bf06292d5)
+        ;
+
+
+
+
+            var marker_74f60f2f61595e4110d8caf472c9c9e6 = L.marker(
+                [35.11402911, 128.7543178],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_ed6fcbf958586d86ed5bde83ad0f6f88 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_74f60f2f61595e4110d8caf472c9c9e6.setIcon(icon_ed6fcbf958586d86ed5bde83ad0f6f88);
+
+
+        var popup_b063b79df74f191a69c1e48b298fdcb0 = L.popup({"maxWidth": 250});
+
+
+
+                var html_63ecd4eeda39c4c4dda0cefea83b6db0 = $(`<div id="html_63ecd4eeda39c4c4dda0cefea83b6db0" style="width: 100.0%; height: 100.0%;"><b>창원농업기술센터 도시농업과</b></div>`)[0];
+                popup_b063b79df74f191a69c1e48b298fdcb0.setContent(html_63ecd4eeda39c4c4dda0cefea83b6db0);
+
+
+
+        marker_74f60f2f61595e4110d8caf472c9c9e6.bindPopup(popup_b063b79df74f191a69c1e48b298fdcb0)
+        ;
+
+
+
+
+            var marker_e75cbe755ffd92db2e598c6683b1cc1e = L.marker(
+                [37.76397257, 126.7955359],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_8dfea79256da80dad7389d3f8467597b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e75cbe755ffd92db2e598c6683b1cc1e.setIcon(icon_8dfea79256da80dad7389d3f8467597b);
+
+
+        var popup_47535638f470b2ef8f6c4af0014e222d = L.popup({"maxWidth": 250});
+
+
+
+                var html_b64333e6350616e0efddacf1678b1e40 = $(`<div id="html_b64333e6350616e0efddacf1678b1e40" style="width: 100.0%; height: 100.0%;"><b>파주시농업기술센터</b></div>`)[0];
+                popup_47535638f470b2ef8f6c4af0014e222d.setContent(html_b64333e6350616e0efddacf1678b1e40);
+
+
+
+        marker_e75cbe755ffd92db2e598c6683b1cc1e.bindPopup(popup_47535638f470b2ef8f6c4af0014e222d)
+        ;
+
+
+
+
+            var marker_84df2cbc65241cb93e959e1c89dd5be5 = L.marker(
+                [37.76515582, 126.7962227],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_efd9cdf9d3c65b6ea549a3aa38bbfc17 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_84df2cbc65241cb93e959e1c89dd5be5.setIcon(icon_efd9cdf9d3c65b6ea549a3aa38bbfc17);
+
+
+        var popup_779ae9bededdaa7423c3a0bc71c4b02e = L.popup({"maxWidth": 250});
+
+
+
+                var html_07c0fc5bce12acf1be93ed78fcc56077 = $(`<div id="html_07c0fc5bce12acf1be93ed78fcc56077" style="width: 100.0%; height: 100.0%;"><b>파주시농기계임대사업소 파주본소</b></div>`)[0];
+                popup_779ae9bededdaa7423c3a0bc71c4b02e.setContent(html_07c0fc5bce12acf1be93ed78fcc56077);
+
+
+
+        marker_84df2cbc65241cb93e959e1c89dd5be5.bindPopup(popup_779ae9bededdaa7423c3a0bc71c4b02e)
+        ;
+
+
+
+
+            var marker_430aab9d5183a9339fb892dd4d02fe3e = L.marker(
+                [37.4287995, 127.104859],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_3f2fea70a59f823a9ca55f7eb8dd68bd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_430aab9d5183a9339fb892dd4d02fe3e.setIcon(icon_3f2fea70a59f823a9ca55f7eb8dd68bd);
+
+
+        var popup_0c7bb705c1616693ec5e8dce88834a9b = L.popup({"maxWidth": 250});
+
+
+
+                var html_ef4b793edb6e56480801e03f6d70b1b7 = $(`<div id="html_ef4b793edb6e56480801e03f6d70b1b7" style="width: 100.0%; height: 100.0%;"><b>성남시농업기술센터</b></div>`)[0];
+                popup_0c7bb705c1616693ec5e8dce88834a9b.setContent(html_ef4b793edb6e56480801e03f6d70b1b7);
+
+
+
+        marker_430aab9d5183a9339fb892dd4d02fe3e.bindPopup(popup_0c7bb705c1616693ec5e8dce88834a9b)
+        ;
+
+
+
+
+            var marker_c9d1331d8e5ec6ed9b3a9cd1169b85a8 = L.marker(
+                [37.46569942, 127.089786],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_cbf759774610804b93ec4a70d8545171 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c9d1331d8e5ec6ed9b3a9cd1169b85a8.setIcon(icon_cbf759774610804b93ec4a70d8545171);
+
+
+        var popup_1bcffb5a32859d38ad0b8c843d8c6acb = L.popup({"maxWidth": 250});
+
+
+
+                var html_2dba33f2deb192cf479821112cec5baa = $(`<div id="html_2dba33f2deb192cf479821112cec5baa" style="width: 100.0%; height: 100.0%;"><b>서울특별시 농업기술센터</b></div>`)[0];
+                popup_1bcffb5a32859d38ad0b8c843d8c6acb.setContent(html_2dba33f2deb192cf479821112cec5baa);
+
+
+
+        marker_c9d1331d8e5ec6ed9b3a9cd1169b85a8.bindPopup(popup_1bcffb5a32859d38ad0b8c843d8c6acb)
+        ;
+
+
+
+
+            var marker_32cb050d5e0cfe1220653ab0f47fb9cb = L.marker(
+                [37.46493908, 127.0884287],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_28d1274ed79c668b7f490e8695659ef9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_32cb050d5e0cfe1220653ab0f47fb9cb.setIcon(icon_28d1274ed79c668b7f490e8695659ef9);
+
+
+        var popup_2547b74a26fce2f1518894e53bd3494a = L.popup({"maxWidth": 250});
+
+
+
+                var html_ea88c6f7ae08f525b1d4a8432f41cb4a = $(`<div id="html_ea88c6f7ae08f525b1d4a8432f41cb4a" style="width: 100.0%; height: 100.0%;"><b>서울특별시 농업기술센터 스마트농장형 치유농업교육장</b></div>`)[0];
+                popup_2547b74a26fce2f1518894e53bd3494a.setContent(html_ea88c6f7ae08f525b1d4a8432f41cb4a);
+
+
+
+        marker_32cb050d5e0cfe1220653ab0f47fb9cb.bindPopup(popup_2547b74a26fce2f1518894e53bd3494a)
+        ;
+
+
+
+
+            var marker_94da224ae3aed2b6c13b2ffac671ebb8 = L.marker(
+                [37.29128193, 127.0119092],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_f95a485c07b926827ef916a6ae2df439 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_94da224ae3aed2b6c13b2ffac671ebb8.setIcon(icon_f95a485c07b926827ef916a6ae2df439);
+
+
+        var popup_46397e7f15d1549c6886c1f0e3fd95dc = L.popup({"maxWidth": 250});
+
+
+
+                var html_a0adc71e04c73a818960f107f38eb68b = $(`<div id="html_a0adc71e04c73a818960f107f38eb68b" style="width: 100.0%; height: 100.0%;"><b>팝그린</b></div>`)[0];
+                popup_46397e7f15d1549c6886c1f0e3fd95dc.setContent(html_a0adc71e04c73a818960f107f38eb68b);
+
+
+
+        marker_94da224ae3aed2b6c13b2ffac671ebb8.bindPopup(popup_46397e7f15d1549c6886c1f0e3fd95dc)
+        ;
+
+
+
+
+            var marker_bab0d53dc7e248df9963a17f0d2d758e = L.marker(
+                [37.31149387, 127.0244091],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_0203b3a833f3e66570c9e4dfa2ac4254 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_bab0d53dc7e248df9963a17f0d2d758e.setIcon(icon_0203b3a833f3e66570c9e4dfa2ac4254);
+
+
+        var popup_be4451537b1e4df38099bcce1c55cb58 = L.popup({"maxWidth": 250});
+
+
+
+                var html_4b37362c688fe4f87a0d6c6d0960fb24 = $(`<div id="html_4b37362c688fe4f87a0d6c6d0960fb24" style="width: 100.0%; height: 100.0%;"><b>팝그린광교농장</b></div>`)[0];
+                popup_be4451537b1e4df38099bcce1c55cb58.setContent(html_4b37362c688fe4f87a0d6c6d0960fb24);
+
+
+
+        marker_bab0d53dc7e248df9963a17f0d2d758e.bindPopup(popup_be4451537b1e4df38099bcce1c55cb58)
+        ;
+
+
+
+
+            var marker_2b91de30e676d58be672801f666483bd = L.marker(
+                [37.64977628, 126.8700862],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_8fc1b865052224d178680fc5dbf3701e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2b91de30e676d58be672801f666483bd.setIcon(icon_8fc1b865052224d178680fc5dbf3701e);
+
+
+        var popup_c7a6ab4e8fe39860d3e704f996b5c56b = L.popup({"maxWidth": 250});
+
+
+
+                var html_ae593693ea382066256a10d5e940257b = $(`<div id="html_ae593693ea382066256a10d5e940257b" style="width: 100.0%; height: 100.0%;"><b>고양시 농업기술센터</b></div>`)[0];
+                popup_c7a6ab4e8fe39860d3e704f996b5c56b.setContent(html_ae593693ea382066256a10d5e940257b);
+
+
+
+        marker_2b91de30e676d58be672801f666483bd.bindPopup(popup_c7a6ab4e8fe39860d3e704f996b5c56b)
+        ;
+
+
+
+
+            var marker_0dc60894b69a6a2797902aacd134f935 = L.marker(
+                [35.78210871, 128.4468757],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_4fcbe982871099258bbecc167714a652 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0dc60894b69a6a2797902aacd134f935.setIcon(icon_4fcbe982871099258bbecc167714a652);
+
+
+        var popup_cdd2a0c2c13f993ad134731151d330a7 = L.popup({"maxWidth": 250});
+
+
+
+                var html_8d1f43ce8d9434f3fabc1e057845428b = $(`<div id="html_8d1f43ce8d9434f3fabc1e057845428b" style="width: 100.0%; height: 100.0%;"><b>달성군 농업기술센터</b></div>`)[0];
+                popup_cdd2a0c2c13f993ad134731151d330a7.setContent(html_8d1f43ce8d9434f3fabc1e057845428b);
+
+
+
+        marker_0dc60894b69a6a2797902aacd134f935.bindPopup(popup_cdd2a0c2c13f993ad134731151d330a7)
+        ;
+
+
+
+
+            var marker_4867158208d23323f2817e7801d4134a = L.marker(
+                [35.74861057, 128.3539573],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_9baa8d056cce1a19fea5b531ec560e27 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4867158208d23323f2817e7801d4134a.setIcon(icon_9baa8d056cce1a19fea5b531ec560e27);
+
+
+        var popup_6df19c4c011d3696f6d5c890f4a96505 = L.popup({"maxWidth": 250});
+
+
+
+                var html_21cd9fef0e98f5c25895776974926ba3 = $(`<div id="html_21cd9fef0e98f5c25895776974926ba3" style="width: 100.0%; height: 100.0%;"><b>고령군농업기술센터 성산분소</b></div>`)[0];
+                popup_6df19c4c011d3696f6d5c890f4a96505.setContent(html_21cd9fef0e98f5c25895776974926ba3);
+
+
+
+        marker_4867158208d23323f2817e7801d4134a.bindPopup(popup_6df19c4c011d3696f6d5c890f4a96505)
+        ;
+
+
+
+
+            var marker_8d805fb53de56725ef00b2301ab45498 = L.marker(
+                [37.17290817, 127.2988521],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_2a5ac603c38728058f966cc9da1a7559 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8d805fb53de56725ef00b2301ab45498.setIcon(icon_2a5ac603c38728058f966cc9da1a7559);
+
+
+        var popup_3ed2341af24712c7dc2d9d53ee5d05cd = L.popup({"maxWidth": 250});
+
+
+
+                var html_084d04b00a93e1af0b95a895f3a84bdb = $(`<div id="html_084d04b00a93e1af0b95a895f3a84bdb" style="width: 100.0%; height: 100.0%;"><b>용인시농업기술센터</b></div>`)[0];
+                popup_3ed2341af24712c7dc2d9d53ee5d05cd.setContent(html_084d04b00a93e1af0b95a895f3a84bdb);
+
+
+
+        marker_8d805fb53de56725ef00b2301ab45498.bindPopup(popup_3ed2341af24712c7dc2d9d53ee5d05cd)
+        ;
+
+
+
+
+            var marker_57ddeecb86f0abf62e9515cdbb2ea01b = L.marker(
+                [37.1665897, 127.3132647],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_e23a9e4d470519883096fb64d4039801 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_57ddeecb86f0abf62e9515cdbb2ea01b.setIcon(icon_e23a9e4d470519883096fb64d4039801);
+
+
+        var popup_fe8619d2fece87f92049caa08845e60f = L.popup({"maxWidth": 250});
+
+
+
+                var html_fe37723b20feca7f06e9e9720a85c991 = $(`<div id="html_fe37723b20feca7f06e9e9720a85c991" style="width: 100.0%; height: 100.0%;"><b>용인시농업기술센터 원삼상담소</b></div>`)[0];
+                popup_fe8619d2fece87f92049caa08845e60f.setContent(html_fe37723b20feca7f06e9e9720a85c991);
+
+
+
+        marker_57ddeecb86f0abf62e9515cdbb2ea01b.bindPopup(popup_fe8619d2fece87f92049caa08845e60f)
+        ;
+
+
+
+
+            var marker_f1fab1d3e3c3b59e66729c4af463b6d4 = L.marker(
+                [37.02379423, 127.2866132],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_d20b8ddc686ee1d21b86b73c26da8ae9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f1fab1d3e3c3b59e66729c4af463b6d4.setIcon(icon_d20b8ddc686ee1d21b86b73c26da8ae9);
+
+
+        var popup_e809354d7ce08e3921f8aba7e6016eef = L.popup({"maxWidth": 250});
+
+
+
+                var html_a71d588fc4e53982f9a72e4187970fd7 = $(`<div id="html_a71d588fc4e53982f9a72e4187970fd7" style="width: 100.0%; height: 100.0%;"><b>안성시농업기술센터</b></div>`)[0];
+                popup_e809354d7ce08e3921f8aba7e6016eef.setContent(html_a71d588fc4e53982f9a72e4187970fd7);
+
+
+
+        marker_f1fab1d3e3c3b59e66729c4af463b6d4.bindPopup(popup_e809354d7ce08e3921f8aba7e6016eef)
+        ;
+
+
+
+
+            var marker_22ad909741ee57f345d9a88299222b7a = L.marker(
+                [37.04893179, 127.1998884],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_5ef758c4c654a4a43c7a92f1ecd6d937 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_22ad909741ee57f345d9a88299222b7a.setIcon(icon_5ef758c4c654a4a43c7a92f1ecd6d937);
+
+
+        var popup_e833f41d7e0e925bf73b1443838203d4 = L.popup({"maxWidth": 250});
+
+
+
+                var html_1d8bd9ea3408e1e82cba778993ca0aa2 = $(`<div id="html_1d8bd9ea3408e1e82cba778993ca0aa2" style="width: 100.0%; height: 100.0%;"><b>안성시 농기계임대사업소 서부분소</b></div>`)[0];
+                popup_e833f41d7e0e925bf73b1443838203d4.setContent(html_1d8bd9ea3408e1e82cba778993ca0aa2);
+
+
+
+        marker_22ad909741ee57f345d9a88299222b7a.bindPopup(popup_e833f41d7e0e925bf73b1443838203d4)
+        ;
+
+
+
+
+            var marker_ba6c548b81f03fcb5b63f67b62e26dbf = L.marker(
+                [37.08079265, 127.4019946],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_95b1c8af966c396da05e56fb3cf3d310 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ba6c548b81f03fcb5b63f67b62e26dbf.setIcon(icon_95b1c8af966c396da05e56fb3cf3d310);
+
+
+        var popup_e2f9004a15ec1d2d2326d79e8e018426 = L.popup({"maxWidth": 250});
+
+
+
+                var html_3c9982ff0fad34b7263f39458ae660fb = $(`<div id="html_3c9982ff0fad34b7263f39458ae660fb" style="width: 100.0%; height: 100.0%;"><b>안성시농업기술센터 농기계임대사업소 동부분소</b></div>`)[0];
+                popup_e2f9004a15ec1d2d2326d79e8e018426.setContent(html_3c9982ff0fad34b7263f39458ae660fb);
+
+
+
+        marker_ba6c548b81f03fcb5b63f67b62e26dbf.bindPopup(popup_e2f9004a15ec1d2d2326d79e8e018426)
+        ;
+
+
+
+
+            var marker_93c72832228cd6e90294e76afdaeeec6 = L.marker(
+                [37.30060835, 126.844135],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_fcfe531b1a639325b3f4722557bf7f24 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_93c72832228cd6e90294e76afdaeeec6.setIcon(icon_fcfe531b1a639325b3f4722557bf7f24);
+
+
+        var popup_308ee8eeafb1859d44cd9e54cab87122 = L.popup({"maxWidth": 250});
+
+
+
+                var html_06e47866a2debc7c7dd826aa382c55c8 = $(`<div id="html_06e47866a2debc7c7dd826aa382c55c8" style="width: 100.0%; height: 100.0%;"><b>안산시농업기술센터</b></div>`)[0];
+                popup_308ee8eeafb1859d44cd9e54cab87122.setContent(html_06e47866a2debc7c7dd826aa382c55c8);
+
+
+
+        marker_93c72832228cd6e90294e76afdaeeec6.bindPopup(popup_308ee8eeafb1859d44cd9e54cab87122)
+        ;
+
+
+
+
+            var marker_b72b70f68a5f7090274523046398f386 = L.marker(
+                [37.24900562, 126.5909673],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_4620abd47d4ab9aeac34bd9dda50d518 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b72b70f68a5f7090274523046398f386.setIcon(icon_4620abd47d4ab9aeac34bd9dda50d518);
+
+
+        var popup_ea42da8c8fa780a584e70e30301302bc = L.popup({"maxWidth": 250});
+
+
+
+                var html_0763868d3984cdc7c79ec93357f00f05 = $(`<div id="html_0763868d3984cdc7c79ec93357f00f05" style="width: 100.0%; height: 100.0%;"><b>안산시농업기술센터 대부영농상담소</b></div>`)[0];
+                popup_ea42da8c8fa780a584e70e30301302bc.setContent(html_0763868d3984cdc7c79ec93357f00f05);
+
+
+
+        marker_b72b70f68a5f7090274523046398f386.bindPopup(popup_ea42da8c8fa780a584e70e30301302bc)
+        ;
+
+
+
+
+            var marker_69ad8d376663223dbd89faf70eb804a8 = L.marker(
+                [36.91387509, 126.6496997],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_42c490564af56d526ba345cca1c2dc85 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_69ad8d376663223dbd89faf70eb804a8.setIcon(icon_42c490564af56d526ba345cca1c2dc85);
+
+
+        var popup_5d01b702ee6d5b367642ab9697ca146c = L.popup({"maxWidth": 250});
+
+
+
+                var html_b80b2c67c483878462abab7bcf0b4f7a = $(`<div id="html_b80b2c67c483878462abab7bcf0b4f7a" style="width: 100.0%; height: 100.0%;"><b>당진시농업기술센터</b></div>`)[0];
+                popup_5d01b702ee6d5b367642ab9697ca146c.setContent(html_b80b2c67c483878462abab7bcf0b4f7a);
+
+
+
+        marker_69ad8d376663223dbd89faf70eb804a8.bindPopup(popup_5d01b702ee6d5b367642ab9697ca146c)
+        ;
+
+
+
+
+            var marker_11e10d7108893bcf37a19d43d971b4d1 = L.marker(
+                [37.00748422, 126.5309383],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_dc14c809aad7da333055f5fcca0cb908 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_11e10d7108893bcf37a19d43d971b4d1.setIcon(icon_dc14c809aad7da333055f5fcca0cb908);
+
+
+        var popup_cf6f80db1c21680b802dc06250f8e571 = L.popup({"maxWidth": 250});
+
+
+
+                var html_7aff702e79e7b55d8890875ccf564602 = $(`<div id="html_7aff702e79e7b55d8890875ccf564602" style="width: 100.0%; height: 100.0%;"><b>당진시농업기술센터 북부지소</b></div>`)[0];
+                popup_cf6f80db1c21680b802dc06250f8e571.setContent(html_7aff702e79e7b55d8890875ccf564602);
+
+
+
+        marker_11e10d7108893bcf37a19d43d971b4d1.bindPopup(popup_cf6f80db1c21680b802dc06250f8e571)
+        ;
+
+
+
+
+            var marker_7136e6b055a13d459aa567162ea7de73 = L.marker(
+                [36.87480035, 126.755721],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_87cea18b0da79f802847434e6953c75b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7136e6b055a13d459aa567162ea7de73.setIcon(icon_87cea18b0da79f802847434e6953c75b);
+
+
+        var popup_ef6636ea2cb93f58a4756434ffc34dea = L.popup({"maxWidth": 250});
+
+
+
+                var html_84203db88997750b63b8e26838f068fd = $(`<div id="html_84203db88997750b63b8e26838f068fd" style="width: 100.0%; height: 100.0%;"><b>당진시농업기술센터 중부농기계임대사업장</b></div>`)[0];
+                popup_ef6636ea2cb93f58a4756434ffc34dea.setContent(html_84203db88997750b63b8e26838f068fd);
+
+
+
+        marker_7136e6b055a13d459aa567162ea7de73.bindPopup(popup_ef6636ea2cb93f58a4756434ffc34dea)
+        ;
+
+
+
+
+            var marker_3acf29986f4c8672e9ec4ed50d50291f = L.marker(
+                [35.25261404, 129.1950196],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_1efc7d083b458517c02663114aef2d43 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3acf29986f4c8672e9ec4ed50d50291f.setIcon(icon_1efc7d083b458517c02663114aef2d43);
+
+
+        var popup_abe36ff3138744d576c8d8175a6f042d = L.popup({"maxWidth": 250});
+
+
+
+                var html_53d880b9745c0d435677d1f3649cfc23 = $(`<div id="html_53d880b9745c0d435677d1f3649cfc23" style="width: 100.0%; height: 100.0%;"><b>기장군농업기술센터</b></div>`)[0];
+                popup_abe36ff3138744d576c8d8175a6f042d.setContent(html_53d880b9745c0d435677d1f3649cfc23);
+
+
+
+        marker_3acf29986f4c8672e9ec4ed50d50291f.bindPopup(popup_abe36ff3138744d576c8d8175a6f042d)
+        ;
+
+
+
+
+            var marker_534bacbc52b7139e5a39e11a3cf7d623 = L.marker(
+                [35.95771355, 128.5609903],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_59f36902fbedb2849ac375356e2865b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_534bacbc52b7139e5a39e11a3cf7d623.setIcon(icon_59f36902fbedb2849ac375356e2865b5);
+
+
+        var popup_925c7d6db983fd83fb87a953ded93b9d = L.popup({"maxWidth": 250});
+
+
+
+                var html_1e39f6575b65e24d083e672760817773 = $(`<div id="html_1e39f6575b65e24d083e672760817773" style="width: 100.0%; height: 100.0%;"><b>경상북도농업기술원</b></div>`)[0];
+                popup_925c7d6db983fd83fb87a953ded93b9d.setContent(html_1e39f6575b65e24d083e672760817773);
+
+
+
+        marker_534bacbc52b7139e5a39e11a3cf7d623.bindPopup(popup_925c7d6db983fd83fb87a953ded93b9d)
+        ;
+
+
+
+
+            var marker_4f926514d9f230de86040cb370d3f1cf = L.marker(
+                [35.87990286, 128.660614],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_2251eda4edabd549acc54803dad420a3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4f926514d9f230de86040cb370d3f1cf.setIcon(icon_2251eda4edabd549acc54803dad420a3);
+
+
+        var popup_6db56ed00d773e294ae198b7b805919b = L.popup({"maxWidth": 250});
+
+
+
+                var html_f01e338045df83c6f3c0a2abcf477e56 = $(`<div id="html_f01e338045df83c6f3c0a2abcf477e56" style="width: 100.0%; height: 100.0%;"><b>대구광역시농업기술센터</b></div>`)[0];
+                popup_6db56ed00d773e294ae198b7b805919b.setContent(html_f01e338045df83c6f3c0a2abcf477e56);
+
+
+
+        marker_4f926514d9f230de86040cb370d3f1cf.bindPopup(popup_6db56ed00d773e294ae198b7b805919b)
+        ;
+
+
+
+
+            var marker_2060249130c38146843e6718889df1c8 = L.marker(
+                [36.18135088, 128.5931908],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_f1c7032ced35ea3f6f1ece9b97bc7454 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2060249130c38146843e6718889df1c8.setIcon(icon_f1c7032ced35ea3f6f1ece9b97bc7454);
+
+
+        var popup_498522dc7d67570addfd7d85b6d22f08 = L.popup({"maxWidth": 250});
+
+
+
+                var html_af03aee826e132e5985f961f810401f2 = $(`<div id="html_af03aee826e132e5985f961f810401f2" style="width: 100.0%; height: 100.0%;"><b>군위군농업기술센터</b></div>`)[0];
+                popup_498522dc7d67570addfd7d85b6d22f08.setContent(html_af03aee826e132e5985f961f810401f2);
+
+
+
+        marker_2060249130c38146843e6718889df1c8.bindPopup(popup_498522dc7d67570addfd7d85b6d22f08)
+        ;
+
+
+
+
+            var marker_61a0d903b3a23c28ec0f15d96bfd9ff6 = L.marker(
+                [37.64827543, 127.195716],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_882004a1f8be3dec26ccde53bf842aff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_61a0d903b3a23c28ec0f15d96bfd9ff6.setIcon(icon_882004a1f8be3dec26ccde53bf842aff);
+
+
+        var popup_97b3f9e27ac2aba72900d2dd180e509f = L.popup({"maxWidth": 250});
+
+
+
+                var html_95cf363f45c5aa5248462ec63d1844be = $(`<div id="html_95cf363f45c5aa5248462ec63d1844be" style="width: 100.0%; height: 100.0%;"><b>남양주농업기술센터</b></div>`)[0];
+                popup_97b3f9e27ac2aba72900d2dd180e509f.setContent(html_95cf363f45c5aa5248462ec63d1844be);
+
+
+
+        marker_61a0d903b3a23c28ec0f15d96bfd9ff6.bindPopup(popup_97b3f9e27ac2aba72900d2dd180e509f)
+        ;
+
+
+
+
+            var marker_77955dbf57794c2a621284e50a3b4628 = L.marker(
+                [37.81392261, 127.7040107],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_93f3848eced45d379e7d93eea2405a34 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_77955dbf57794c2a621284e50a3b4628.setIcon(icon_93f3848eced45d379e7d93eea2405a34);
+
+
+        var popup_1f856ad818b9f19556c4755159867c08 = L.popup({"maxWidth": 250});
+
+
+
+                var html_a9b9a3b849a607fc428d3ef21fd92d4b = $(`<div id="html_a9b9a3b849a607fc428d3ef21fd92d4b" style="width: 100.0%; height: 100.0%;"><b>강원도시농업사회적협동조합</b></div>`)[0];
+                popup_1f856ad818b9f19556c4755159867c08.setContent(html_a9b9a3b849a607fc428d3ef21fd92d4b);
+
+
+
+        marker_77955dbf57794c2a621284e50a3b4628.bindPopup(popup_1f856ad818b9f19556c4755159867c08)
+        ;
+
+
+
+
+            var marker_24d434c331fba1b65cfe3d1e0a120b7d = L.marker(
+                [37.27268037, 127.4326022],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_99ba6c0cfa71ccf7022fc5df8509a754 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_24d434c331fba1b65cfe3d1e0a120b7d.setIcon(icon_99ba6c0cfa71ccf7022fc5df8509a754);
+
+
+        var popup_879ced1c1b915894d8a43797eea5a8ea = L.popup({"maxWidth": 250});
+
+
+
+                var html_281df46dc854a9124341a0131f02f119 = $(`<div id="html_281df46dc854a9124341a0131f02f119" style="width: 100.0%; height: 100.0%;"><b>이천시농업기술센터</b></div>`)[0];
+                popup_879ced1c1b915894d8a43797eea5a8ea.setContent(html_281df46dc854a9124341a0131f02f119);
+
+
+
+        marker_24d434c331fba1b65cfe3d1e0a120b7d.bindPopup(popup_879ced1c1b915894d8a43797eea5a8ea)
+        ;
+
+
+
+
+            var marker_f76e7cdfa8cef90fd2bbc7b2c58aef6a = L.marker(
+                [37.11808249, 127.612168],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_bd1966999f4a8fb723daaccbfc77b033 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f76e7cdfa8cef90fd2bbc7b2c58aef6a.setIcon(icon_bd1966999f4a8fb723daaccbfc77b033);
+
+
+        var popup_3acc20535f0dbb6d342d0c9e0366d9c7 = L.popup({"maxWidth": 250});
+
+
+
+                var html_47289420741e795a1a96d571d12732d3 = $(`<div id="html_47289420741e795a1a96d571d12732d3" style="width: 100.0%; height: 100.0%;"><b>이천시농업기술센터 연구개발과</b></div>`)[0];
+                popup_3acc20535f0dbb6d342d0c9e0366d9c7.setContent(html_47289420741e795a1a96d571d12732d3);
+
+
+
+        marker_f76e7cdfa8cef90fd2bbc7b2c58aef6a.bindPopup(popup_3acc20535f0dbb6d342d0c9e0366d9c7)
+        ;
+
+
+
+
+            var marker_0261e36fb8317d73a2a0987a48f60a78 = L.marker(
+                [37.17552072, 127.4400424],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_ad38754e94aaafa4837a6cb8882981d6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0261e36fb8317d73a2a0987a48f60a78.setIcon(icon_ad38754e94aaafa4837a6cb8882981d6);
+
+
+        var popup_8eb6acc4cd66351913c8b9f3198df1a7 = L.popup({"maxWidth": 250});
+
+
+
+                var html_fa9c5136581f92897b5fd7c9965cc61e = $(`<div id="html_fa9c5136581f92897b5fd7c9965cc61e" style="width: 100.0%; height: 100.0%;"><b>이천시농업기술센터 농기계임대사업 본소</b></div>`)[0];
+                popup_8eb6acc4cd66351913c8b9f3198df1a7.setContent(html_fa9c5136581f92897b5fd7c9965cc61e);
+
+
+
+        marker_0261e36fb8317d73a2a0987a48f60a78.bindPopup(popup_8eb6acc4cd66351913c8b9f3198df1a7)
+        ;
+
+
+
+
+            var marker_e9c8e8a8458c149aef575275b31b50e9 = L.marker(
+                [35.12906114, 126.7437745],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_4968fb0fb0ab2fbd2cb784f77f65f7b2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e9c8e8a8458c149aef575275b31b50e9.setIcon(icon_4968fb0fb0ab2fbd2cb784f77f65f7b2);
+
+
+        var popup_a1edf1233899c134065ec9194306d6f6 = L.popup({"maxWidth": 250});
+
+
+
+                var html_bf91146c18c847fbcdd237ea0decf683 = $(`<div id="html_bf91146c18c847fbcdd237ea0decf683" style="width: 100.0%; height: 100.0%;"><b>광주광역시농업기술센터</b></div>`)[0];
+                popup_a1edf1233899c134065ec9194306d6f6.setContent(html_bf91146c18c847fbcdd237ea0decf683);
+
+
+
+        marker_e9c8e8a8458c149aef575275b31b50e9.bindPopup(popup_a1edf1233899c134065ec9194306d6f6)
+        ;
+
+
+
+
+            var marker_9b85cc2ed066970247e8c0d0d1ec8960 = L.marker(
+                [35.12890072, 126.7433603],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_e38a50ca3e018b77abacaaca267dbd9c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9b85cc2ed066970247e8c0d0d1ec8960.setIcon(icon_e38a50ca3e018b77abacaaca267dbd9c);
+
+
+        var popup_8728fa4c33ba1f143cabaa158a302443 = L.popup({"maxWidth": 250});
+
+
+
+                var html_430e35331ec4e06f5e7f6e5f3cc8af0e = $(`<div id="html_430e35331ec4e06f5e7f6e5f3cc8af0e" style="width: 100.0%; height: 100.0%;"><b>광주광역시농업기술센터 스마트농업교육관</b></div>`)[0];
+                popup_8728fa4c33ba1f143cabaa158a302443.setContent(html_430e35331ec4e06f5e7f6e5f3cc8af0e);
+
+
+
+        marker_9b85cc2ed066970247e8c0d0d1ec8960.bindPopup(popup_8728fa4c33ba1f143cabaa158a302443)
+        ;
+
+
+
+
+            var marker_ec7e24976390bb3095e8da8f0ac2db30 = L.marker(
+                [35.12907979, 126.7438084],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_16008ed1b23a852e91f4bf35339257b6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ec7e24976390bb3095e8da8f0ac2db30.setIcon(icon_16008ed1b23a852e91f4bf35339257b6);
+
+
+        var popup_752fef80ff2404bfdc75ee481b27d9c6 = L.popup({"maxWidth": 250});
+
+
+
+                var html_071ff4a8e67501b6e47e0c8b2f493577 = $(`<div id="html_071ff4a8e67501b6e47e0c8b2f493577" style="width: 100.0%; height: 100.0%;"><b>광주광역시농업기술센터 농업지원과</b></div>`)[0];
+                popup_752fef80ff2404bfdc75ee481b27d9c6.setContent(html_071ff4a8e67501b6e47e0c8b2f493577);
+
+
+
+        marker_ec7e24976390bb3095e8da8f0ac2db30.bindPopup(popup_752fef80ff2404bfdc75ee481b27d9c6)
+        ;
+
+
+
+
+            var marker_9e17cd5697696aeeb65958e980c6fa8d = L.marker(
+                [36.59242957, 126.6449112],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_cf82e6911802ab014d300557afe85361 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9e17cd5697696aeeb65958e980c6fa8d.setIcon(icon_cf82e6911802ab014d300557afe85361);
+
+
+        var popup_003ecf3383647a0ec7fd58e729e1a585 = L.popup({"maxWidth": 250});
+
+
+
+                var html_e47d1fe09361b8f007afb3bd1334b4ed = $(`<div id="html_e47d1fe09361b8f007afb3bd1334b4ed" style="width: 100.0%; height: 100.0%;"><b>홍성군 농업기술센터</b></div>`)[0];
+                popup_003ecf3383647a0ec7fd58e729e1a585.setContent(html_e47d1fe09361b8f007afb3bd1334b4ed);
+
+
+
+        marker_9e17cd5697696aeeb65958e980c6fa8d.bindPopup(popup_003ecf3383647a0ec7fd58e729e1a585)
+        ;
+
+
+
+
+            var marker_2d2d69f833dd80562ba998b9ac1a90a8 = L.marker(
+                [36.59244757, 126.6449045],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_46f13f2c802f85adf4b01c0a7ee08f73 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2d2d69f833dd80562ba998b9ac1a90a8.setIcon(icon_46f13f2c802f85adf4b01c0a7ee08f73);
+
+
+        var popup_5dad265616642cf9143e0322c6c327bd = L.popup({"maxWidth": 250});
+
+
+
+                var html_1f120825a9c6f5aa78658a39761742cb = $(`<div id="html_1f120825a9c6f5aa78658a39761742cb" style="width: 100.0%; height: 100.0%;"><b>홍성군 귀농귀촌종합지원센터</b></div>`)[0];
+                popup_5dad265616642cf9143e0322c6c327bd.setContent(html_1f120825a9c6f5aa78658a39761742cb);
+
+
+
+        marker_2d2d69f833dd80562ba998b9ac1a90a8.bindPopup(popup_5dad265616642cf9143e0322c6c327bd)
+        ;
+
+
+
+
+            var marker_02b9d650b660e94c74b02d5980159fb0 = L.marker(
+                [35.87376451, 128.9947709],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_e237d64cf89096d67c8125dec76a7810 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_02b9d650b660e94c74b02d5980159fb0.setIcon(icon_e237d64cf89096d67c8125dec76a7810);
+
+
+        var popup_98a4688cb2b7e7f44d5f09094d370a00 = L.popup({"maxWidth": 250});
+
+
+
+                var html_6bf81ac29ef14468720ea5826d882911 = $(`<div id="html_6bf81ac29ef14468720ea5826d882911" style="width: 100.0%; height: 100.0%;"><b>자연체험학습장</b></div>`)[0];
+                popup_98a4688cb2b7e7f44d5f09094d370a00.setContent(html_6bf81ac29ef14468720ea5826d882911);
+
+
+
+        marker_02b9d650b660e94c74b02d5980159fb0.bindPopup(popup_98a4688cb2b7e7f44d5f09094d370a00)
+        ;
+
+
+
+
+            var marker_61d5e1d1baf38ce57ebeab72e72df248 = L.marker(
+                [36.77818007, 126.6263012],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_09f7530c87c2a29c73d37240db02ae95 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_61d5e1d1baf38ce57ebeab72e72df248.setIcon(icon_09f7530c87c2a29c73d37240db02ae95);
+
+
+        var popup_58efd1ffdd02c72b9a0da9b3638b3d57 = L.popup({"maxWidth": 250});
+
+
+
+                var html_b7a90b011001edb16fc2e16c7519c24e = $(`<div id="html_b7a90b011001edb16fc2e16c7519c24e" style="width: 100.0%; height: 100.0%;"><b>숲속의아침 자연체험학습장</b></div>`)[0];
+                popup_58efd1ffdd02c72b9a0da9b3638b3d57.setContent(html_b7a90b011001edb16fc2e16c7519c24e);
+
+
+
+        marker_61d5e1d1baf38ce57ebeab72e72df248.bindPopup(popup_58efd1ffdd02c72b9a0da9b3638b3d57)
+        ;
+
+
+
+
+            var marker_0d0cfc5a9d9c574468329819fd621084 = L.marker(
+                [36.77835276, 127.2194984],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_833c5f5ee18991014d0ee4c2724f8264 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0d0cfc5a9d9c574468329819fd621084.setIcon(icon_833c5f5ee18991014d0ee4c2724f8264);
+
+
+        var popup_31ab3ae0c19c95c524851e43bf303318 = L.popup({"maxWidth": 250});
+
+
+
+                var html_9c09906dbae9e3a29fa4471fb20a3505 = $(`<div id="html_9c09906dbae9e3a29fa4471fb20a3505" style="width: 100.0%; height: 100.0%;"><b>독립기념관야영장 자연체험학습장</b></div>`)[0];
+                popup_31ab3ae0c19c95c524851e43bf303318.setContent(html_9c09906dbae9e3a29fa4471fb20a3505);
+
+
+
+        marker_0d0cfc5a9d9c574468329819fd621084.bindPopup(popup_31ab3ae0c19c95c524851e43bf303318)
+        ;
+
+
+
+
+            var marker_61e9e968462c846b62430174fa4b4331 = L.marker(
+                [35.85072909, 127.0605668],
+                {}
+            ).addTo(map_afd5cb74d9e14726023a4845175d16de);
+
+
+            var icon_e901c3c61242b703ce4f0bc258e804d7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_61e9e968462c846b62430174fa4b4331.setIcon(icon_e901c3c61242b703ce4f0bc258e804d7);
+
+
+        var popup_b34d2011b3046d9ae25317e939b11145 = L.popup({"maxWidth": 250});
+
+
+
+                var html_4b44691709f836ed324e7d66fc381724 = $(`<div id="html_4b44691709f836ed324e7d66fc381724" style="width: 100.0%; height: 100.0%;"><b>전주시농업기술센터</b></div>`)[0];
+                popup_b34d2011b3046d9ae25317e939b11145.setContent(html_4b44691709f836ed324e7d66fc381724);
+
+
+
+        marker_61e9e968462c846b62430174fa4b4331.bindPopup(popup_b34d2011b3046d9ae25317e939b11145)
+        ;
+
+
+
+</script>
 </html>
