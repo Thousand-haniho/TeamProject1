@@ -47,8 +47,8 @@
       </section>
       <section class="charts">
         <div class="chart-box">
-          <h3>시간별 온도</h3>
-          <canvas id="tempChart"></canvas>
+          <h1>작물별 환경 평균 그래프</h1>
+          <canvas id="barChart" width="1050" height="600"></canvas>
         </div>
         <div class="chart-box">
           <h3>시간별 습도</h3>
@@ -89,6 +89,55 @@
   </div>
 
   <script>
+
+    const ctx = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: {{ labels | tojson }},
+        datasets: [
+          {
+            label: '온도_내부 (°C)',
+            backgroundColor: '#FF6B6B',
+            data: {{ temp | tojson }}
+          },
+          {
+            label: '상대습도_내부 (%)',
+            backgroundColor: '#4ECDC4',
+            data: {{ humid | tojson }}
+          },
+          {
+            label: '일사량_외부 (W/m²)',
+            backgroundColor: '#FFE66D',
+            data: {{ solar | tojson }}
+          }
+        ]
+      },
+      options: {
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'end',
+          labels: {
+            padding: 20,
+            boxWidth: 20,
+          }
+        }
+      },
+      layout: {
+        padding: {
+          top: 20,    // 전체 차트 내 여백 조정
+          right: 30,  // 오른쪽 여백 늘려서 범례가 더 오른쪽에 위치하도록
+          left: 10,
+          bottom: 10
+        }
+      }
+    }
+    });
+
+
+    
     // 온도 차트
     new Chart(document.getElementById('tempChart').getContext('2d'), {
       type: 'line',
