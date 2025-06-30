@@ -1,4 +1,4 @@
-from python.test3 import fetch_kamis_data
+from test3 import fetch_kamis_data
 import pandas as pd
 
 

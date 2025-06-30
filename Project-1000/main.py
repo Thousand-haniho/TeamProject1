@@ -5,8 +5,7 @@ import requests
 import xmltodict
 import json
 from dotenv import load_dotenv
-import pandas as pd
-from python.test4 import fetch_kamis_all_data
+from test4 import fetch_kamis_all_data
 
 load_dotenv()
 api_key = os.getenv('WEATHER_API_KEY')
@@ -103,33 +102,19 @@ def dashboard():
 
     kamis_data = fetch_kamis_all_data()
 
-    평균_row = next((x for x in kamis_data if x.get("countyname") == "평균"), None)
-    등락률_row = next((x for x in kamis_data if x.get("countyname") == "등락률"), None)
+    평균_rows = [x for x in kamis_data if x.get("countyname") == "평균"]
+    등락률_rows = [x for x in kamis_data if x.get("countyname") == "등락률"]
 
-    if 평균_row:
-        itemname = 평균_row.get("itemname")
-        unit = 평균_row.get("unit")
-        price = 평균_row.get("price")
-    else:
-        itemname = unit = price = None
+    kamis_data_result = []
 
-    if 등락률_row:
-        weekprice = 등락률_row.get("weekprice")
-    else:
-        weekprice = None
-
-    # 결과 출력
-    # print("품목명:", itemname)
-    # print("단위:", unit)
-    # print("가격:", price)
-    # print("등락률:", weekprice)
-
-    kamis_data_result = {
-        "itemname": itemname,
-        "unit": unit,
-        "price": price,
-        "weekprice": weekprice
-    }
+    # zip으로 평균과 등락률 한 행씩 매칭
+    for 평균, 등락률 in zip(평균_rows, 등락률_rows):
+        kamis_data_result.append({
+            "itemname": 평균.get("itemname"),
+            "unit": 평균.get("unit"),
+            "price": 평균.get("price"),
+            "weekprice": 등락률.get("weekprice")
+        })
 
     return render_template(
         'dashboard.html',
@@ -138,7 +123,7 @@ def dashboard():
         humi_value=humi_value,
         rain_value=rain_value,
         wind_value=wind_value,
-        # kamis_data_result=kamis_data_result
+        ranking_data=kamis_data_result,
     )
 
 @app.route('/map')

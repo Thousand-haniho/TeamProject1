@@ -3,23 +3,19 @@ from test4 import fetch_kamis_all_data
 
 kamis_data = fetch_kamis_all_data()
 
-평균_row = next((x for x in kamis_data if x.get("countyname") == "평균"), None)
-등락률_row = next((x for x in kamis_data if x.get("countyname") == "등락률"), None)
+평균_rows = [x for x in kamis_data if x.get("countyname") == "평균"]
+등락률_rows = [x for x in kamis_data if x.get("countyname") == "등락률"]
 
-if 평균_row:
-    itemname = 평균_row.get("itemname")
-    unit = 평균_row.get("unit")
-    price = 평균_row.get("price")
-else:
-    itemname = unit = price = None
+# 평균 데이터 출력
+print("--- 평균 데이터 ---")
+for row in 평균_rows:
+    itemname = row.get("itemname")
+    unit = row.get("unit")
+    price = row.get("price")
+    print("품목명:", itemname, "| 단위:", unit, "| 가격:", price)
 
-if 등락률_row:
-    weekprice = 등락률_row.get("weekprice")
-else:
-    weekprice = None
-
-# 결과 출력
-print("품목명:", itemname)
-print("단위:", unit)
-print("가격:", price)
-print("등락률:", weekprice)
+# 등락률 데이터 출력
+print("--- 등락률 데이터 ---")
+for row in 등락률_rows:
+    weekprice = row.get("weekprice")
+    print("등락률:", weekprice)
