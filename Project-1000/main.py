@@ -5,7 +5,7 @@ import requests
 import xmltodict
 import json
 from dotenv import load_dotenv
-from test4 import fetch_kamis_all_data
+from fetch_kamis_items_data import fetch_kamis_items_data
 
 load_dotenv()
 api_key = os.getenv('WEATHER_API_KEY')

@@ -120,8 +120,8 @@ body {
 
 /* 인기식물 순위 테이블 */
 .ranking-table-container {
-  width: 400px;
-  height: 500px;
+  width: 450px;
+  height: 550px;
   background: white;
   border-radius: 8px;
   margin: 20px;
@@ -152,9 +152,16 @@ body {
   cursor: pointer;
 }
 
-.ranking-table {
+/* 스크롤 영역 */
+.ranking-table-wrapper {
   width: 400px;
+  max-height: 500px; /* 원하는 높이로 조절 */
+  overflow-y: auto;
   margin: 0 auto;
+}
+
+.ranking-table {
+  width: 100%;
   border-collapse: collapse;
   text-align: center;
 }
@@ -162,6 +169,12 @@ body {
 .ranking-table thead {
   background: #3f51b5;
   color: white;
+  position: sticky;
+  top: 0; /* 헤더 고정 */
+  z-index: 1;
+}
+.ranking-table th:hover {
+  cursor: pointer;
 }
 
 .ranking-table th,

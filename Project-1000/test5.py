@@ -1,21 +1,20 @@
-from test4 import fetch_kamis_all_data
+from fetch_kamis_items_data import fetch_kamis_items_data
 
 
-kamis_data = fetch_kamis_all_data()
+kamis_data = fetch_kamis_items_data()
 
 평균_rows = [x for x in kamis_data if x.get("countyname") == "평균"]
 등락률_rows = [x for x in kamis_data if x.get("countyname") == "등락률"]
 
-# 평균 데이터 출력
-print("--- 평균 데이터 ---")
-for row in 평균_rows:
-    itemname = row.get("itemname")
-    unit = row.get("unit")
-    price = row.get("price")
-    print("품목명:", itemname, "| 단위:", unit, "| 가격:", price)
+kamis_data_result = []
 
-# 등락률 데이터 출력
-print("--- 등락률 데이터 ---")
-for row in 등락률_rows:
-    weekprice = row.get("weekprice")
-    print("등락률:", weekprice)
+# zip으로 평균과 등락률 한 행씩 매칭
+for 평균, 등락률 in zip(평균_rows, 등락률_rows):
+    kamis_data_result.append({
+        "itemname": 평균.get("itemname"),
+        "unit": 평균.get("unit"),
+        "price": 평균.get("price"),
+        "weekprice": 등락률.get("weekprice")
+    })
+
+# print(kamis_data_result)
