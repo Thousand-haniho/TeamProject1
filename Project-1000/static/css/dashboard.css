@@ -120,6 +120,8 @@ body {
 
 /* 인기식물 순위 테이블 */
 .ranking-table-container {
+  width: 400px;
+  height: 500px;
   background: white;
   border-radius: 8px;
   margin: 20px;
@@ -152,6 +154,7 @@ body {
 
 .ranking-table {
   width: 400px;
+  margin: 0 auto;
   border-collapse: collapse;
   text-align: center;
 }
@@ -163,7 +166,7 @@ body {
 
 .ranking-table th,
 .ranking-table td {
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ddd;
   font-size: 14px;
 }
