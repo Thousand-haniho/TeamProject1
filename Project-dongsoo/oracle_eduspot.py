@@ -1,14 +1,18 @@
 import pandas as pd
 import cx_Oracle as cx
+import os
+
+os.environ["NLS_LANG"] = ".AL32UTF8"  # 한글 깨짐 방지
 
 # 오라클 접속을 위한 정보를 변수로 정의
-host_name = 'localhost'
+host_name = '192.168.0.29'
 oracle_port = 1521
-service_name = 'xe'
+service_name = 'XEPDB1'
 # 연결정보를 객체로 정의
 connect_info = cx.makedsn(host_name, oracle_port, service_name)
 # 커넥션 객체 생성
-conn = cx.connect('education', '1234', connect_info)
+conn = cx.connect('dongsoo', '1234', '192.168.0.29:1521/XEPDB1')
+
 # 쿼리문 실행을 위한 커서 생성
 cursor = conn.cursor()
 
