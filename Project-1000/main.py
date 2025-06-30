@@ -6,6 +6,7 @@ import xmltodict
 import json
 from dotenv import load_dotenv
 from fetch_kamis_items_data import fetch_kamis_items_data
+import pandas as pd
 
 load_dotenv()
 api_key = os.getenv('WEATHER_API_KEY')
@@ -100,7 +101,7 @@ def dashboard():
         None
     )
 
-    kamis_data = fetch_kamis_all_data()
+    kamis_data = fetch_kamis_items_data()
 
     평균_rows = [x for x in kamis_data if x.get("countyname") == "평균"]
     등락률_rows = [x for x in kamis_data if x.get("countyname") == "등락률"]
@@ -116,6 +117,18 @@ def dashboard():
             "weekprice": 등락률.get("weekprice")
         })
 
+    df = pd.read_csv("./resData/2022_환경_통합.csv", encoding='cp949')
+    df_filtered = df[['품목', '온도_내부', '상대습도_내부', '일사량_외부']]
+    df_filtered_5up = df_filtered[df_filtered['일사량_외부'] >= 5]
+    average_temp = df_filtered.groupby('품목')[['온도_내부', '상대습도_내부', '일사량_외부']].mean().reset_index()
+    out_data = ['가지', '국화']
+    average_temp = average_temp[~average_temp['품목'].isin(out_data)]
+
+    labels = average_temp['품목'].tolist()
+    temp = average_temp['온도_내부'].tolist()
+    humid = average_temp['상대습도_내부'].tolist()
+    solar = average_temp['일사량_외부'].tolist()
+
     return render_template(
         'dashboard.html',
         weather_data=weather_data,
@@ -124,6 +137,11 @@ def dashboard():
         rain_value=rain_value,
         wind_value=wind_value,
         ranking_data=kamis_data_result,
+
+        labels=labels,
+        temp=temp,
+        humid=humid,
+        solar=solar
     )
 
 @app.route('/map')
