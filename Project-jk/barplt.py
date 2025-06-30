@@ -6,13 +6,13 @@ from matplotlib import font_manager, rc
 
 plt.style.use('default')
 
-font_path = '../resData/malgun.ttf'
+font_path = './resData/malgun.ttf'
 font_name = font_manager.FontProperties(fname=font_path).get_name()
 rc('font', family=font_name)
 
 
 # cp949 인코딩으로 읽기 (Windows 엑셀 CSV 대부분은 이거)
-df = pd.read_csv("../resData/2022_환경_통합.csv", encoding='cp949')
+df = pd.read_csv("./resData/2022_환경_통합.csv", encoding='cp949')
 
 
 df_filtered = df[['품목', '온도_내부','상대습도_내부','일사량_외부']]
