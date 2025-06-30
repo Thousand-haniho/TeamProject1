@@ -4,7 +4,7 @@ import os
 
 os.environ["NLS_LANG"] = ".AL32UTF8"  # 한글 깨짐 방지
 
-# 오라클 접속을 위한 정보를 변수로 정의입니다.
+# 오라클 접속을 위한 정보를 변수로 정의
 host_name = '192.168.0.29'
 oracle_port = 1521
 service_name = 'XEPDB1'
