@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>스마트팜 대시보드</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>🌿 SmartFarm</h2>
+      <nav>
+        <ul>
+          <li><a href="#">개요</a></li>
+          <li><a href="#">센서 데이터</a></li>
+          <li><a href="#">리포트</a></li>
+          <li><a href="#">설정</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <h1>스마트팜 모니터링</h1>
+        <div class="user-info">
+          <span>관리자</span>
+          <button onclick="location.href='/map'">Map🗺</button>
+        </div>
+      </header>
+      <section class="cards">
+        <div class="card">
+          <h3>기온</h3>
+          <p>{{ weather_dict.temp_value }} °C</p>
+        </div>
+        <div class="card">
+          <h3>습도</h3>
+          <p>{{ weather_dict.humi_value }} %</p>
+        </div>
+        <div class="card">
+          <h3>1시간 강수량</h3>
+          <p>{{ weather_dict.rain_value }} mm</p>
+        </div>
+        <div class="card">
+          <h3>풍속</h3>
+          <p>{{ weather_dict.wind_value }} m/s</p>
+        </div>
+      </section>
+      <section class="charts">
+        <div class="chart-box">
+          <h1>작물별 환경 평균 그래프</h1>
+          <canvas id="barChart" width="800" height="500"></canvas>
+        </div>
+      </section>
+      <section class="ranking">
+        <div class="ranking-table-container">
+          <div class="ranking-table-header">
+            <h2>가격 데이터</h2>
+            <button class="ranking-select-btn">SELECT</button>
+          </div>
+          <div class="ranking-table-wrapper">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th data-column="rank">번호</th>
+                  <th data-column="name">작물명</th>
+                  <th data-column="price">소매가격</th>
+                  <th data-column="change">등락률</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in ranking_data %}
+                <tr>
+                  <td>{{ loop.index }}</td>
+                  <td>{{ row.itemname }} ({{ row.unit }})</td>
+                  <td>{{ row.price }}</td>
+                  <td>{{ row.weekprice }}%</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // 작물별 환경 평균 그래프
+    const ctx = document.getElementById('barChart').getContext('2d');
+    const barChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: {{ compare_dict.labels | tojson }},
+        datasets: [
+          {
+            label: '온도_내부 (°C)',
+            backgroundColor: '#FF6B6B',
+            data: {{ compare_dict.temp | tojson }}
+          },
+          {
+            label: '상대습도_내부 (%)',
+            backgroundColor: '#4ECDC4',
+            data: {{ compare_dict.humid | tojson }}
+          },
+          {
+            label: '일사량_외부 (W/m²)',
+            backgroundColor: '#FFE66D',
+            data: {{ compare_dict.solar | tojson }}
+          }
+        ]
+      },
+      options: {
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'end',
+          labels: {
+            padding: 20,
+            boxWidth: 20,
+          }
+        }
+      },
+      layout: {
+        padding: {
+          top: 20,    // 전체 차트 내 여백 조정
+          right: 30,  // 오른쪽 여백 늘려서 범례가 더 오른쪽에 위치하도록
+          left: 10,
+          bottom: 10
+        }
+      }
+    }
+    });
+  </script>
+
+  <script>
+  document.querySelectorAll(".ranking-table th").forEach(th => {
+    th.addEventListener("click", () => {
+      const table = th.closest("table");
+      const tbody = table.querySelector("tbody");
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+      const index = Array.from(th.parentNode.children).indexOf(th);
+      const isNumeric = index !== 1; // 식물명 제외 숫자 정렬
+
+      const sortedRows = rows.sort((a, b) => {
+        const aText = a.children[index].textContent.trim().replace(/[%(),]/g, "");
+        const bText = b.children[index].textContent.trim().replace(/[%(),]/g, "");
+        if (isNumeric) {
+          return parseFloat(aText) - parseFloat(bText);
+        } else {
+          return aText.localeCompare(bText);
+        }
+      });
+
+      // 기존 tbody 비우고 다시 append
+      tbody.innerHTML = "";
+      sortedRows.forEach(row => tbody.appendChild(row));
+    });
+  });
+  </script>
+</body>
+</html>
