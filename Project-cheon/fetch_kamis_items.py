@@ -14,7 +14,7 @@ def fetch_kamis_items_data():
         itemcategorycode = row["부류코드"]
         itemcode = row["품목코드"]
 
-        print(f"Fetching ({itemcategorycode}-{itemcode})...", file=sys.__stdout__)
+        print(f"Fetching ({itemcategorycode}-{itemcode})...")
         df = fetch_kamis_data(itemcategorycode, itemcode)
 
         if not df.empty:
