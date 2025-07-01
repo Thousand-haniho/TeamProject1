@@ -2,7 +2,6 @@ import requests
 import xmltodict
 import pandas as pd
 from datetime import datetime
-import json
 
 
 def fetch_kamis_data(itemcategorycode, itemcode):

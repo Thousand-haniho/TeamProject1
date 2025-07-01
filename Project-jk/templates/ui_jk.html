@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="../static/css/ui_jk.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <h2>Logo Here</h2>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link active">
+                    <span class="nav-icon">🏠</span>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">💬</span>
+                    Messages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    Report
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">⚙️</span>
+                    Setting
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">🔒</span>
+                    Privacy
+                </a>
+            </li>
+        </ul>
+
+        <div class="bottom-controls">
+            <div class="toggle-control">
+                <span>🌙 Light Mode</span>
+                <div class="toggle-switch"></div>
+            </div>
+            <a href="#" class="withdraw-btn">
+                <span>💰 Withdraw</span>
+            </a>
+            <button class="logout-btn">📤 Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1 class="page-title">Analytics</h1>
+            <div class="header-controls">
+                <div class="date-selector">14 Feb 2019 - 15 Feb 2019</div>
+                <button class="notification-btn">🔔</button>
+                <div class="profile-btn">YN</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="chart-container">
+                <div class="chart-bars">
+                    <div class="bar" style="height: 60px;"></div>
+                    <div class="bar" style="height: 40px;"></div>
+                    <div class="bar" style="height: 30px;"></div>
+                    <div class="bar" style="height: 50px;"></div>
+                    <div class="bar" style="height: 45px;"></div>
+                    <div class="bar" style="height: 70px;"></div>
+                    <div class="bar" style="height: 85px;"></div>
+                    <div class="bar" style="height: 90px;"></div>
+                    <div class="bar" style="height: 75px;"></div>
+                    <div class="bar red" style="height: 65px;"></div>
+                    <div class="bar red" style="height: 55px;"></div>
+                    <div class="bar orange" style="height: 80px;"></div>
+                    <div class="bar" style="height: 85px;"></div>
+                    <div class="bar" style="height: 70px;"></div>
+                    <div class="bar" style="height: 60px;"></div>
+                    <div class="bar" style="height: 50px;"></div>
+                    <div class="bar" style="height: 65px;"></div>
+                </div>
+                <div class="chart-labels">
+                    <span>Jan</span>
+                    <span>Feb</span>
+                    <span>Mar</span>
+                    <span>Apr</span>
+                    <span>May</span>
+                    <span>Jun</span>
+                    <span>Jul</span>
+                    <span>Aug</span>
+                    <span>Sep</span>
+                    <span>Oct</span>
+                    <span>Nov</span>
+                    <span>Dec</span>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <div class="stats-circle">
+                    <div class="stats-number">250</div>
+                </div>
+                <div class="stats-title">Dolor sit amet</div>
+                <div class="stats-legend">
+                    <div class="legend-item">
+                        <div class="legend-dot green"></div>
+                        <span>Dolor sit amet</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot orange"></div>
+                        <span>Lorem ipsum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-grid">
+            <div class="task-card">
+                <div class="task-header">
+                    <div class="task-title">Lorem Ipsum</div>
+                </div>
+                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Lorem ipsum dolor sit amet</p>
+                
+                <ul class="task-list">
+                    <li class="task-item">
+                        <div class="task-check completed"></div>
+                        Lorem ipsum
+                    </li>
+                    <li class="task-item">
+                        <div class="task-check completed"></div>
+                        Lorem ipsum
+                    </li>
+                    <li class="task-item">
+                        <div class="task-check"></div>
+                        Lorem ipsum
+                    </li>
+                    <li class="task-item">
+                        <div class="task-check completed"></div>
+                        Lorem ipsum
+                    </li>
+                    <li class="task-item">
+                        <div class="task-check"></div>
+                        Lorem ipsum
+                    </li>
+                </ul>
+
+                <div class="action-buttons">
+                    <button class="btn btn-reset">Reset</button>
+                    <button class="btn btn-apply">Apply</button>
+                </div>
+            </div>
+
+            <div class="task-card">
+                <div class="task-header">
+                    <div class="task-title">Lorem</div>
+                    <div class="task-stat">4.40</div>
+                </div>
+                <div class="task-header" style="margin-bottom: 0;">
+                    <div class="task-title">Lorem</div>
+                    <div class="task-stat">45%</div>
+                </div>
+                <div style="height: 80px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; margin: 15px 0; position: relative;">
+                    <div style="position: absolute; right: 15px; top: 15px; width: 8px; height: 8px; background: #2196f3; border-radius: 50%;"></div>
+                </div>
+                
+                <div class="task-title" style="margin-bottom: 10px;">Top Products</div>
+                <ul style="list-style: none; font-size: 12px; color: #666;">
+                    <li style="margin-bottom: 5px;">1. Lorem ipsum</li>
+                    <li style="margin-bottom: 5px;">2. Lorem ipsum</li>
+                    <li style="margin-bottom: 5px;">3. Lorem ipsum</li>
+                </ul>
+            </div>
+
+            <div class="task-card">
+                <div class="task-header">
+                    <div class="task-title">Lorem</div>
+                    <div class="task-stat">250</div>
+                </div>
+
+                <div class="metric-cards">
+                    <div class="metric-card blue">
+                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                    </div>
+                    <div class="metric-card orange">
+                        <div style="width: 8px; height: 8px; background: #ff9800; border-radius: 50%; margin: 0 auto 5px;"></div>
+                    </div>
+                    <div class="metric-card pink">
+                        <div style="width: 8px; height: 8px; background: #e91e63; border-radius: 50%; margin: 0 auto 5px;"></div>
+                    </div>
+                </div>
+
+                <div class="task-title" style="margin-bottom: 10px;">Top Buyer</div>
+                <ul style="list-style: none; font-size: 12px; color: #666;">
+                    <li style="margin-bottom: 5px;">1. Lorem ipsum</li>
+                    <li style="margin-bottom: 5px;">2. Lorem ipsum</li>
+                    <li style="margin-bottom: 5px;">3. Lorem ipsum</li>
+                </ul>
+
+                <div style="margin-top: 15px;">
+                    <div class="task-title" style="margin-bottom: 10px;">Lorem Ipsum</div>
+                    <div class="chart-mini">
+                        <div class="mini-bar" style="height: 20px;"></div>
+                        <div class="mini-bar" style="height: 35px;"></div>
+                        <div class="mini-bar" style="height: 25px;"></div>
+                        <div class="mini-bar" style="height: 15px;"></div>
+                        <div class="mini-bar" style="height: 45px;"></div>
+                        <div class="mini-bar" style="height: 30px;"></div>
+                        <div class="mini-bar" style="height: 40px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

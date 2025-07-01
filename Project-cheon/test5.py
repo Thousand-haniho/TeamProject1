@@ -1,4 +1,4 @@
-from fetch_kamis_items_data import fetch_kamis_items_data
+from fetch_kamis_items import fetch_kamis_items_data
 
 
 kamis_data = fetch_kamis_items_data()
