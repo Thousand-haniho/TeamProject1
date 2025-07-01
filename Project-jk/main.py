@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, jsonify
-from fetch_kamis_items_data import fetch_kamis_items_data
+from fetch_kamis_items import fetch_kamis_items_data
 from weather import weather_data
 from compare import compare_data
+
 
 app = Flask(__name__)
 
@@ -20,9 +21,9 @@ def dashboard():
 
     return render_template(
         'dashboard.html',
-        weather_dict = weather_dict,
-        ranking_data = kamis_data,
-        compare_dict = compare_dict,
+        weather_dict=weather_dict,
+        ranking_data=kamis_data,
+        compare_dict=compare_dict,
     )
 
 
@@ -35,16 +36,26 @@ def map():
 def flowershop():
     return render_template('flowershop.html')
 
-@app.route('/ui_test')
-def ui_test():
-    return render_template('ui_test2.html')
 
-# 화면 새로고침 안되도록 AJAX 사용
+@app.route('/ui_jk')
+def ui_jk():
+    kamis_data = fetch_kamis_items_data()
+    weather_dict = weather_data()
+    compare_dict = compare_data()
+
+    return render_template(
+        'ui_jk.html',
+        weather_dict=weather_dict,
+        ranking_data=kamis_data,
+        compare_dict=compare_dict,
+    )
+    
 @app.route('/api/weather')
 def api_weather():
     region = request.args.get("region", "서울")
     weather_dict = weather_data(region)
     return jsonify(weather_dict)
+
 
 
 
