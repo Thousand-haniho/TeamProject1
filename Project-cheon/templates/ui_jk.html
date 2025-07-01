@@ -116,31 +116,31 @@
                 </div>
             </div>
 
-            <div class="ranking-table-container">
-                <div class="ranking-table-header">
+            <div class="ranking-card">
+                <div class="ranking-header">
                     <h2>가격 데이터</h2>
                     <button class="ranking-select-btn">SELECT</button>
                 </div>
                 <div class="ranking-table-wrapper">
                     <table class="ranking-table">
-                    <thead>
-                        <tr>
-                        <th data-column="rank">번호</th>
-                        <th data-column="name">작물명</th>
-                        <th data-column="price">소매가격</th>
-                        <th data-column="change">등락률</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for row in ranking_data %}
-                        <tr>
-                        <td>{{ loop.index }}</td>
-                        <td>{{ row.itemname }} ({{ row.unit }})</td>
-                        <td>{{ row.price }}</td>
-                        <td>{{ row.weekprice }}%</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
+                        <thead>
+                            <tr>
+                                <th data-column="rank">번호</th>
+                                <th data-column="name">작물명</th>
+                                <th data-column="price">소매가격</th>
+                                <th data-column="change">등락률</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in ranking_data %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ row.itemname }} ({{ row.unit }})</td>
+                                <td>{{ row.price }}</td>
+                                <td>{{ row.weekprice }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -148,6 +148,32 @@
 
 
     </div>
+
+    
+    <script>
+        // 모든 nav-link 요소 선택
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // 각 링크에 클릭 이벤트 걸기
+        navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // 링크 이동 막기
+
+            // 모든 링크에서 active 제거
+            navLinks.forEach(item => item.classList.remove('active'));
+
+            // 클릭한 링크에만 active 추가
+            this.classList.add('active');
+        });
+        });
+
+        const toggle = document.querySelector('.toggle-switch');
+
+        toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        });
+    </script>
+
 
     <script>
         
@@ -276,28 +302,31 @@
         }
     </script>
 
+    
     <script>
-        // 모든 nav-link 요소 선택
-        const navLinks = document.querySelectorAll('.nav-link');
+    document.querySelectorAll(".ranking-table th").forEach(th => {
+        th.addEventListener("click", () => {
+        const table = th.closest("table");
+        const tbody = table.querySelector("tbody");
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        const index = Array.from(th.parentNode.children).indexOf(th);
+        const isNumeric = index !== 1; // 식물명 제외 숫자 정렬
 
-        // 각 링크에 클릭 이벤트 걸기
-        navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); // 링크 이동 막기
-
-            // 모든 링크에서 active 제거
-            navLinks.forEach(item => item.classList.remove('active'));
-
-            // 클릭한 링크에만 active 추가
-            this.classList.add('active');
+        const sortedRows = rows.sort((a, b) => {
+            const aText = a.children[index].textContent.trim().replace(/[%(),]/g, "");
+            const bText = b.children[index].textContent.trim().replace(/[%(),]/g, "");
+            if (isNumeric) {
+            return parseFloat(aText) - parseFloat(bText);
+            } else {
+            return aText.localeCompare(bText);
+            }
         });
-        });
 
-        const toggle = document.querySelector('.toggle-switch');
-
-        toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
+        // 기존 tbody 비우고 다시 append
+        tbody.innerHTML = "";
+        sortedRows.forEach(row => tbody.appendChild(row));
         });
+    });
     </script>
 </body>
 </html>

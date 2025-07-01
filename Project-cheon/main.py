@@ -7,8 +7,6 @@ from compare import compare_data
 app = Flask(__name__)
 
 
-
-
 @app.route('/')
 def home():
     return "<h1>Welcome to Smart Farm Dashboard</h1>"
@@ -41,14 +39,14 @@ def flowershop():
 
 @app.route('/ui_jk')
 def ui_jk():
-    # kamis_data = fetch_kamis_items_data()
+    kamis_data = fetch_kamis_items_data()
     weather_dict = weather_data()
     compare_dict = compare_data()
 
     return render_template(
         'ui_jk.html',
         weather_dict=weather_dict,
-        # ranking_data=kamis_data,
+        ranking_data=kamis_data,
         compare_dict=compare_dict,
     )
     

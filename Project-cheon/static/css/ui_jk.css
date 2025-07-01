@@ -332,20 +332,8 @@
           box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-
-
-        .stats-card {
-          grid-column: 2;
-          grid-row: 1 / span 2;
-          background: white;
-          border-radius: 15px;
-          padding: 20px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-          text-align: center;
-        }
-
-        /* 인기식물 순위 테이블 */
-        .ranking-table-container {
+        /* Main Content - Dashboard Grid - Ranking Card */
+        .ranking-card {
           grid-column: 2;
           grid-row: 1 / span 2;
           background: white;
@@ -354,14 +342,14 @@
           box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        .ranking-table-header {
+        .ranking-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           margin-bottom: 10px;
         }
 
-        .ranking-table-header h2 {
+        .ranking-header h2 {
           font-size: 1.2em;
           color: #2e7d32;
           margin: 0;
@@ -415,108 +403,4 @@
 
         .ranking-table tbody tr:nth-child(even) {
           background: #bbdefb;
-        }
-
-        .stats-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            position: relative;
-            background: conic-gradient(#7cb342 0deg 252deg, #ffa726 252deg 324deg, #e0e0e0 324deg 360deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stats-circle::before {
-            content: '';
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-        }
-
-        .stats-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: #333;
-            z-index: 1;
-        }
-
-        .stats-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .stats-legend {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 12px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .legend-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }
-
-        .legend-dot.green { background: #7cb342; }
-        .legend-dot.orange { background: #ffa726; }
-
-        /* Bottom Grid */
-        .bottom-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-        }
-        
-
-        .chart-mini {
-            display: flex;
-            align-items: end;
-            height: 60px;
-            gap: 3px;
-            margin-top: 15px;
-        }
-
-        .mini-bar {
-            flex: 1;
-            background: #7cb342;
-            border-radius: 2px 2px 0 0;
-            min-height: 10px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 20px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .btn-reset {
-            background: #f44336;
-            color: white;
-        }
-
-        .btn-apply {
-            background: #9e9e9e;
-            color: white;
         }
