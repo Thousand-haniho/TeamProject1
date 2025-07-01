@@ -26,7 +26,7 @@ base_date = base_time.strftime('%Y%m%d')
 base_time_str = base_time.strftime('%H%M')
 
 # 지역별 격자 좌표
-locaions = {
+locations = {
     '서울': (60, 127),
     '부산': (98, 76),
     '대구': (89, 90),
@@ -82,14 +82,14 @@ category_map = {
     'WSD': '풍속'
 }
 
-for city, (nx, ny) in locaions.items():
+for city, (nx, ny) in locations.items():
     params['nx'] = str(nx)
     params['ny'] = str(ny)
 
     response = requests.get(url, params=params)
     data_dict = xmltodict.parse(response.content)
     data_json = json.loads(json.dumps(data_dict, ensure_ascii=False))
-    print(data_json)
+    # print(data_json)
 
 
 # 오라클 접속을 위한 정보를 변수로 정의
@@ -104,32 +104,46 @@ conn = cx.connect('dongsoo', '1234', '192.168.0.29:1521/XEPDB1')
 # 쿼리문 실행을 위한 커서 생성
 cursor = conn.cursor()
 
-file_path = './resData/전국_꽃집_주소/충북 꽃집.csv'
-
-df = pd.read_csv(file_path)
-# print(df)
 
 
 # 인파라미터가 있는 insert 쿼리문. ':변수명'과 같이 기술한다.
-sql="""insert into flowershop_spot (idx, sigun, faclt, addr, latitude, longitude)
-    values (seq_board_num.nextval, :sigun, :faclt, :addr, :latitude, :longitude) """
+sql="""insert into weather (
+    idx, 지역, 발표일자, 발표시각, 자료구분코드, 예보지점X좌표, 예보지점Y좌표, 실황값
+    )
+    values (
+    seq_board_num.nextval, :지역, :발표일자, :발표시각, :자료구분코드, :예보지점X좌표, :예보지점Y좌표, :실황값
+    ) """
 
-for i, row in df.iterrows():
-    try:
-        cursor.execute(sql, {
-            "sigun": row['시도명'],
-            "faclt": row['상호명'],
-            "addr": row['지번주소'],
-            "latitude": float(row['위도']),
-            "longitude": float(row['경도'])
-        })
-        print("1행입력.")
-        # 실행에 문제가 없다면 커밋해서 실제 테이블에 적용
-        conn.commit()
-    except Exception as e:
-        # 예외가 발생했다면 롤백 처리
-        conn.rollback()
-        print("insert 실행시 오류발생", e)
+# 데이터 수집 및 저장
+for city, (nx, ny) in locations.items():
+    params['nx'] = str(nx)
+    params['ny'] = str(ny)
+
+    response = requests.get(url, params=params)
+    data_dict = xmltodict.parse(response.content)
+    items = data_dict.get('response', {}).get('body', {}).get('items', {}).get('item', [])
+
+    for item in items:
+        try:
+            category_code = item.get('category')
+            category_korean = category_map.get(category_code, category_code)
+
+            cursor.execute(sql, {
+                '지역': city,
+                '발표일자': item.get('baseDate'),
+                '발표시각': item.get('baseTime'),
+                '자료구분코드': category_korean,
+                '실황값': item.get('obsrValue'),
+                '예보지점X좌표': int(item.get('nx')),
+                '예보지점Y좌표': int(item.get('ny'))
+            })
+
+            print(f"[✅ 저장됨] {city} - {item.get('category')} : {item.get('obsrValue')}")
+            conn.commit()
+        except Exception as e:
+            # 예외가 발생했다면 롤백 처리
+            conn.rollback()
+            print("insert 실행시 오류발생", e)
 
 # DB 연결 해제
 conn.close()
