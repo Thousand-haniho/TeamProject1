@@ -38,9 +38,10 @@ def map():
 def flowershop():
     return render_template('flowershop.html')
 
-@app.route('/ui_test')
-def ui_test():
-    return render_template('ui_test2.html')
+
+@app.route('/ui_jk')
+def ui_jk():
+    return render_template('ui_jk.html')
 
 
 

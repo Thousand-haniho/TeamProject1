@@ -1,3 +1,4 @@
+import sys
 from fetch_kamis_data import fetch_kamis_data
 import pandas as pd
 
@@ -13,7 +14,7 @@ def fetch_kamis_items_data():
         itemcategorycode = row["부류코드"]
         itemcode = row["품목코드"]
 
-        print(f"Fetching ({itemcategorycode}-{itemcode})...")
+        print(f"Fetching ({itemcategorycode}-{itemcode})...", file=sys.__stdout__)
         df = fetch_kamis_data(itemcategorycode, itemcode)
 
         if not df.empty:
