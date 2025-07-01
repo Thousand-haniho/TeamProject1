@@ -41,7 +41,16 @@ def flowershop():
 
 @app.route('/ui_jk')
 def ui_jk():
-    return render_template('ui_jk.html')
+    # kamis_data = fetch_kamis_items_data()
+    # weather_dict = weather_data()
+    compare_dict = compare_data()
+
+    return render_template(
+        'ui_jk.html',
+        # weather_dict=weather_dict,
+        # ranking_data=kamis_data,
+        compare_dict=compare_dict,
+    )
 
 
 

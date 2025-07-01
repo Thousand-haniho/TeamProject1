@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Dashboard</title>
     <link rel="stylesheet" href="../static/css/ui_jk.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Sidebar -->
@@ -71,124 +72,19 @@
         </div>
 
         <div class="dashboard-grid">
-            <div class="chart-container">
-                <div class="chart-bars">
-                    <div class="bar" style="height: 60px;"></div>
-                    <div class="bar" style="height: 40px;"></div>
-                    <div class="bar" style="height: 30px;"></div>
-                    <div class="bar" style="height: 50px;"></div>
-                    <div class="bar" style="height: 45px;"></div>
-                    <div class="bar" style="height: 70px;"></div>
-                    <div class="bar" style="height: 85px;"></div>
-                    <div class="bar" style="height: 90px;"></div>
-                    <div class="bar" style="height: 75px;"></div>
-                    <div class="bar red" style="height: 65px;"></div>
-                    <div class="bar red" style="height: 55px;"></div>
-                    <div class="bar orange" style="height: 80px;"></div>
-                    <div class="bar" style="height: 85px;"></div>
-                    <div class="bar" style="height: 70px;"></div>
-                    <div class="bar" style="height: 60px;"></div>
-                    <div class="bar" style="height: 50px;"></div>
-                    <div class="bar" style="height: 65px;"></div>
-                </div>
-                <div class="chart-labels">
-                    <span>Jan</span>
-                    <span>Feb</span>
-                    <span>Mar</span>
-                    <span>Apr</span>
-                    <span>May</span>
-                    <span>Jun</span>
-                    <span>Jul</span>
-                    <span>Aug</span>
-                    <span>Sep</span>
-                    <span>Oct</span>
-                    <span>Nov</span>
-                    <span>Dec</span>
-                </div>
-            </div>
-
-            <div class="stats-card">
-                <div class="stats-circle">
-                    <div class="stats-number">250</div>
-                </div>
-                <div class="stats-title">Dolor sit amet</div>
-                <div class="stats-legend">
-                    <div class="legend-item">
-                        <div class="legend-dot green"></div>
-                        <span>Dolor sit amet</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-dot orange"></div>
-                        <span>Lorem ipsum</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bottom-grid">
-            <div class="task-card">
-                <div class="task-header">
-                    <div class="task-title">Lorem Ipsum</div>
-                </div>
-                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Lorem ipsum dolor sit amet</p>
-                
-                <ul class="task-list">
-                    <li class="task-item">
-                        <div class="task-check completed"></div>
-                        Lorem ipsum
-                    </li>
-                    <li class="task-item">
-                        <div class="task-check completed"></div>
-                        Lorem ipsum
-                    </li>
-                    <li class="task-item">
-                        <div class="task-check"></div>
-                        Lorem ipsum
-                    </li>
-                    <li class="task-item">
-                        <div class="task-check completed"></div>
-                        Lorem ipsum
-                    </li>
-                    <li class="task-item">
-                        <div class="task-check"></div>
-                        Lorem ipsum
-                    </li>
-                </ul>
-
-                <div class="action-buttons">
-                    <button class="btn btn-reset">Reset</button>
-                    <button class="btn btn-apply">Apply</button>
-                </div>
-            </div>
-
-            <div class="task-card">
-                <div class="task-header">
-                    <div class="task-title">Lorem</div>
-                    <div class="task-stat">4.40</div>
-                </div>
-                <div class="task-header" style="margin-bottom: 0;">
-                    <div class="task-title">Lorem</div>
-                    <div class="task-stat">45%</div>
-                </div>
-                <div style="height: 80px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; margin: 15px 0; position: relative;">
-                    <div style="position: absolute; right: 15px; top: 15px; width: 8px; height: 8px; background: #2196f3; border-radius: 50%;"></div>
-                </div>
-                
-                <div class="task-title" style="margin-bottom: 10px;">Top Products</div>
-                <ul style="list-style: none; font-size: 12px; color: #666;">
-                    <li style="margin-bottom: 5px;">1. Lorem ipsum</li>
-                    <li style="margin-bottom: 5px;">2. Lorem ipsum</li>
-                    <li style="margin-bottom: 5px;">3. Lorem ipsum</li>
-                </ul>
-            </div>
-
-            <div class="task-card">
-                <div class="task-header">
-                    <div class="task-title">Lorem</div>
-                    <div class="task-stat">250</div>
+            <div class="weather-card">
+                <div class="weather-header">
+                    <div class="weather-title">Lorem</div>
+                    <div class="weather-stat">250</div>
                 </div>
 
                 <div class="metric-cards">
+                    <div class="metric-card one">
+                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                    </div>
+                    <div class="metric-card two">
+                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                    </div>
                     <div class="metric-card blue">
                         <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
                     </div>
@@ -199,28 +95,119 @@
                         <div style="width: 8px; height: 8px; background: #e91e63; border-radius: 50%; margin: 0 auto 5px;"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="task-title" style="margin-bottom: 10px;">Top Buyer</div>
-                <ul style="list-style: none; font-size: 12px; color: #666;">
-                    <li style="margin-bottom: 5px;">1. Lorem ipsum</li>
-                    <li style="margin-bottom: 5px;">2. Lorem ipsum</li>
-                    <li style="margin-bottom: 5px;">3. Lorem ipsum</li>
-                </ul>
+            <div class="chart-bars">
+                <div class="chart-box">
+                <h2>작물별 환경 평균 그래프</h2>
+                <canvas id="barChart" width="700" height="350"></canvas>
+                </div>
+            </div>
 
-                <div style="margin-top: 15px;">
-                    <div class="task-title" style="margin-bottom: 10px;">Lorem Ipsum</div>
-                    <div class="chart-mini">
-                        <div class="mini-bar" style="height: 20px;"></div>
-                        <div class="mini-bar" style="height: 35px;"></div>
-                        <div class="mini-bar" style="height: 25px;"></div>
-                        <div class="mini-bar" style="height: 15px;"></div>
-                        <div class="mini-bar" style="height: 45px;"></div>
-                        <div class="mini-bar" style="height: 30px;"></div>
-                        <div class="mini-bar" style="height: 40px;"></div>
-                    </div>
+            <div class="ranking-table-container">
+                <div class="ranking-table-header">
+                    <h2>가격 데이터</h2>
+                    <button class="ranking-select-btn">SELECT</button>
+                </div>
+                <div class="ranking-table-wrapper">
+                    <table class="ranking-table">
+                    <thead>
+                        <tr>
+                        <th data-column="rank">번호</th>
+                        <th data-column="name">작물명</th>
+                        <th data-column="price">소매가격</th>
+                        <th data-column="change">등락률</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in ranking_data %}
+                        <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ row.itemname }} ({{ row.unit }})</td>
+                        <td>{{ row.price }}</td>
+                        <td>{{ row.weekprice }}%</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+
+
     </div>
+
+    <script>
+        // 작물별 환경 평균 그래프
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ compare_dict.labels | tojson }},
+            datasets: [
+            {
+                label: '온도_내부 (°C)',
+                backgroundColor: '#FF6B6B',
+                data: {{ compare_dict.temp | tojson }}
+            },
+            {
+                label: '상대습도_내부 (%)',
+                backgroundColor: '#4ECDC4',
+                data: {{ compare_dict.humid | tojson }}
+            },
+            {
+                label: '일사량_외부 (W/m²)',
+                backgroundColor: '#FFE66D',
+                data: {{ compare_dict.solar | tojson }}
+            }
+            ]
+        },
+        options: {
+        plugins: {
+            legend: {
+            display: true,
+            position: 'top',
+            align: 'end',
+            labels: {
+                padding: 20,
+                boxWidth: 20,
+            }
+            }
+        },
+        layout: {
+            padding: {
+            top: 20,    // 전체 차트 내 여백 조정
+            right: 30,  // 오른쪽 여백 늘려서 범례가 더 오른쪽에 위치하도록
+            left: 10,
+            bottom: 10
+            }
+        }
+        }
+        });
+    </script>
+
+    <script>
+        // 모든 nav-link 요소 선택
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // 각 링크에 클릭 이벤트 걸기
+        navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // 링크 이동 막기
+
+            // 모든 링크에서 active 제거
+            navLinks.forEach(item => item.classList.remove('active'));
+
+            // 클릭한 링크에만 active 추가
+            this.classList.add('active');
+        });
+        });
+
+        const toggle = document.querySelector('.toggle-switch');
+
+        toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
