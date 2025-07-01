@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from fetch_kamis_items_data import fetch_kamis_items_data
 from weather import weather_data
 from compare import compare_data
@@ -41,7 +41,23 @@ def flowershop():
 
 @app.route('/ui_jk')
 def ui_jk():
-    return render_template('ui_jk.html')
+    # kamis_data = fetch_kamis_items_data()
+    weather_dict = weather_data()
+    compare_dict = compare_data()
+
+    return render_template(
+        'ui_jk.html',
+        weather_dict=weather_dict,
+        # ranking_data=kamis_data,
+        compare_dict=compare_dict,
+    )
+    
+@app.route('/api/weather')
+def api_weather():
+    region = request.args.get("region", "서울")
+    weather_dict = weather_data(region)
+    return jsonify(weather_dict)
+
 
 
 
