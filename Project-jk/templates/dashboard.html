@@ -48,9 +48,19 @@
       <section class="charts">
         <div class="chart-box">
           <h1>작물별 환경 평균 그래프</h1>
-          <div id="cropFilter" style="margin-bottom: 10px;"></div>
+          <div id="regionSelector" style="margin-bottom:10px;">
+            <label for="region">지역 선택:</label>
+            <select id="region">
+              <option value="서울">서울</option>
+              <option value="부산">부산</option>
+              <option value="대구">대구</option>
+              <option value="광주">광주</option>
+            </select>
+          </div>
+
+          <div id="cropFilter" style="margin-bottom:10px;"></div>
+
           <canvas id="barChart" width="800" height="500"></canvas>
-        </div>
       </section>
       <section class="ranking">
         <div class="ranking-table-container">
@@ -91,6 +101,21 @@ const labels = {{ compare_dict.labels | tojson }};
 const tempData = {{ compare_dict.temp | tojson }};
 const humidData = {{ compare_dict.humid | tojson }};
 const solarData = {{ compare_dict.solar | tojson }};
+
+let selectedRegion = "서울";
+let lastSelectedCropIndex = null;
+
+// 지역 선택 이벤트
+document.getElementById("region").addEventListener("change", function() {
+  selectedRegion = this.value;
+
+  // 마지막 선택한 품목이 있으면 다시 그리기
+  if (lastSelectedCropIndex !== null) {
+    filterChartByCrop(lastSelectedCropIndex);
+  }
+});
+
+
 
 // Chart.js 초기화
 const ctx = document.getElementById('barChart').getContext('2d');
@@ -170,15 +195,31 @@ labels.forEach((crop, index) => {
   filterContainer.appendChild(btn);
 });
 
-// 작물 클릭 시 해당 데이터만 보여주기
+
 function filterChartByCrop(index) {
+  lastSelectedCropIndex = index; // 여기에 저장!
+
   const selectedLabel = labels[index];
-  barChart.data.labels = [selectedLabel];
-  barChart.data.datasets[0].data = [tempData[index]];
-  barChart.data.datasets[1].data = [humidData[index]];
-  barChart.data.datasets[2].data = [solarData[index]];
-  barChart.update();
+  const cropTemp = tempData[index];
+  const cropHumid = humidData[index];
+  const cropSolar = solarData[index];
+
+  fetch(`/api/weather?region=${selectedRegion}`)
+    .then(response => response.json())
+    .then(weather => {
+      const realTemp = parseFloat(weather.temp_value);
+      const realHumid = parseFloat(weather.humi_value);
+      const realSolar = 0;
+
+      barChart.data.labels = [selectedLabel, selectedRegion + " 실시간"];
+      barChart.data.datasets[0].data = [cropTemp, realTemp];
+      barChart.data.datasets[1].data = [cropHumid, realHumid];
+      barChart.data.datasets[2].data = [cropSolar, realSolar];
+      barChart.update();
+    });
 }
+
+
 </script>
 
 
