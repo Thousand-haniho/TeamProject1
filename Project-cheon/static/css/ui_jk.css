@@ -7,7 +7,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
-            min-height: 100vh;
+            max-height: 100vh;
             display: flex;
         }
 
@@ -239,7 +239,7 @@
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            height: 300px;
+            height: 320px;
         }
 
         .weather-header {
@@ -250,15 +250,27 @@
         }
 
         .weather-title {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .weather-title::before {
+            content: "🌱";
+            font-size: 20px;
         }
 
         .weather-stat {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
-            color: #333;
+            color: #1b5e20;
+            background: linear-gradient(135deg, #81c784, #4caf50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .metric-cards {
@@ -267,29 +279,37 @@
             grid-template-rows: 1fr 1fr;
             gap: 15px;
             margin-bottom: 15px;
-            height: 200px;  
+            height: 220px;  
         }
 
         .metric-card {
             background: #f8f9fa;
             padding: 15px;
             border-radius: 10px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .metric-value {
+        .metric-card h3 {
+            margin: 0 0 8px;
+            color: #333;
             font-size: 18px;
             font-weight: 600;
-            color: #333;
         }
 
-        .metric-label {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
+        .metric-card p {
+            font-size: 26px;
+            font-weight: bold;
+            color: #1b5e20;
+            background: linear-gradient(135deg, #81c784, #4caf50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .metric-card.one { 
+        .metric-card.main { 
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); 
             grid-column: 1;
             grid-row: 1 / span 2; /* 두 행 차지 */
@@ -317,20 +337,59 @@
 
         /* Main Content - Dashboard Grid - Chart Card */
         .chart-card {
-            grid-column: 1;
-            grid-row: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 0;
-        }
-
-        .chart-box {
+          grid-column: 1;
+          grid-row: 2;
           background: white;
           border-radius: 8px;
           padding: 20px;
           box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+          max-height: 500px;
+          width: 100%;
+          min-width: 700px;   /* 이거 추가 */
+          margin: 0 auto;     /* 이거 추가 */
         }
+
+        .chart-card-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+
+        #regionSelector {
+          padding: auto 15px;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        #regionSelector label {
+          font-size: 16px;
+          color: #333; 
+          font-weight: 600;
+        }
+
+        #regionSelector select {
+          padding: 6px 10px;
+          border: 1px solid #a5d6a7;
+          border-radius: 5px;
+          background-color: #ffffff;
+          font-size: 14px;
+          color: #388e3c;
+          cursor: pointer;
+          transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        #regionSelector select:hover {
+          border-color: #81c784;
+          box-shadow: 0 0 4px rgba(129, 199, 132, 0.5);
+        }
+
+        #barChart {
+          width: 100% !important;
+          display: block;
+        }
+
 
         /* Main Content - Dashboard Grid - Ranking Card */
         .ranking-card {
@@ -351,7 +410,7 @@
 
         .ranking-header h2 {
           font-size: 1.2em;
-          color: #2e7d32;
+          color: #333;
           margin: 0;
         }
 
@@ -367,8 +426,9 @@
 
         /* 스크롤 영역 */
         .ranking-table-wrapper {
-          width: 400px;
-          max-height: 700px; /* 원하는 높이로 조절 */
+          min-width: 350px;
+          width: 100%;
+          height: 100%; /* 원하는 높이로 조절 */
           overflow-y: auto;
           margin: 0 auto;
         }

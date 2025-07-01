@@ -74,32 +74,35 @@
         <div class="dashboard-grid">
             <div class="weather-card">
                 <div class="weather-header">
-                    <div class="weather-title">Lorem</div>
-                    <div class="weather-stat">250</div>
+                    <div class="weather-title">스마트팜 날씨</div>
+                    <div class="weather-stat">24°C</div>
                 </div>
 
                 <div class="metric-cards">
-                    <div class="metric-card one">
-                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                    <div class="metric-card main">
                     </div>
                     <div class="metric-card two">
-                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>기온</h3>
+                        <p>{{ weather_dict.temp_value }} °C</p>
                     </div>
                     <div class="metric-card blue">
-                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>습도</h3>
+                        <p>{{ weather_dict.humi_value }} %</p>
                     </div>
                     <div class="metric-card orange">
-                        <div style="width: 8px; height: 8px; background: #ff9800; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>1시간 강수량</h3>
+                        <p>{{ weather_dict.rain_value }} mm</p>
                     </div>
                     <div class="metric-card pink">
-                        <div style="width: 8px; height: 8px; background: #e91e63; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>풍속</h3>
+                        <p>{{ weather_dict.wind_value }} m/s</p>
                     </div>
                 </div>
             </div>
 
             <div class="chart-card">
-                <div class="chart-box">
-                    <h2>작물별 환경 평균 그래프</h2>
+                <div class="chart-card-header">
+                    <h3>작물별 환경 평균 그래프</h3>
                     <div id="regionSelector" style="margin-bottom:10px;">
                         <label for="region">지역 선택:</label>
                         <select id="region">
@@ -111,11 +114,11 @@
                             <option value="대전">대전</option>
                         </select>
                     </div>
-
-                    <div id="cropFilter" style="margin-bottom:10px;"></div>
-
-                    <canvas id="barChart" width="700" height="300"></canvas>
                 </div>
+
+                <div id="cropFilter" style="margin-bottom:10px;"></div>
+
+                <canvas id="barChart"></canvas>
             </div>
 
             <div class="ranking-card">
@@ -228,6 +231,7 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: true,
+                aspectRatio: 3, // 비율: 가로/세로 (예: 2 = 가로가 세로의 2배)
                 plugins: {
                     legend: {
                         display: true,
@@ -302,6 +306,12 @@
                 barChart.update();
                 });
         }
+
+        window.addEventListener('resize', () => {
+            if (barChart) {
+                barChart.resize();
+            }
+        });
     </script>
 
     
