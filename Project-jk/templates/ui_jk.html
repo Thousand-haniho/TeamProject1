@@ -69,25 +69,27 @@
         <div class="dashboard-grid">
             <div class="weather-card">
                 <div class="weather-header">
-                    <div class="weather-title">Lorem</div>
-                    <div class="weather-stat">250</div>
+                    <div class="weather-title">현재 날씨</div>
                 </div>
 
                 <div class="metric-cards">
-                    <div class="metric-card one">
-                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                    <div class="metric-card main">
                     </div>
                     <div class="metric-card two">
-                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>기온🌡️</h3>
+                        <p>{{ weather_dict.temp_value }} °C</p>
                     </div>
                     <div class="metric-card blue">
-                        <div style="width: 8px; height: 8px; background: #2196f3; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>습도💧</h3>
+                        <p>{{ weather_dict.humi_value }} %</p>
                     </div>
                     <div class="metric-card orange">
-                        <div style="width: 8px; height: 8px; background: #ff9800; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>1시간 강수량🌧️</h3>
+                        <p>{{ weather_dict.rain_value }} mm</p>
                     </div>
                     <div class="metric-card pink">
-                        <div style="width: 8px; height: 8px; background: #e91e63; border-radius: 50%; margin: 0 auto 5px;"></div>
+                        <h3>풍속💨</h3>
+                        <p>{{ weather_dict.wind_value }} m/s</p>
                     </div>
                 </div>
             </div>
@@ -110,7 +112,7 @@
 
                 <div id="cropFilter" style="margin-bottom:10px;"></div>
 
-                <canvas id="barChart" width="700" height="300"></canvas>
+                <canvas id="barChart"></canvas>
             </div>
 
             <div class="ranking-card">
@@ -201,17 +203,17 @@
             datasets: [
                 {
                 label: '온도_내부 (°C)',
-                backgroundColor: '#FF6B6B',
+                backgroundColor: '#AED581',
                 data: tempData
                 },
                 {
                 label: '상대습도_내부 (%)',
-                backgroundColor: '#4ECDC4',
+                backgroundColor: '#4DB6AC',
                 data: humidData
                 },
                 {
                 label: '일사량_외부 (W/m²)',
-                backgroundColor: '#FFE66D',
+                backgroundColor: '#DCE775',
                 data: solarData
                 }
             ]
@@ -223,7 +225,7 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: true,
-                aspectRatio: 3,
+                aspectRatio: 3, // 비율: 가로/세로 (예: 2 = 가로가 세로의 2배)
                 plugins: {
                     legend: {
                         display: true,
@@ -298,6 +300,12 @@
                 barChart.update();
                 });
         }
+
+        window.addEventListener('resize', () => {
+            if (barChart) {
+                barChart.resize();
+            }
+        });
     </script>
 
     
