@@ -103,10 +103,12 @@
                     <div id="regionSelector" style="margin-bottom:10px;">
                         <label for="region">지역 선택:</label>
                         <select id="region">
-                        <option value="서울">서울</option>
-                        <option value="부산">부산</option>
-                        <option value="대구">대구</option>
-                        <option value="광주">광주</option>
+                            <option value="서울">서울</option>
+                            <option value="부산">부산</option>
+                            <option value="대구">대구</option>
+                            <option value="광주">광주</option>
+                            <option value="인천">인천</option>
+                            <option value="대전">대전</option>
                         </select>
                     </div>
 
@@ -304,29 +306,29 @@
 
     
     <script>
-    document.querySelectorAll(".ranking-table th").forEach(th => {
-        th.addEventListener("click", () => {
-        const table = th.closest("table");
-        const tbody = table.querySelector("tbody");
-        const rows = Array.from(tbody.querySelectorAll("tr"));
-        const index = Array.from(th.parentNode.children).indexOf(th);
-        const isNumeric = index !== 1; // 식물명 제외 숫자 정렬
+        document.querySelectorAll(".ranking-table th").forEach(th => {
+            th.addEventListener("click", () => {
+            const table = th.closest("table");
+            const tbody = table.querySelector("tbody");
+            const rows = Array.from(tbody.querySelectorAll("tr"));
+            const index = Array.from(th.parentNode.children).indexOf(th);
+            const isNumeric = index !== 1; // 식물명 제외 숫자 정렬
 
-        const sortedRows = rows.sort((a, b) => {
-            const aText = a.children[index].textContent.trim().replace(/[%(),]/g, "");
-            const bText = b.children[index].textContent.trim().replace(/[%(),]/g, "");
-            if (isNumeric) {
-            return parseFloat(aText) - parseFloat(bText);
-            } else {
-            return aText.localeCompare(bText);
-            }
-        });
+            const sortedRows = rows.sort((a, b) => {
+                const aText = a.children[index].textContent.trim().replace(/[%(),]/g, "");
+                const bText = b.children[index].textContent.trim().replace(/[%(),]/g, "");
+                if (isNumeric) {
+                return parseFloat(aText) - parseFloat(bText);
+                } else {
+                return aText.localeCompare(bText);
+                }
+            });
 
-        // 기존 tbody 비우고 다시 append
-        tbody.innerHTML = "";
-        sortedRows.forEach(row => tbody.appendChild(row));
+            // 기존 tbody 비우고 다시 append
+            tbody.innerHTML = "";
+            sortedRows.forEach(row => tbody.appendChild(row));
+            });
         });
-    });
     </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from fetch_kamis_items_data import fetch_kamis_items_data
+from fetch_kamis_items import fetch_kamis_items_data
 from weather import weather_data
 from compare import compare_data
 

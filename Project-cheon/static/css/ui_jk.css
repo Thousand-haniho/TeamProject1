@@ -368,7 +368,7 @@
         /* 스크롤 영역 */
         .ranking-table-wrapper {
           width: 400px;
-          max-height: 500px; /* 원하는 높이로 조절 */
+          max-height: 700px; /* 원하는 높이로 조절 */
           overflow-y: auto;
           margin: 0 auto;
         }
