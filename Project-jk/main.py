@@ -39,6 +39,7 @@ def flowershop():
 def ui_test():
     return render_template('ui_test2.html')
 
+# 화면 새로고침 안되도록 AJAX 사용
 @app.route('/api/weather')
 def api_weather():
     region = request.args.get("region", "서울")
