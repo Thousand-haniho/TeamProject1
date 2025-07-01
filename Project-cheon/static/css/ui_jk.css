@@ -260,7 +260,7 @@
             font-weight: 700;
             color: #333;
         }
-        
+
         .metric-cards {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr; /* 3열 */
@@ -315,7 +315,8 @@
           background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%); 
         }
 
-        .chart-bars {
+        /* Main Content - Dashboard Grid - Chart Card */
+        .chart-card {
             grid-column: 1;
             grid-row: 2;
             display: grid;
@@ -330,6 +331,7 @@
           padding: 20px;
           box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
+
 
 
         .stats-card {

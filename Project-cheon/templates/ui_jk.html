@@ -97,10 +97,22 @@
                 </div>
             </div>
 
-            <div class="chart-bars">
+            <div class="chart-card">
                 <div class="chart-box">
-                <h2>작물별 환경 평균 그래프</h2>
-                <canvas id="barChart" width="700" height="350"></canvas>
+                    <h2>작물별 환경 평균 그래프</h2>
+                    <div id="regionSelector" style="margin-bottom:10px;">
+                        <label for="region">지역 선택:</label>
+                        <select id="region">
+                        <option value="서울">서울</option>
+                        <option value="부산">부산</option>
+                        <option value="대구">대구</option>
+                        <option value="광주">광주</option>
+                        </select>
+                    </div>
+
+                    <div id="cropFilter" style="margin-bottom:10px;"></div>
+
+                    <canvas id="barChart" width="700" height="300"></canvas>
                 </div>
             </div>
 
@@ -138,52 +150,130 @@
     </div>
 
     <script>
-        // 작물별 환경 평균 그래프
+        
+        const labels = {{ compare_dict.labels | tojson }};
+        const tempData = {{ compare_dict.temp | tojson }};
+        const humidData = {{ compare_dict.humid | tojson }};
+        const solarData = {{ compare_dict.solar | tojson }};
+
+        let selectedRegion = "서울";
+        let lastSelectedCropIndex = null;
+
+        // 지역 선택 이벤트
+        document.getElementById("region").addEventListener("change", function() {
+            selectedRegion = this.value;
+
+            // 마지막 선택한 품목이 있으면 다시 그리기
+            if (lastSelectedCropIndex !== null) {
+                filterChartByCrop(lastSelectedCropIndex);
+            }
+        });
+
+
+
+        // Chart.js 초기화
         const ctx = document.getElementById('barChart').getContext('2d');
-        const barChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: {{ compare_dict.labels | tojson }},
+        const chartData = {
+            labels: labels,
             datasets: [
-            {
+                {
                 label: '온도_내부 (°C)',
                 backgroundColor: '#FF6B6B',
-                data: {{ compare_dict.temp | tojson }}
-            },
-            {
+                data: tempData
+                },
+                {
                 label: '상대습도_내부 (%)',
                 backgroundColor: '#4ECDC4',
-                data: {{ compare_dict.humid | tojson }}
-            },
-            {
+                data: humidData
+                },
+                {
                 label: '일사량_외부 (W/m²)',
                 backgroundColor: '#FFE66D',
-                data: {{ compare_dict.solar | tojson }}
-            }
+                data: solarData
+                }
             ]
-        },
-        options: {
-        plugins: {
-            legend: {
-            display: true,
-            position: 'top',
-            align: 'end',
-            labels: {
-                padding: 20,
-                boxWidth: 20,
+        };
+
+        const barChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        align: 'end'
+                    }
+                    },
+                    layout: {
+                    padding: {
+                        top: 20,
+                        right: 30,
+                        left: 10,
+                        bottom: 10
+                    }
+                }
             }
-            }
-        },
-        layout: {
-            padding: {
-            top: 20,    // 전체 차트 내 여백 조정
-            right: 30,  // 오른쪽 여백 늘려서 범례가 더 오른쪽에 위치하도록
-            left: 10,
-            bottom: 10
-            }
-        }
-        }
         });
+
+        // 필터 버튼 영역
+        const filterContainer = document.getElementById('cropFilter');
+
+        // 버튼 스타일 함수
+        function createButton(text, onClickFn) {
+            const btn = document.createElement('button');
+            btn.textContent = text;
+            btn.style.margin = '5px';
+            btn.style.padding = '5px 10px';
+            btn.style.borderRadius = '5px';
+            btn.style.border = '1px solid #ccc';
+            btn.style.backgroundColor = '#f9f9f9';
+            btn.style.cursor = 'pointer';
+            btn.addEventListener('click', onClickFn);
+            return btn;
+        }
+
+        // 전체 버튼
+        const allBtn = createButton('전체 보기', () => {
+        barChart.data.labels = labels;
+        barChart.data.datasets[0].data = tempData;
+        barChart.data.datasets[1].data = humidData;
+        barChart.data.datasets[2].data = solarData;
+        barChart.update();
+        });
+        filterContainer.appendChild(allBtn);
+
+        // 작물별 버튼 생성
+        labels.forEach((crop, index) => {
+            const btn = createButton(crop, () => filterChartByCrop(index));
+            filterContainer.appendChild(btn);
+        });
+
+
+        function filterChartByCrop(index) {
+            lastSelectedCropIndex = index; // 여기에 저장!
+
+            const selectedLabel = labels[index];
+            const cropTemp = tempData[index];
+            const cropHumid = humidData[index];
+            const cropSolar = solarData[index];
+
+            fetch(`/api/weather?region=${selectedRegion}`)
+                .then(response => response.json())
+                .then(weather => {
+                const realTemp = parseFloat(weather.temp_value);
+                const realHumid = parseFloat(weather.humi_value);
+                const realSolar = 0;
+
+                barChart.data.labels = [selectedLabel, selectedRegion + " 실시간"];
+                barChart.data.datasets[0].data = [cropTemp, realTemp];
+                barChart.data.datasets[1].data = [cropHumid, realHumid];
+                barChart.data.datasets[2].data = [cropSolar, realSolar];
+                barChart.update();
+                });
+        }
     </script>
 
     <script>
