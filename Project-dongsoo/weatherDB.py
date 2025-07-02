@@ -86,6 +86,7 @@ for city, (nx, ny) in locations.items():
     params['nx'] = str(nx)
     params['ny'] = str(ny)
 
+    # 딕셔너리 -> JSON 형식으로 변경
     response = requests.get(url, params=params)
     data_dict = xmltodict.parse(response.content)
     data_json = json.loads(json.dumps(data_dict, ensure_ascii=False))

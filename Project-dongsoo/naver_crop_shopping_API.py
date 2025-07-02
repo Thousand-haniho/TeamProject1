@@ -5,7 +5,7 @@ import urllib.parse
 from datetime import datetime
 from dotenv import load_dotenv
 
-### 네이버 쇼핑에서 top20 인기 상품명+가격 데이터 가져오기 ###
+### 네이버 쇼핑에서 top 인기 상품명+가격 데이터 가져오기 ###
 
 # .env 파일 불러오기
 load_dotenv()
@@ -15,8 +15,8 @@ CLIENT_ID = os.getenv('NAVER_AD_API_CLIENT_ID')
 CLIENT_SECRET = os.getenv('NAVER_AD_API_CLIENT_SECRET')
 
 # 검색어 설정
-QUERY = "실내식물"
-DISPLAY = 100  # 가져올 상품 수 (최대 100까지 가능)
+QUERY = "텃밭식물"
+DISPLAY = 10  # 가져올 상품 수 (최대 100까지 가능)
 URL = "https://openapi.naver.com/v1/search/shop.json"
 
 # API 요청 헤더
@@ -52,8 +52,12 @@ for item in items:
         'link': item['link']
     })
 
-# CSV 저장
-filename = f"popular_plants_{datetime.now().strftime('%Y%m%d_%H%M%S')}2.csv"
+# 📂 저장할 폴더 경로 설정
+save_directory = "./saveFiles/crop_top10"
+
+# 📝 파일 이름 생성 (폴더 경로 포함)
+filename = os.path.join(save_directory, f"popular_plants_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
+
 with open(filename, mode='w', newline='', encoding='utf-8-sig') as f:
     writer = csv.DictWriter(f, fieldnames=['title', 'brand', 'maker', 'price', 'link'])
     writer.writeheader()
