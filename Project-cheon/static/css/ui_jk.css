@@ -395,11 +395,37 @@ body {
     color: #333;
 }
 
+.ranking-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 #ranking-category-select {
   background: #4caf50;
   color: white;
   border: none;
+  padding: 7px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#show-chart-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
   padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#crop-select {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 7px 10px;
   font-size: 12px;
   border-radius: 3px;
   cursor: pointer;

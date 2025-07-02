@@ -11,9 +11,20 @@ app = Flask(__name__)
 def home():
     return "<h1>Welcome to Smart Farm Dashboard</h1>"
 
-@app.route('/map')
-def map():
-    return render_template('map.html')
+@app.route('/dashboard')
+def dashboard():
+    weather_dict = weather_data()
+    compare_dict = compare_data()
+
+    return render_template(
+        'dashboard.html',
+        weather_dict=weather_dict,
+        compare_dict=compare_dict,
+    )
+
+@app.route('/education')
+def education():
+    return render_template('education.html')
 
 
 @app.route('/flowershop')
@@ -21,17 +32,6 @@ def flowershop():
     return render_template('flowershop.html')
 
 
-@app.route('/ui_jk')
-def ui_jk():
-    weather_dict = weather_data()
-    compare_dict = compare_data()
-
-    return render_template(
-        'ui_jk.html',
-        weather_dict=weather_dict,
-        compare_dict=compare_dict,
-    )
-    
 @app.route('/api/weather')
 def api_weather():
     region = request.args.get("region", "서울")
@@ -52,8 +52,15 @@ df = pd.read_csv("./resData/가격_데이터.csv")
 def get_ranking_data():
     req_data = request.get_json()
     category_code = int(req_data["category_code"])
+    itemname = req_data.get("itemname")  # itemname이 안 올 수도 있으니 get()
 
+    # 1차 필터링 (부류코드)
     filtered = df[df["부류코드"] == category_code]
+
+    # 2차 필터링 (itemname이 있으면)
+    if itemname:
+        filtered = filtered[filtered["itemname"] == itemname]
+
     # NaN → None으로 변환
     filtered = filtered.where(pd.notna(filtered), None)
     data = filtered.to_dict(orient="records")

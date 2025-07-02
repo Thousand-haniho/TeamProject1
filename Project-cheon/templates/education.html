@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet" href="../static/css/ui_jk.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon"></div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="/dashboard" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    대쉬보드
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/education" class="nav-link">
+                    <span class="nav-icon">🏫</span>
+                    농업교육기관
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/flowershop" class="nav-link">
+                    <span class="nav-icon">🌼</span>
+                    꽃집 지도
+                </a>
+            </li>
+        </ul>
+
+        <div class="bottom-controls">
+            <div class="toggle-control">
+                <span>🌙 Light Mode</span>
+                <div class="toggle-switch"></div>
+            </div>
+            <a href="#" class="withdraw-btn">
+                <span>💰 Withdraw</span>
+            </a>
+            <button class="logout-btn">📤 Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1 class="page-title">Thousand haniho</h1>
+        </div>
+
+        <div class="map-container" style="height:85vh;">
+            <iframe src="./static/iframes/edu_map_marker.html" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    
+    <!-- 네비게이션 메뉴 -->
+    <script>
+        // 모든 nav-link 요소 선택
+        const navLinks = document.querySelectorAll('.nav-link');
+        // 현재 URL 경로 얻기
+        const currentPath = window.location.pathname;
+
+        navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+
+        // href가 # 이거나 빈 값이면 비교하지 않음
+        if (!href || href === '#') return;
+
+        const linkPath = new URL(href, window.location.origin).pathname;
+
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+        }
+        });
+    </script>
+
+</body>
+</html>
