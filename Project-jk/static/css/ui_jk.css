@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 /* 전체 초기화 */
 * {
     margin: 0;
@@ -6,7 +14,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+   font-family: 'GmarketSansMedium', sans-serif;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
     max-height: 100vh;
     display: flex;
@@ -181,10 +189,9 @@ body {
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 950px auto;
     grid-template-rows: auto auto;
-    gap: 20px;
-    margin-bottom: 40px;
+    gap: 25px;
 }
 
 /* Weather Card */
@@ -196,6 +203,7 @@ body {
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     height: 320px;
+    width: 450px;
 }
 
 .weather-header {
@@ -283,9 +291,8 @@ body {
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     max-height: 500px;
-    width: 100%;
-    min-width: 700px;
-    margin: 0 auto;
+    height: 450px;   
+    margin: 0;        
 }
 
 .chart-card-header {
@@ -297,11 +304,12 @@ body {
 /* Ranking Card */
 .ranking-card {
     grid-column: 2;
-    grid-row: 1 / span 2;
+    grid-row: 2;
     background: white;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 450px;
 }
 
 .ranking-header {
@@ -342,7 +350,7 @@ body {
 }
 
 .ranking-table thead {
-    background: #3f51b5;
+    background: #81c784;
     color: white;
     position: sticky;
     top: 0;
@@ -359,10 +367,17 @@ body {
     font-size: 14px;
 }
 
+/* 홀수 행 */
 .ranking-table tbody tr:nth-child(odd) {
-    background: #e3f2fd;
+    background: #e8f5e9;
 }
 
+/* 짝수 행 */
 .ranking-table tbody tr:nth-child(even) {
-    background: #bbdefb;
+    background: #c8e6c9;
+}
+
+.ranking-table tbody tr:hover {
+    background: #a5d6a7; /* 진한 녹색 */
+    cursor: pointer;
 }
