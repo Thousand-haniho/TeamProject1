@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Dashboard</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
     <link rel="stylesheet" href="../static/css/ui_jk.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -421,31 +422,57 @@
     
     <script>
         // dashboard에 지도 추가
-        var map = L.map('map').setView([37.47, 126.88], 7);
+        var map = L.map('map').setView([37.47, 126.88], 6);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
+        L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map);;
 
-        const locations = [
-            { coords: [37.46569942, 127.089786], name: '서울특별시 농업기술센터' },
-            { coords: [35.2132661, 128.9866578], name: '부산광역시 농업기술센터' },
-            { coords: [35.1795543, 126.8944389], name: '광주광역시 농업기술센터' },
-            { coords: [35.53729407, 129.311239], name: '울산광역시 농업기술센터' },
-            { coords: [36.30791127, 127.3063053], name: '대전광역시 농업기술센터' },
-            { coords: [37.76121113, 128.876019], name: '강원특별자치도 농업기술원' },
-            { coords: [36.57691051, 128.5058727], name: '경상북도 농업기술원' },
-            { coords: [35.42027213, 127.3898669], name: '전라북도 농업기술원' },
-            { coords: [34.81608397, 126.4629395], name: '전라남도 농업기술원' },
-            { coords: [35.82322281, 128.7378764], name: '대구광역시 농업기술센터' },
-            { coords: [36.6319897, 127.457292], name: '충청북도 농업기술원' },
-            { coords: [36.66124535, 126.6736907], name: '충청남도 농업기술원' },
-            { coords: [33.48901127, 126.4983026], name: '제주특별자치도 농업기술원' },
-            { coords: [37.55583491, 126.8022084], name: '경기도 농업기술원' },
-            { coords: [35.24867869, 128.6579133], name: '경상남도 농업기술원' },
-            { coords: [36.59113917, 127.2925249], name: '세종특별자치시 농업기술센터' },
-            { coords: [37.53861729, 126.992004], name: '인천광역시 농업기술센터' }
-        ];
+       const locations = [
+        { coords: [37.46569942, 127.089786], name: '서울특별시 농업기술센터' },
+        { coords: [37.46493908, 127.0884287], name: '서울특별시 농업기술센터 스마트농장형 치유농업교육장' },
+        { coords: [37.48334605, 127.0229069], name: '대동 KIRO 로보틱스센터' },
+        { coords: [37.60110012, 126.935146], name: '텃밭보급소' },
+        { coords: [37.47316698, 126.840239], name: '광명텃밭보급소' },
+        { coords: [37.60110012, 126.935146], name: '사단법인 텃밭보급소' },
+        { coords: [35.2132661, 128.9866578], name: '부산광역시 농업기술센터' },
+        { coords: [35.25261404, 129.1950196], name: '기장군농업기술센터' },
+        { coords: [35.17855047, 128.9564846], name: '부산시농업기술센터 대저2지소' },
+        { coords: [35.19890528, 129.0749494], name: '부산귀농운동본부' },
+        { coords: [35.09773868, 128.9196205], name: '명지농협 국제신도시지점' },
+        { coords: [35.32085717, 129.1894781], name: '양산기장축산농협 정관신도시지점' },
+        { coords: [37.53408708, 126.7446408], name: '인천광역시 농업기술센터' },
+        { coords: [37.7040039, 126.4352806], name: '강화군농업기술센터' },
+        { coords: [37.46014925, 126.6320419], name: '옹진군농업기술센터' },
+        { coords: [37.44636153, 126.7080307], name: '인천도시농업네트워크' },
+        { coords: [36.30791127, 127.3063053], name: '대전광역시 농업기술센터' },
+        { coords: [36.30884558, 127.3074447], name: '대전시농업기술센터 케어팜 도시정원' },
+        { coords: [36.36918539, 127.35353], name: '충남대학교 농업과학기술센터' },
+        { coords: [36.57264179, 127.2832569], name: '세종특별자치시 농업기술센터' },
+        { coords: [36.5354375, 127.3453161], name: '농기계임대사업소 중부분점' },
+        { coords: [36.57321084, 127.2819361], name: '세종특별자치시 농기계임대사업소 본점' },
+        { coords: [37.45900263, 126.9910482], name: '한국사이버원예대학 꽃숲치유팜' },
+        { coords: [37.45297698, 127.001736], name: '한국사이버원예대학 부설도시농업지원센터' },
+        { coords: [37.92332042, 127.2260989], name: '포천시농업기술센터 본소' },
+        { coords: [37.92329511, 127.2252061], name: '포천시농업기술센터 유용미생물배양센터' },
+        { coords: [37.99152862, 127.1886499], name: '포천시농업기술센터 창수농업인상담소' },
+        { coords: [37.07639758, 126.8728219], name: '화성시농업기술센터' },
+        { coords: [37.22247021, 127.0428634], name: '경기도농업기술원' },
+        { coords: [35.53729407, 129.311239], name: '울산광역시 농업기술센터' },
+        { coords: [37.76121113, 128.876019], name: '강원특별자치도 농업기술원' },
+        { coords: [36.57691051, 128.5058727], name: '경상북도 농업기술원' },
+        { coords: [35.24867869, 128.6579133], name: '경상남도 농업기술원' },
+        { coords: [36.6319897, 127.457292], name: '충청북도 농업기술원' },
+        { coords: [36.66124535, 126.6736907], name: '충청남도 농업기술원' },
+        { coords: [33.48901127, 126.4983026], name: '제주특별자치도 농업기술원' },
+        { coords: [35.42027213, 127.3898669], name: '전라북도 농업기술원' },
+        { coords: [34.81608397, 126.4629395], name: '전라남도 농업기술원' },
+        { coords: [35.82322281, 128.7378764], name: '대구광역시 농업기술센터' },
+        { coords: [35.1795543, 126.8944389], name: '광주광역시 농업기술센터' }
+    ];
+
+
 
         locations.forEach(loc => {
         L.marker(loc.coords).addTo(map)
