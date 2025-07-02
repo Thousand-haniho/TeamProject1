@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Dashboard</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
     <link rel="stylesheet" href="../static/css/ui_jk.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -15,7 +16,6 @@
     <div class="sidebar">
         <div class="logo">
             <div class="logo-icon"></div>
-            <h2>Logo Here</h2>
         </div>
         
         <ul class="nav-menu">
@@ -316,6 +316,7 @@
     </script>
 
     <!-- 가격 테이블 -->
+    <!-- 가격 테이블 -->
     <script>
         // 테이블 헤더 오름차순, 내림차순 정렬
         document.querySelectorAll(".ranking-table th").forEach(th => {
@@ -418,7 +419,7 @@
         // 페이지 로드시 change 이벤트를 강제 발생
         document.getElementById("ranking-category-select").dispatchEvent(new Event("change"));
     </script>
-
+    
     <script>
         // dashboard에 지도 추가
         var map = L.map('map').setView([37.47, 126.88], 7);

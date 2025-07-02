@@ -1,9 +1,8 @@
-import pandas as pd
 from flask import Flask, render_template, request, jsonify
 from weather import weather_data
 from solar import solar_data
 from compare import compare_data
-
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -60,7 +59,6 @@ def get_ranking_data():
     data = filtered.to_dict(orient="records")
 
     return jsonify(data)
-
 
 
 

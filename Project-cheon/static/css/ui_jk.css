@@ -14,11 +14,16 @@
 }
 
 body {
-    font-family: 'GmarketSansMedium', sans-serif;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
-    max-height: 100vh;
-    display: flex;
+  font-family: 'GmarketSansMedium', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: #f9f9f4; /* e8f5e9 f9f9f4 c8e6c9 */
+  display: flex;
 }
+
+
+
+
 
 /* Sidebar */
 .sidebar {
@@ -35,29 +40,35 @@ body {
 /* Sidebar - logo */
 .logo {
     background: white;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 30px;
+    width: 95px;        /* 가로 */
+    height: 95px;       /* 세로 (같은 크기) */
+    border-radius: 50%; /* 원형 */
+    padding: 10px;      /* 안쪽 여백 */
+    margin: 0 auto 30px auto; /* 가운데 정렬 + 아래 마진 */
     text-align: center;
+    display: flex;      /* 가운데 배치 */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .logo-icon {
-    width: 30px;
-    height: 30px;
-    background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
+    width: 90px;
+    height: 90px;
+    background: url('../images/사이트로고1.png') no-repeat center center;
+    background-size: 140%; 
     border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
+
+
 .logo-icon::before {
-    content: '⚡';
-    color: white;
-    font-size: 18px;
+    content: none;
 }
+
 
 .logo h2 {
     color: #333;
@@ -341,11 +352,19 @@ body {
 
 .crop-button {
   margin: 5px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  background: #f9f9f9;
+  border: 1px solid #81c784; /* 연그린 테두리 */
+  background: white; /* 밝은 연그린 배경 */
+  color: #2e7d32; /* 진한 녹색 글자 */
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
+.crop-button:hover {
+  background: #c8e6c9; /* 호버 시 조금 진해짐 */
+  border-color: #66bb6a;
 }
 
 #barChart {
