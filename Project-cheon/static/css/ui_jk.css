@@ -423,7 +423,7 @@
           margin: 0;
         }
 
-        .ranking-category-select {
+        #ranking-category-select {
           background: #4caf50;
           color: white;
           border: none;
