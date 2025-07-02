@@ -1,0 +1,52 @@
+[
+            {
+                "date": "27주차",
+                "height": "110",
+                "fruitnum" : "2"
+            },
+            {
+                "date": "28주차",
+                "height": "119",
+                "fruitnum" : "2"
+            },
+            {
+                "date": "29주차",
+                "height": "130",
+                "fruitnum" : "2"
+            },
+            {
+                "date": "30주차",
+                "height": "138",
+                "fruitnum" : "2"
+            },
+            {
+                "date": "31주차",
+                "height": "145",
+                "fruitnum" : "3"
+            },
+            {
+                "date": "32주차",
+                "height": "154",
+                "fruitnum" : "3"
+            },
+            {
+                "date": "33주차",
+                "height": "162",
+                "fruitnum" : "3"
+            },
+            {
+                "date": "34주차",
+                "height": "170",
+                "fruitnum" : "3"
+            },
+            {
+                "date": "35주차",
+                "height": "176",
+                "fruitnum" : "5"
+            },
+            {
+                "date": "36주차",
+                "height": "188",
+                "fruitnum" : "5"
+            }
+]

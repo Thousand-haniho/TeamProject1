@@ -1,0 +1,52 @@
+[
+            {
+                "date": "20230205",
+                "height": "125",
+                "fruitnum" : "34"
+            },
+            {
+                "date": "20230214",
+                "height": "128",
+                "fruitnum" : "37"
+            },
+            {
+                "date": "20230219",
+                "height": "131",
+                "fruitnum" : "63"
+            },
+            {
+                "date": "20230226",
+                "height": "134",
+                "fruitnum" : "71"
+            },
+            {
+                "date": "20230305",
+                "height": "138",
+                "fruitnum" : "93"
+            },
+            {
+                "date": "20230312",
+                "height": "145",
+                "fruitnum" : "95"
+            },
+            {
+                "date": "20230319",
+                "height": "152",
+                "fruitnum" : "89"
+            },
+            {
+                "date": "20230326",
+                "height": "160",
+                "fruitnum" : "90"
+            },
+            {
+                "date": "20230402",
+                "height": "167",
+                "fruitnum" : "90"
+            },
+            {
+                "date": "20230408",
+                "height": "175",
+                "fruitnum" : "87"
+            }
+]
