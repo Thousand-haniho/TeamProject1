@@ -367,8 +367,16 @@
         });
 
         // select 이벤트 리스너 달기
+        const categoryCache = {};
         document.getElementById("ranking-category-select").addEventListener("change", function() {
             const categoryCode = this.value; // 선택된 값
+            console.log("categoryCode:", categoryCode);  // 여기 찍기
+
+            if (categoryCache[categoryCode]) {
+                console.log("클라이언트 캐시 사용");
+                renderTable(categoryCache[categoryCode]);
+                return;
+            }
 
             fetch("/api/get_ranking_data", {
                 method: "POST",
@@ -377,32 +385,36 @@
             })
             .then(response => response.json())
             .then(data => {
-                const tbody = document.querySelector(".ranking-table tbody");
-
-
-                tbody.innerHTML = ""; // 기존 행 삭제
-                data.forEach((row, i) => {
-                    const price = Number(row.price.replace(/,/g, ""));
-                    const weekprice = Number(row.weekprice.replace(/,/g, ""));
-
-                    let change = "";
-                    if (price && weekprice) {
-                        change = ((price / weekprice - 1) * 100).toFixed(1) + "%";
-                    } else {
-                        change = "-";
-                    }
-
-                    const tr = document.createElement("tr");
-                    tr.innerHTML = `
-                        <td>${i + 1}</td>
-                        <td>${row.itemname} (${row.unit})</td>
-                        <td>${row.price}원</td>
-                        <td>${change}</td>
-                    `;
-                    tbody.appendChild(tr);
-                });
+                categoryCache[categoryCode] = data;
+                renderTable(data);
             });
         });
+
+        function renderTable(data) {
+            const tbody = document.querySelector(".ranking-table tbody");
+            tbody.innerHTML = "";
+            data.forEach((row, i) => {
+                const price = Number(row.price.replace(/,/g, ""));
+                const weekprice = Number(row.weekprice.replace(/,/g, ""));
+
+                let change = "";
+                if (price && weekprice) {
+                    change = ((price / weekprice - 1) * 100).toFixed(1) + "%";
+                } else {
+                    change = "-";
+                }
+
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td>${row.itemname} (${row.unit})</td>
+                    <td>${row.price}원</td>
+                    <td>${change}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
         // 페이지 로드시 change 이벤트를 강제 발생
         document.getElementById("ranking-category-select").dispatchEvent(new Event("change"));
     </script>

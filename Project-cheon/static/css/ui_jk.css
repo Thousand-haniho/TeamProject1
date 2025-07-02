@@ -391,7 +391,7 @@ body {
 .ranking-table-wrapper {
     min-width: 350px;
     width: 100%;
-    height: 100%;
+    height: 90%;
     overflow-y: auto;
     margin: 0 auto;
 }

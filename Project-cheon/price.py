@@ -53,4 +53,23 @@ def fetch_price_all(category_code="100"):
         all_data.extend(data)
     return all_data
 
+def save_csv():
+    category_codes = ["100", "200", "300", "400", "600"]  # 필요한 부류코드 다 넣기
+    all_data = []
+
+    for code in category_codes:
+        data = fetch_price_all(code)
+        for d in data:
+            d["부류코드"] = code
+        all_data.extend(data)
+
+    if all_data:
+        df = pd.DataFrame(all_data)
+        df.to_csv("./resData/가격_데이터.csv", index=False, encoding="utf-8-sig")
+        print("CSV 저장 완료!")
+    else:
+        print("데이터 없음.")
+
+
+save_csv()
 # print(fetch_price_all())
