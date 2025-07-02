@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('backupData/ilsaryang_all.csv')
+df = pd.read_csv('../backupData/ilsaryang_all.csv')
 
 df.rename(columns={
     'YYMMDDHHMI' : '연월일-날짜',
