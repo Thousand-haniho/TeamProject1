@@ -189,7 +189,7 @@ body {
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 950px auto;
+    grid-template-columns: 950px 640px;
     grid-template-rows: auto auto;
     gap: 25px;
 }
@@ -200,10 +200,10 @@ body {
     grid-row: 1;
     background: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    height: 320px;
-    width: 450px;
+    height: 450px;
+    width: 300px;
 }
 
 .weather-header {
@@ -223,8 +223,15 @@ body {
 }
 
 .weather-title::before {
-    content: "🌱";
-    font-size: 20px;
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url('../images/weather3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 .weather-stat {
@@ -236,20 +243,21 @@ body {
 /* Metric Cards Grid */
 .metric-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2열 */
-    grid-template-rows: repeat(2, 1fr);    /* 2행 */
+    grid-template-columns: repeat(1, 1fr); /* 2열 */
+    grid-template-rows: repeat(4, 1fr);    /* 2행 */
     gap: 15px;
     margin-bottom: 15px;
     height: 220px;
 }
 
 .metric-card {
-    padding: 15px;
+    padding: 1px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .metric-card h3 {
@@ -291,7 +299,7 @@ body {
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     max-height: 500px;
-    height: 450px;   
+    height: 430px;   
     margin: 0;        
 }
 
@@ -309,7 +317,7 @@ body {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    height: 450px;
+    height: 430px;
 }
 
 .ranking-header {
@@ -380,4 +388,16 @@ body {
 .ranking-table tbody tr:hover {
     background: #a5d6a7; /* 진한 녹색 */
     cursor: pointer;
+}
+
+
+.map-card {
+    grid-column: 2;
+    grid-row: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 450px;
+    width: 640px;
 }

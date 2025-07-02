@@ -6,6 +6,10 @@
     <title>Analytics Dashboard</title>
     <link rel="stylesheet" href="../static/css/ui_jk.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+
 </head>
 <body>
     <!-- Sidebar -->
@@ -92,6 +96,11 @@
                         <p>{{ weather_dict.wind_value }} m/s</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="map-card">
+                <h3>농업 교육기관 지도</h3>
+                <div id="map" style="width:100%; height:370px; border-radius:8px;"></div>
             </div>
 
             <div class="chart-card">
@@ -334,5 +343,45 @@
             });
         });
     </script>
+
+    
+    <script>
+        // dashboard에 지도 추가
+        var map = L.map('map').setView([37.47, 126.88], 7);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        const locations = [
+            { coords: [37.46569942, 127.089786], name: '서울특별시 농업기술센터' },
+            { coords: [35.2132661, 128.9866578], name: '부산광역시 농업기술센터' },
+            { coords: [35.1795543, 126.8944389], name: '광주광역시 농업기술센터' },
+            { coords: [35.53729407, 129.311239], name: '울산광역시 농업기술센터' },
+            { coords: [36.30791127, 127.3063053], name: '대전광역시 농업기술센터' },
+            { coords: [37.76121113, 128.876019], name: '강원특별자치도 농업기술원' },
+            { coords: [36.57691051, 128.5058727], name: '경상북도 농업기술원' },
+            { coords: [35.42027213, 127.3898669], name: '전라북도 농업기술원' },
+            { coords: [34.81608397, 126.4629395], name: '전라남도 농업기술원' },
+            { coords: [35.82322281, 128.7378764], name: '대구광역시 농업기술센터' },
+            { coords: [36.6319897, 127.457292], name: '충청북도 농업기술원' },
+            { coords: [36.66124535, 126.6736907], name: '충청남도 농업기술원' },
+            { coords: [33.48901127, 126.4983026], name: '제주특별자치도 농업기술원' },
+            { coords: [37.55583491, 126.8022084], name: '경기도 농업기술원' },
+            { coords: [35.24867869, 128.6579133], name: '경상남도 농업기술원' },
+            { coords: [36.59113917, 127.2925249], name: '세종특별자치시 농업기술센터' },
+            { coords: [37.53861729, 126.992004], name: '인천광역시 농업기술센터' }
+        ];
+
+        locations.forEach(loc => {
+        L.marker(loc.coords).addTo(map)
+            .bindPopup(`<b>${loc.name}</b>`);
+        });
+        </script>
+
+
+        
+   
+
 </body>
 </html>
