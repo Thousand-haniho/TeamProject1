@@ -14,11 +14,16 @@
 }
 
 body {
-   font-family: 'GmarketSansMedium', sans-serif;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
-    max-height: 100vh;
-    display: flex;
+  font-family: 'GmarketSansMedium', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: #f9f9f4; /* e8f5e9 f9f9f4 c8e6c9 */
+  display: flex;
 }
+
+
+
+
 
 /* Sidebar */
 .sidebar {
@@ -35,29 +40,35 @@ body {
 /* Sidebar - logo */
 .logo {
     background: white;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 30px;
+    width: 95px;        /* 가로 */
+    height: 95px;       /* 세로 (같은 크기) */
+    border-radius: 50%; /* 원형 */
+    padding: 10px;      /* 안쪽 여백 */
+    margin: 0 auto 30px auto; /* 가운데 정렬 + 아래 마진 */
     text-align: center;
+    display: flex;      /* 가운데 배치 */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .logo-icon {
-    width: 30px;
-    height: 30px;
-    background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
+    width: 90px;
+    height: 90px;
+    background: url('../images/사이트로고1.png') no-repeat center center;
+    background-size: 140%; 
     border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
+
+
 .logo-icon::before {
-    content: '⚡';
-    color: white;
-    font-size: 18px;
+    content: none;
 }
+
 
 .logo h2 {
     color: #333;
@@ -189,7 +200,7 @@ body {
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 950px auto;
+    grid-template-columns: 300px 640px 620px;
     grid-template-rows: auto auto;
     gap: 25px;
 }
@@ -200,10 +211,10 @@ body {
     grid-row: 1;
     background: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    height: 320px;
-    width: 450px;
+    height: 450px;
+    width: 300px;
 }
 
 .weather-header {
@@ -223,8 +234,15 @@ body {
 }
 
 .weather-title::before {
-    content: "🌱";
-    font-size: 20px;
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url('../images/weather3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 .weather-stat {
@@ -236,20 +254,21 @@ body {
 /* Metric Cards Grid */
 .metric-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2열 */
-    grid-template-rows: repeat(2, 1fr);    /* 2행 */
+    grid-template-columns: repeat(1, 1fr); /* 2열 */
+    grid-template-rows: repeat(4, 1fr);    /* 2행 */
     gap: 15px;
     margin-bottom: 15px;
     height: 220px;
 }
 
 .metric-card {
-    padding: 15px;
+    padding: 1px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .metric-card h3 {
@@ -284,32 +303,84 @@ body {
 
 /* Chart Card */
 .chart-card {
-    grid-column: 1;
+    grid-column: 1 / span 2;  /* 1열부터 2열까지 가로로 합침 */
     grid-row: 2;
     background: white;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     max-height: 500px;
-    height: 450px;   
+    height: 430px;   
     margin: 0;        
 }
 
 .chart-card-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#regionSelector {
+  padding: auto 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#regionSelector label {
+  font-size: 16px;
+  color: #333; 
+  font-weight: 600;
+}
+
+#regionSelector select {
+  padding: 6px 10px;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #388e3c;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+#regionSelector select:hover {
+  border-color: #81c784;
+  box-shadow: 0 0 4px rgba(129, 199, 132, 0.5);
+}
+
+.crop-button {
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid #81c784; /* 연그린 테두리 */
+  background: white; /* 밝은 연그린 배경 */
+  color: #2e7d32; /* 진한 녹색 글자 */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
+.crop-button:hover {
+  background: #c8e6c9; /* 호버 시 조금 진해짐 */
+  border-color: #66bb6a;
+}
+
+#barChart {
+  width: 100% !important;
+  display: block;
 }
 
 /* Ranking Card */
 .ranking-card {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 2;
     background: white;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    height: 450px;
+    height: 430px;
 }
 
 .ranking-header {
@@ -324,21 +395,22 @@ body {
     color: #333;
 }
 
-.ranking-select-btn {
-    background: #4caf50;
-    color: white;
-    border: none;
-    padding: 4px 10px;
-    font-size: 12px;
-    border-radius: 3px;
-    cursor: pointer;
+#ranking-category-select {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
 }
+
 
 /* 테이블 */
 .ranking-table-wrapper {
     min-width: 350px;
     width: 100%;
-    height: 100%;
+    height: 90%;
     overflow-y: auto;
     margin: 0 auto;
 }
@@ -380,4 +452,27 @@ body {
 .ranking-table tbody tr:hover {
     background: #a5d6a7; /* 진한 녹색 */
     cursor: pointer;
+}
+
+
+.map-card {
+    grid-column: 3;
+    grid-row: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 450px;
+    width: 620px;
+}
+
+/* 파이차트 여기에 ~ */
+.empty-card {
+    grid-column: 2;
+    grid-row: 1;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 450px;
 }

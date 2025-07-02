@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, jsonify
-from fetch_kamis_items import fetch_kamis_items_data
 from weather import weather_data
+from solar import solar_data
 from compare import compare_data
-
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -10,22 +10,6 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return "<h1>Welcome to Smart Farm Dashboard</h1>"
-
-
-@app.route('/dashboard')
-def dashboard():
-
-    kamis_data = fetch_kamis_items_data()
-    weather_dict = weather_data()
-    compare_dict = compare_data()
-
-    return render_template(
-        'dashboard.html',
-        weather_dict=weather_dict,
-        ranking_data=kamis_data,
-        compare_dict=compare_dict,
-    )
-
 
 @app.route('/map')
 def map():
@@ -39,14 +23,12 @@ def flowershop():
 
 @app.route('/ui_jk')
 def ui_jk():
-    kamis_data = fetch_kamis_items_data()
     weather_dict = weather_data()
     compare_dict = compare_data()
 
     return render_template(
         'ui_jk.html',
         weather_dict=weather_dict,
-        ranking_data=kamis_data,
         compare_dict=compare_dict,
     )
     
@@ -58,6 +40,27 @@ def api_weather():
 
 
 
+@app.route('/api/solar')
+def api_solar():
+    region = request.args.get("region", "서울")
+    solar_dict = solar_data(region)
+    return jsonify(solar_dict)
+
+
+df = pd.read_csv("./resData/가격_데이터.csv")
+@app.route('/api/get_ranking_data', methods=["POST"])
+def get_ranking_data():
+    req_data = request.get_json()
+    category_code = int(req_data["category_code"])
+
+    filtered = df[df["부류코드"] == category_code]
+    # NaN → None으로 변환
+    filtered = filtered.where(pd.notna(filtered), None)
+    data = filtered.to_dict(orient="records")
+
+    return jsonify(data)
+
+
 
 @app.errorhandler(404) 
 def page_not_found(error):
@@ -67,3 +70,9 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
+    
+
+
+
+
+

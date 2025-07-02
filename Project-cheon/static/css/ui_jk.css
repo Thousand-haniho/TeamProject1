@@ -1,466 +1,478 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
-            max-height: 100vh;
-            display: flex;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 220px;
-            background: linear-gradient(135deg, #81c784 0%, #a5d6a7 30%, #c8e6c9 70%, #81c784 100%);
-            padding: 20px;
-            border-radius: 20px;
-            margin: 20px;
-            height: calc(100vh - 40px);
-            position: relative;
-            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3), 0 5px 15px rgba(76, 175, 80, 0.2);
-        }
-
-        /* Sidebar - logo */
-        .logo {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .logo-icon {
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
-        }
-
-        .logo-icon::before {
-            content: '⚡';
-            color: white;
-            font-size: 18px;
-        }
-
-        .logo h2 {
-            color: #333;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        /* Sidebar - nav-menu */
-        .nav-menu {
-            list-style: none;
-        }
-
-        .nav-item {
-            margin-bottom: 8px;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .nav-link.active {
-            background: rgba(255, 255, 255, 0.5);
-            /* color: white; */
-            color: #333;
-            font-weight: bold;
-        }
-
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.3);
-            /* color: white; */
-        }
-
-        .nav-icon {
-            margin-right: 12px;
-            font-size: 16px;
-        }
-
-        /* Sidebar - bottom-controls */
-        .bottom-controls {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-        }
-
-        .toggle-control {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: white;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .toggle-switch {
-            width: 40px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 10px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .toggle-switch::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: white;
-            border-radius: 50%;
-            top: 2px;
-            right: 2px;
-            transition: all 0.5s ease;
-        }
-
-        /* active 클래스일 때 left로 이동 */
-        .toggle-switch.active::after {
-          transform: translateX(-20px);
-        }
-
-        .withdraw-btn {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .logout-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            width: 100%;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        /* Main Content - header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            width: 100%;
-        }
-
-        .page-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .header-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .date-selector {
-            background: white;
-            border: 2px dashed #ddd;
-            padding: 8px 15px;
-            border-radius: 8px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .notification-btn {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
-        }
-
-        .profile-btn {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
-        }
-
-        /* Main Content - Dashboard Grid */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: auto auto; 
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        /* Main Content - Dashboard Grid - Weather Card */
-        .weather-card {
-            grid-column: 1;
-            grid-row: 1;
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            height: 320px;
-        }
-
-        .weather-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .weather-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .weather-title::before {
-            content: "🌱";
-            font-size: 20px;
-        }
-
-        .weather-stat {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1b5e20;
-            background: linear-gradient(135deg, #81c784, #4caf50);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .metric-cards {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr; /* 3열 */
-            grid-template-rows: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
-            height: 220px;  
-        }
-
-        .metric-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .metric-card h3 {
-            margin: 0 0 8px;
-            color: #333;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .metric-card p {
-            font-size: 26px;
-            font-weight: bold;
-            color: #1b5e20;
-            background: linear-gradient(135deg, #81c784, #4caf50);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .metric-card.main { 
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); 
-            grid-column: 1;
-            grid-row: 1 / span 2; /* 두 행 차지 */
-        }
-        .metric-card.two { 
-            grid-column: 2;
-            grid-row: 1;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); 
-        }
-        .metric-card.blue { 
-            grid-column: 2;
-            grid-row: 2;
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); 
-        }
-        .metric-card.orange { 
-          grid-column: 3;
-          grid-row: 1;
-          background: linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%); 
-        }
-        .metric-card.pink { 
-          grid-column: 3;
-          grid-row: 2;
-          background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%); 
-        }
-
-        /* Main Content - Dashboard Grid - Chart Card */
-        .chart-card {
-          grid-column: 1;
-          grid-row: 2;
-          background: white;
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-          max-height: 500px;
-          width: 100%;
-          min-width: 700px;   /* 이거 추가 */
-          margin: 0 auto;     /* 이거 추가 */
-        }
-
-        .chart-card-header {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 10px;
-        }
-
-        #regionSelector {
-          padding: auto 15px;
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          font-family: 'Segoe UI', sans-serif;
-        }
-
-        #regionSelector label {
-          font-size: 16px;
-          color: #333; 
-          font-weight: 600;
-        }
-
-        #regionSelector select {
-          padding: 6px 10px;
-          border: 1px solid #a5d6a7;
-          border-radius: 5px;
-          background-color: #ffffff;
-          font-size: 14px;
-          color: #388e3c;
-          cursor: pointer;
-          transition: border 0.2s, box-shadow 0.2s;
-        }
-
-        #regionSelector select:hover {
-          border-color: #81c784;
-          box-shadow: 0 0 4px rgba(129, 199, 132, 0.5);
-        }
-
-        #barChart {
-          width: 100% !important;
-          display: block;
-        }
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
-        /* Main Content - Dashboard Grid - Ranking Card */
-        .ranking-card {
-          grid-column: 2;
-          grid-row: 1 / span 2;
-          background: white;
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
+/* 전체 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .ranking-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 10px;
-        }
+body {
+  font-family: 'GmarketSansMedium', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: #f9f9f4; /* e8f5e9 f9f9f4 c8e6c9 */
+  display: flex;
+}
 
-        .ranking-header h2 {
-          font-size: 1.2em;
-          color: #333;
-          margin: 0;
-        }
 
-        .ranking-select-btn {
-          background: #4caf50;
-          color: white;
-          border: none;
-          padding: 4px 10px;
-          font-size: 12px;
-          border-radius: 3px;
-          cursor: pointer;
-        }
 
-        /* 스크롤 영역 */
-        .ranking-table-wrapper {
-          min-width: 350px;
-          width: 100%;
-          height: 100%; /* 원하는 높이로 조절 */
-          overflow-y: auto;
-          margin: 0 auto;
-        }
 
-        .ranking-table {
-          width: 100%;
-          border-collapse: collapse;
-          text-align: center;
-        }
 
-        .ranking-table thead {
-          background: #3f51b5;
-          color: white;
-          position: sticky;
-          top: 0; /* 헤더 고정 */
-          z-index: 1;
-        }
-        .ranking-table th:hover {
-          cursor: pointer;
-        }
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: linear-gradient(135deg, #81c784 0%, #a5d6a7 30%, #c8e6c9 70%, #81c784 100%);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+    height: calc(100vh - 40px);
+    position: relative;
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3), 0 5px 15px rgba(76, 175, 80, 0.2);
+}
 
-        .ranking-table th,
-        .ranking-table td {
-          padding: 6px;
-          border: 1px solid #ddd;
-          font-size: 14px;
-        }
+/* Sidebar - logo */
+.logo {
+    background: white;
+    width: 95px;        /* 가로 */
+    height: 95px;       /* 세로 (같은 크기) */
+    border-radius: 50%; /* 원형 */
+    padding: 10px;      /* 안쪽 여백 */
+    margin: 0 auto 30px auto; /* 가운데 정렬 + 아래 마진 */
+    text-align: center;
+    display: flex;      /* 가운데 배치 */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-        .ranking-table tbody tr:nth-child(odd) {
-          background: #e3f2fd;
-        }
+.logo-icon {
+    width: 90px;
+    height: 90px;
+    background: url('../images/사이트로고1.png') no-repeat center center;
+    background-size: 140%; 
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .ranking-table tbody tr:nth-child(even) {
-          background: #bbdefb;
-        }
+
+
+.logo-icon::before {
+    content: none;
+}
+
+
+.logo h2 {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Sidebar - nav-menu */
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-icon {
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+/* Sidebar - bottom-controls */
+.bottom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.toggle-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.toggle-switch {
+    width: 40px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    right: 2px;
+    transition: all 0.5s ease;
+}
+
+/* active 상태 토글 */
+.toggle-switch.active::after {
+    transform: translateX(-20px);
+}
+
+.withdraw-btn {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Main Content - header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 300px 640px 620px;
+    grid-template-rows: auto auto;
+    gap: 25px;
+}
+
+/* Weather Card */
+.weather-card {
+    grid-column: 1;
+    grid-row: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 450px;
+    width: 300px;
+}
+
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.weather-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-title::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url('../images/weather3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.weather-stat {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1b5e20;
+}
+
+/* Metric Cards Grid */
+.metric-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 2열 */
+    grid-template-rows: repeat(4, 1fr);    /* 2행 */
+    gap: 15px;
+    margin-bottom: 15px;
+    height: 220px;
+}
+
+.metric-card {
+    padding: 1px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.metric-card h3 {
+    margin: 0 0 8px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.metric-card p {
+    font-size: 26px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+/* 카드 색상 (사이트 테마 통일) */
+.metric-card.main {
+    display: none;
+}
+.metric-card.two {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+.metric-card.blue {
+    background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+}
+.metric-card.orange {
+    background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+}
+.metric-card.pink {
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+}
+
+/* Chart Card */
+.chart-card {
+    grid-column: 1 / span 2;  /* 1열부터 2열까지 가로로 합침 */
+    grid-row: 2;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    max-height: 500px;
+    height: 430px;   
+    margin: 0;        
+}
+
+.chart-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#regionSelector {
+  padding: auto 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#regionSelector label {
+  font-size: 16px;
+  color: #333; 
+  font-weight: 600;
+}
+
+#regionSelector select {
+  padding: 6px 10px;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #388e3c;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+#regionSelector select:hover {
+  border-color: #81c784;
+  box-shadow: 0 0 4px rgba(129, 199, 132, 0.5);
+}
+
+.crop-button {
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid #81c784; /* 연그린 테두리 */
+  background: white; /* 밝은 연그린 배경 */
+  color: #2e7d32; /* 진한 녹색 글자 */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, border 0.3s;
+}
+
+.crop-button:hover {
+  background: #c8e6c9; /* 호버 시 조금 진해짐 */
+  border-color: #66bb6a;
+}
+
+#barChart {
+  width: 100% !important;
+  display: block;
+}
+
+/* Ranking Card */
+.ranking-card {
+    grid-column: 3;
+    grid-row: 2;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 430px;
+}
+
+.ranking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ranking-header h2 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+#ranking-category-select {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+
+/* 테이블 */
+.ranking-table-wrapper {
+    min-width: 350px;
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.ranking-table thead {
+    background: #81c784;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.ranking-table th:hover {
+    cursor: pointer;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* 홀수 행 */
+.ranking-table tbody tr:nth-child(odd) {
+    background: #e8f5e9;
+}
+
+/* 짝수 행 */
+.ranking-table tbody tr:nth-child(even) {
+    background: #c8e6c9;
+}
+
+.ranking-table tbody tr:hover {
+    background: #a5d6a7; /* 진한 녹색 */
+    cursor: pointer;
+}
+
+
+.map-card {
+    grid-column: 3;
+    grid-row: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 450px;
+    width: 620px;
+}
+
+/* 파이차트 여기에 ~ */
+.empty-card {
+    grid-column: 2;
+    grid-row: 1;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: 450px;
+}
