@@ -4,6 +4,7 @@ import pandas as pd
 
 
 def fetch_kamis_items_data():
+
     # 엑셀 파일 로드
     df_items = pd.read_excel("./resData/items.xlsx")
     # 결과 저장 리스트
