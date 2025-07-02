@@ -32,7 +32,34 @@
                     left: 0.0%;
                     top: 0.0%;
                 }
-                .leaflet-container { font-size: 1rem; }
+                .leaflet-container {
+                    font-size: 1rem;
+                }
+
+                button {
+                    position: absolute;
+                    top: 20px;   /* 원하는 위치 */
+                    right: 20px;
+                    z-index: 1000;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;  /* 동그랗게 */
+                    border: 1px solid #ccc;
+                    background: rgba(255,255,255,0.9); /* 살짝 투명 흰색 */
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                    font-size: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: background 0.2s, transform 0.2s;
+                }
+
+                button:hover {
+                    background: rgba(255,255,255,1);
+                    transform: scale(1.1);
+                }
+
             </style>
 
 </head>
@@ -40,6 +67,9 @@
 
 
             <div class="folium-map" id="map_afd5cb74d9e14726023a4845175d16de" ></div>
+           <button onclick="window.location.href='/ui_jk'">🏠</button>
+
+
 
 </body>
 <script>

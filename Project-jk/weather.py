@@ -14,7 +14,6 @@ def weather_data(region="서울"):
         "광주": {"nx": "58", "ny": "74"},
         "인천": {"nx": "55", "ny": "124"},
         "대전": {"nx": "67", "ny": "100"},
-        
     }
     coords = region_coords.get(region, {"nx": "60", "ny": "127"})
 
