@@ -53,4 +53,4 @@ def fetch_price_all(category_code="100"):
         all_data.extend(data)
     return all_data
 
-print(fetch_price_all())
+# print(fetch_price_all())
