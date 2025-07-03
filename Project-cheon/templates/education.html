@@ -37,6 +37,14 @@
                     꽃집 지도
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="/growplant" class="nav-link">
+                    <span class="nav-icon">
+                        <img src="/static/images/growplant.png." alt="식물 성장 아이콘" style="width:21px; height:21px; vertical-align:middle;">
+                    </span>
+                    식물 성장 예측
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -47,13 +55,14 @@
         </div>
 
         <div class="iframe-container" style="height:85vh;">
-            <iframe src="./static/iframes/edu_map_marker.html" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe id="eduIframe" src="./static/iframes/edu_map_marker.html" width="100%" height="100%" frameborder="0"></iframe>
+            <div id="searchContainer">
+            </div>
         </div>
 
-        <div class="iframe-search-list"></div>
     </div>
 
-    
+    <!-- ************************* JavaScript *********************** -->
     <!-- 네비게이션 메뉴 -->
     <script>
         // 모든 nav-link 요소 선택
@@ -75,5 +84,39 @@
         });
     </script>
 
+    <!-- 서치 기능 -->
+    <!-- 카카오 주소 검색 스크립트 -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function openPostcodeSearch() {
+        var postcode = new daum.Postcode({
+            oncomplete: function(data) {
+            const selectedAddress = data.address;
+            console.log("선택된 주소:", selectedAddress);
+
+            const kakaoMapUrl = "https://map.kakao.com/?q=" + encodeURIComponent(selectedAddress);
+            window.open(
+                kakaoMapUrl,
+                "_blank",
+                "width=1000,height=700,left=400,top=150,resizable=yes,scrollbars=yes"
+            );
+
+            postcode.close();
+            },
+            width: "100%",
+            height: "100%"
+        });
+
+        postcode.embed(document.getElementById("searchContainer"));
+        }
+
+        // 페이지 로드 시 바로 실행
+        window.onload = function() {
+            openPostcodeSearch();
+        };
+
+        // 버튼에 이벤트 달기
+        document.getElementById("openSearchBtn").addEventListener("click", openPostcodeSearch);
+    </script>
 </body>
 </html>
