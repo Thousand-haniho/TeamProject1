@@ -51,6 +51,8 @@ def api_solar():
 
 
 df = pd.read_csv("./resData/가격_데이터.csv")
+
+
 @app.route('/api/get_ranking_data', methods=["POST"])
 def get_ranking_data():
     req_data = request.get_json()

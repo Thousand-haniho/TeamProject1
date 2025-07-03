@@ -55,8 +55,9 @@
             <h1 class="page-title">농업 교육 기관🏫</h1>
         </div>
 
-        <div class="map-container" style="height:85vh;">
-            <iframe src="./static/iframes/edu_map_marker.html" width="100%" height="100%" frameborder="0"></iframe>
+        <div class="iframe-container" style="height:85vh;">
+            <iframe id="eduIframe" src="./static/iframes/edu_map_marker.html" width="100%" height="100%" frameborder="0"></iframe>
+            <div id="searchContainer"></div>
         </div>
     </div>
 
@@ -80,6 +81,48 @@
             link.classList.add('active');
         }
         });
+    </script>
+
+    <!-- 서치 기능 -->
+    <!-- 카카오 주소 검색 스크립트 -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function openPostcodeSearch() {
+            
+            const postcode = new daum.Postcode({
+                oncomplete: function(data) {
+                    const selectedAddress = data.address;
+                    console.log("선택된 주소:", selectedAddress);
+
+                    const kakaoMapUrl = "https://map.kakao.com/?q=" + encodeURIComponent(selectedAddress);
+                    window.open(
+                        kakaoMapUrl,
+                        "_blank",
+                        "width=1000,height=700,left=400,top=150,resizable=yes,scrollbars=yes"
+                    );
+
+                    // embed 모드일 때만 close() 호출
+                    if (typeof postcode.close === "function") {
+                        postcode.close();
+                    }
+
+                    // embed()로 다시 띄워야 같은 주소도 또 선택 가능
+                    setTimeout(() => {
+                        openPostcodeSearch();
+                    }, 500); // 약간의 딜레이를 주면 더 안정적
+                },
+                width: "100%",
+                height: "100%"
+            });
+
+            postcode.embed(document.getElementById("searchContainer"));
+        }
+
+        // 페이지 로드 시 바로 실행
+        window.onload = function() {
+            openPostcodeSearch();
+        };
+
     </script>
 
 </body>
