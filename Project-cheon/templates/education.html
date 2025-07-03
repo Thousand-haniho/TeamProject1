@@ -101,11 +101,15 @@
                         "width=1000,height=700,left=400,top=150,resizable=yes,scrollbars=yes"
                     );
 
-                    // 1. 닫기
-                    postcode.close();
+                    // embed 모드일 때만 close() 호출
+                    if (typeof postcode.close === "function") {
+                        postcode.close();
+                    }
 
-                    // 2. 새로고침으로 embed 초기화
-                    location.reload();
+                    // embed()로 다시 띄워야 같은 주소도 또 선택 가능
+                    setTimeout(() => {
+                        openPostcodeSearch();
+                    }, 500); // 약간의 딜레이를 주면 더 안정적
                 },
                 width: "100%",
                 height: "100%"
