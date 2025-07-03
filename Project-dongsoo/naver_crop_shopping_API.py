@@ -5,7 +5,7 @@ import urllib.parse
 from datetime import datetime
 from dotenv import load_dotenv
 
-### 네이버 쇼핑에서 top 인기 상품명+가격 데이터 가져오기 ###
+### 네이버 쇼핑에서 top 인기 상품명 데이터 가져오기 ###
 
 # .env 파일 불러오기
 load_dotenv()
