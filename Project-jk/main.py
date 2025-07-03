@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 from outdoorplant import outdoor_json
 from indoorplant import indoor_json
-
+from pie import pie_data
 
 app = Flask(__name__)
 
@@ -20,11 +20,15 @@ def home():
 def dashboard():
     weather_dict = weather_data()
     compare_dict = compare_data()
+    pie_plant1=pie_data("farm")
+    pie_plant2=pie_data("foliage")
 
     return render_template(
         'dashboard.html',
         weather_dict=weather_dict,
         compare_dict=compare_dict,
+        pie_plant1=pie_plant1,
+        pie_plant2=pie_plant2
     )
 
 @app.route('/education')

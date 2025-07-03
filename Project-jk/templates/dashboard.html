@@ -83,7 +83,21 @@
             </div>
 
             <!-- 여기에 파이차트 -->
-            <div class="empty-card"></div>
+           <div class="empty-card">
+                <div class="empty-card-header">
+                    <h3>식물 종류별 실시간 검색 비율</h3>
+    
+                    <!-- 식물 종류 선택 박스 -->
+                    <select id="plantSelect" aria-label="식물 종류 선택">
+                        <option value="1" selected>텃밭식물</option>
+                        <option value="2">관엽식물</option>
+                    </select>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
             
             <div class="map-card">
                 <h3>농업 교육기관 지도 🗺️</h3>
@@ -115,7 +129,7 @@
                 <div class="ranking-header">
                     <h2>가격 데이터 💰</h2>
                     <div class="ranking-options">
-                        <button id="show-chart-btn">차트 보기</button>
+                        
                         <select id="crop-select" style="display:none;"></select>
                         <select id="ranking-category-select" style="font-weight: bold;">
                             <option value="100">식량작물</option>
@@ -451,7 +465,7 @@
 
 
 
-        let chartInstance = null;
+        let priceChartInstance = null;
         function loadChart() {
     
             const cropCode = cropSelect.value;
@@ -474,12 +488,12 @@
                 const selected = data[0]; // itemname으로 필터링했으니 1개만 올 것
 
                 // 이전 차트 제거
-                if (chartInstance) {
-                    chartInstance.destroy();
+                if (priceChartInstance) {
+                    priceChartInstance.destroy();
                 }
 
                 const ctx = document.getElementById("price-chart").getContext("2d");
-                chartInstance = new Chart(ctx, {
+                priceChartInstance = new Chart(ctx, {
                     type: "line",
                     data: {
                         labels: ["1년전", "1개월전", "1주전", "현재"],
@@ -548,6 +562,72 @@
         L.marker(loc.coords).addTo(map)
             .bindPopup(`<b>${loc.name}</b>`);
         });
+    </script>
+    
+    <script>
+        // 서버에서 전달된 데이터 - JSON으로 안전하게 전달됨
+        const piePlants = {
+        1: {
+            categoryName: "{{ pie_plant1.category_name }}",
+            chartData: {{ pie_plant1.chart_data | tojson }}
+        },
+        2: {
+            categoryName: "{{ pie_plant2.category_name }}",
+            chartData: {{ pie_plant2.chart_data | tojson }}
+        }
+        };
+
+        // 차트 초기화 변수
+        let pieChartInstance = null;
+
+        // 차트 그리기 함수
+        function drawChart(plantKey) {
+        const data = piePlants[plantKey].chartData;
+        const labels = data.map(item => item.label);
+        const values = data.map(item => item.value);
+        const categoryName = piePlants[plantKey].categoryName;
+
+        
+        // 타이틀 변경 (없으면 생략)
+        const titleEl = document.getElementById('categoryTitle');
+        if (titleEl) {
+            titleEl.textContent = categoryName;
+        }
+
+        // 기존 차트가 있으면 파괴
+        if (pieChartInstance) {
+            pieChartInstance.destroy();
+        }
+
+        // 새로운 차트 생성
+        pieChartInstance = new Chart(document.getElementById('pieChart').getContext('2d'), {
+            type: 'pie',
+            data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: plantKey === "1"
+                ? ['#6dbd63', '#ffb347', '#c26dbc', '#62b6cb', '#ffc6c7']
+                : ['#a3d9a5', '#ffd166', '#9d4edd', '#4ea8de', '#ffcad4']
+            }]
+            },
+            options: {
+            plugins: {
+                legend: { position: 'bottom' }
+            }
+            }
+        });
+        }
+
+        // 셀렉트 박스 이벤트 연결
+        document.getElementById('plantSelect').addEventListener('change', (event) => {
+        drawChart(event.target.value);
+        });
+
+        // 페이지 로드시 초기 차트 표시 (텃밭식물)
+        window.onload = () => {
+        drawChart("1");
+        };
     </script>
 </body>
 </html>
