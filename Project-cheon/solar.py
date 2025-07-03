@@ -56,4 +56,4 @@ def solar_data(region="서울"):
 
     return {'solar_value': solar_value}
 
-print(solar_data('서울'))
+# print(solar_data('서울'))
