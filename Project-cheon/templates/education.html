@@ -51,7 +51,7 @@
     <!-- Main Content -->
     <div class="main-content">
         <div class="header">
-            <h1 class="page-title">Thousand haniho</h1>
+            <h1 class="page-title">농업 교육 기관🏫</h1>
         </div>
 
         <div class="iframe-container" style="height:85vh;">
@@ -83,7 +83,6 @@
         });
     </script>
 
-    <!-- 서치 기능 -->
     <!-- 카카오 주소 검색 스크립트 -->
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
@@ -112,7 +111,13 @@
                     }, 500); // 약간의 딜레이를 주면 더 안정적
                 },
                 width: "100%",
-                height: "100%"
+                height: "100%",
+                theme: {
+                    bgColor: "#ffffff",          // 전체 배경색
+                    searchBgColor: "#ffffff",    // 검색창 배경색
+                    contentBgColor: "#ffffff",   // 검색결과 배경색
+                    pageBgColor: "#ffffff"       // 페이지 배경색 (회색부분)
+                }
             });
 
             postcode.embed(document.getElementById("searchContainer"));

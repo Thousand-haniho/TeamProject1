@@ -46,7 +46,6 @@
                 </a>
             </li>
         </ul>
-
     </div>
 
     <!-- Main Content -->
@@ -87,15 +86,15 @@
             <div class="empty-card"></div>
             
             <div class="map-card">
-                <h3>농업 교육기관 지도</h3>
+                <h3>농업 교육기관 지도 🗺️</h3>
                 <div id="map" style="width:100%; height:370px; border-radius:8px;"></div>
             </div>
 
             <div class="chart-card">
                 <div class="chart-card-header">
-                    <h3>작물별 환경 평균 그래프</h3>
+                    <h3>작물별 환경 평균 그래프 🌾</h3>
                     <div id="regionSelector" style="margin-bottom:10px;">
-                        <label for="region">지역 선택:</label>
+                        <label for="region">지역 선택</label>
                         <select id="region">
                             <option value="서울">서울</option>
                             <option value="부산">부산</option>
@@ -114,11 +113,11 @@
 
             <div class="ranking-card">
                 <div class="ranking-header">
-                    <h2>가격 데이터</h2>
+                    <h2>가격 데이터 💰</h2>
                     <div class="ranking-options">
                         <button id="show-chart-btn">차트 보기</button>
                         <select id="crop-select" style="display:none;"></select>
-                        <select id="ranking-category-select">
+                        <select id="ranking-category-select" style="font-weight: bold;">
                             <option value="100">식량작물</option>
                             <option value="200">채소류</option>
                             <option value="300">특용작물</option>
@@ -298,8 +297,6 @@
             })
             .catch(error => console.error("데이터 가져오기 실패:", error));
         }
-
-
 
         // 👉 창 크기 변경 시 차트 리사이즈
         window.addEventListener('resize', () => barChart.resize());
@@ -548,8 +545,8 @@
         ];
 
         locations.forEach(loc => {
-            L.marker(loc.coords).addTo(map)
-                .bindPopup(`<b>${loc.name}</b>`);
+        L.marker(loc.coords).addTo(map)
+            .bindPopup(`<b>${loc.name}</b>`);
         });
     </script>
 </body>
