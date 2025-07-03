@@ -19,6 +19,9 @@ body {
   margin: 0;
   background: #f9f9f4; /* e8f5e9 f9f9f4 c8e6c9 */
   display: flex;
+  /* 전체 scale 사이즈 줄이는 코드 */
+  /* transform: scale(0.98);
+  transform-origin: top center; */
 }
 
 
@@ -112,68 +115,7 @@ body {
     font-size: 16px;
 }
 
-/* Sidebar - bottom-controls */
-.bottom-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-}
 
-.toggle-control {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-.toggle-switch {
-    width: 40px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-}
-
-.toggle-switch::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background: white;
-    border-radius: 50%;
-    top: 2px;
-    right: 2px;
-    transition: all 0.5s ease;
-}
-
-/* active 상태 토글 */
-.toggle-switch.active::after {
-    transform: translateX(-20px);
-}
-
-.withdraw-btn {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.logout-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 100%;
-}
 
 /* Main Content */
 .main-content {
@@ -432,7 +374,7 @@ body {
 }
 
 
-/* 테이블 */
+/* 테이블 래퍼 */
 .ranking-table-wrapper {
     min-width: 350px;
     width: 100%;
@@ -441,43 +383,85 @@ body {
     margin: 0 auto;
 }
 
+/* 테이블 래퍼 */
+.ranking-table-wrapper {
+    min-width: 350px;
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+/* 테이블 기본 */
 .ranking-table {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
+    font-family: sans-serif;
 }
 
+/* 테이블 헤더 */
 .ranking-table thead {
-    background: #81c784;
-    color: white;
+    background: #dff5e1; /* 연한 그린 */
+    color: #2e7d32;      /* 진녹색 텍스트 */
     position: sticky;
     top: 0;
     z-index: 1;
 }
+
+/* 헤더 hover */
 .ranking-table th:hover {
     cursor: pointer;
+    background: #ccebd1; /* 살짝 진한 연녹색 */
 }
 
+/* 셀 스타일 */
 .ranking-table th,
 .ranking-table td {
-    padding: 6px;
-    border: 1px solid #ddd;
+    padding: 8px;
+    border: 1px solid #d0e4d3;
     font-size: 14px;
 }
 
 /* 홀수 행 */
 .ranking-table tbody tr:nth-child(odd) {
-    background: #e8f5e9;
+    background: #f3faf4; /* 아주 연한 그린 */
 }
 
 /* 짝수 행 */
 .ranking-table tbody tr:nth-child(even) {
-    background: #c8e6c9;
+    background: #e8f5e9; /* 연녹색 */
 }
 
+/* hover 시 행 강조 */
 .ranking-table tbody tr:hover {
-    background: #a5d6a7; /* 진한 녹색 */
+    background: #d0e9d4; /* 조금 더 진한 연녹색 */
     cursor: pointer;
+}
+
+/* 상태별 색상 뱃지 */
+.ranking-table .status-paid {
+    background-color: #d0f0d0; /* 연녹색 */
+    color: #2e7d32;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.ranking-table .status-unpaid {
+    background-color: #f8d7da; /* 연분홍 */
+    color: #c62828;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.ranking-table .status-pending {
+    background-color: #fff3cd; /* 연노랑 */
+    color: #a67c00;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
 
