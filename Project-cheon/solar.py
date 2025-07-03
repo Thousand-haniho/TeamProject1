@@ -55,3 +55,5 @@ def solar_data(region="서울"):
     solar_value = float(result_dict['ST_10']) * 277.78
 
     return {'solar_value': solar_value}
+
+print(solar_data('서울'))
