@@ -489,9 +489,36 @@ body {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     height: 450px;
 }
+.empty-card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-container {
+    max-width: 350px;
+    margin: 0 auto;
+    margin-top: -20px;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+}
+
+.chart-container h3 {
+    color: #333;
+    font-size: 16px;
+    text-align: right;
+}
+
+.empty-card select {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+}
 
 /* iframe */
-
 .iframe-container {
     display: flex;
     width: 100%;

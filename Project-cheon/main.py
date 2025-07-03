@@ -8,6 +8,7 @@ import pandas as pd
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
+from pie import pie_data
 
 app = Flask(__name__)
 
@@ -24,11 +25,15 @@ def home():
 def dashboard():
     weather_dict = weather_data()
     compare_dict = compare_data()
+    pie_plant1=pie_data("farm")
+    pie_plant2=pie_data("foliage")
 
     return render_template(
         'dashboard.html',
         weather_dict=weather_dict,
         compare_dict=compare_dict,
+        pie_plant1=pie_plant1,
+        pie_plant2=pie_plant2
     )
 
 @app.route('/education')
@@ -42,6 +47,15 @@ def flowershop():
 @app.route('/growplant')
 def growplant():
     return render_template('growplant.html')
+
+@app.route('/pie')
+def api_pie():
+    pie_plant1=pie_data("farm")
+    pie_plant2=pie_data("foliage")
+    return render_template('chart_result.html',
+                           pie_plant1=pie_plant1,
+                           pie_plant2=pie_plant2)
+
 
 #
 # MODEL_INFO = {
