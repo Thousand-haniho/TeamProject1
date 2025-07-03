@@ -6,7 +6,12 @@ import pandas as pd
 
 app = Flask(__name__)
 
+# ------------------ Import Data -------------------------
+df = pd.read_csv("./resData/가격_데이터.csv")
 
+
+
+# ------------------ 페이지 라우트 -------------------------
 @app.route('/')
 def home():
     return "<h1>Welcome to Smart Farm Dashboard</h1>"
@@ -26,19 +31,21 @@ def dashboard():
 def education():
     return render_template('education.html')
 
-
 @app.route('/flowershop')
 def flowershop():
     return render_template('flowershop.html')
 
+@app.route('/growplant')
+def growplant():
+    return render_template('growplant.html')
 
+
+# ------------------ api 라우트 -------------------------
 @app.route('/api/weather')
 def api_weather():
     region = request.args.get("region", "서울")
     weather_dict = weather_data(region)
     return jsonify(weather_dict)
-
-
 
 @app.route('/api/solar')
 def api_solar():
@@ -46,8 +53,6 @@ def api_solar():
     solar_dict = solar_data(region)
     return jsonify(solar_dict)
 
-
-df = pd.read_csv("./resData/가격_데이터.csv")
 @app.route('/api/get_ranking_data', methods=["POST"])
 def get_ranking_data():
     req_data = request.get_json()
@@ -68,13 +73,13 @@ def get_ranking_data():
     return jsonify(data)
 
 
-
+# ------------------ Error 페이지 -------------------------
 @app.errorhandler(404) 
 def page_not_found(error):
     print('오류 로그:', error) # 서버 콘솔에 출력
     return "페이지가 없습니다. URL를 확인하세요.", 404
 
-
+# ------------------------------------------------------------
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
     

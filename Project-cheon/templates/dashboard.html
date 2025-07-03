@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Dashboard</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
-    <link rel="stylesheet" href="../static/css/ui_jk.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
@@ -39,16 +39,6 @@
             </li>
         </ul>
 
-        <div class="bottom-controls">
-            <div class="toggle-control">
-                <span>🌙 Light Mode</span>
-                <div class="toggle-switch"></div>
-            </div>
-            <a href="#" class="withdraw-btn">
-                <span>💰 Withdraw</span>
-            </a>
-            <button class="logout-btn">📤 Logout</button>
-        </div>
     </div>
 
     <!-- Main Content -->
@@ -550,8 +540,8 @@
         ];
 
         locations.forEach(loc => {
-        L.marker(loc.coords).addTo(map)
-            .bindPopup(`<b>${loc.name}</b>`);
+            L.marker(loc.coords).addTo(map)
+                .bindPopup(`<b>${loc.name}</b>`);
         });
     </script>
 </body>

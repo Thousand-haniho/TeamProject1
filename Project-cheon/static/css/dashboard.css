@@ -112,68 +112,6 @@ body {
     font-size: 16px;
 }
 
-/* Sidebar - bottom-controls */
-.bottom-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-}
-
-.toggle-control {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-.toggle-switch {
-    width: 40px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-}
-
-.toggle-switch::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background: white;
-    border-radius: 50%;
-    top: 2px;
-    right: 2px;
-    transition: all 0.5s ease;
-}
-
-/* active 상태 토글 */
-.toggle-switch.active::after {
-    transform: translateX(-20px);
-}
-
-.withdraw-btn {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.logout-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 100%;
-}
 
 /* Main Content */
 .main-content {
@@ -501,4 +439,11 @@ body {
     padding: 20px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     height: 450px;
+}
+
+/* iframe */
+.iframe-container iframe {
+    border: none;
+    border-radius: 30px;
+    overflow: hidden;
 }

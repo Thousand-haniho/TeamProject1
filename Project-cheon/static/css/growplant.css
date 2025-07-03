@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 전체 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'GmarketSansMedium', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: #f9f9f4; /* e8f5e9 f9f9f4 c8e6c9 */
+  display: flex;
+}
+
+
+
+
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: linear-gradient(135deg, #81c784 0%, #a5d6a7 30%, #c8e6c9 70%, #81c784 100%);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+    height: calc(100vh - 40px);
+    position: relative;
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3), 0 5px 15px rgba(76, 175, 80, 0.2);
+}
+
+/* Sidebar - logo */
+.logo {
+    background: white;
+    width: 95px;        /* 가로 */
+    height: 95px;       /* 세로 (같은 크기) */
+    border-radius: 50%; /* 원형 */
+    padding: 10px;      /* 안쪽 여백 */
+    margin: 0 auto 30px auto; /* 가운데 정렬 + 아래 마진 */
+    text-align: center;
+    display: flex;      /* 가운데 배치 */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo-icon {
+    width: 90px;
+    height: 90px;
+    background: url('../images/사이트로고1.png') no-repeat center center;
+    background-size: 140%; 
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.logo-icon::before {
+    content: none;
+}
+
+
+.logo h2 {
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Sidebar - nav-menu */
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-icon {
+    margin-right: 12px;
+    font-size: 16px;
+}
