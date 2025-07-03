@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Height 예측 그래프</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: 'Malgun Gothic', sans-serif; padding: 30px; }
+    canvas { max-width: 800px; }
+  </style>
+</head>
+<body>
+  <h2>식물별 길이 예측 그래프</h2>
+  <!-- 실내식물 -->
+  <canvas id="monsteraChart"></canvas>
+  <canvas id="stookiChart"></canvas>
+  <canvas id="orangejasminChart"></canvas>
+  <canvas id="hongkongyajaChart"></canvas>
+  <!-- 텃밭식물 -->
+  <canvas id="tomatoChart"></canvas>
+  <canvas id="oeChart"></canvas>
+  <canvas id="paprikaChart"></canvas>
+
+  <script>
+  const data = [
+    {x: 1, y: 300.112},
+    {x: 2, y: 301.012},
+    {x: 3, y: 301.132},
+    {x: 4, y: 307.458},
+    {x: 5, y: 313.674},
+    {x: 6, y: 320.0},
+    {x: 7, y: 321.326},
+    {x: 8, y: 315.3},
+    {x: 9, y: 305.3},
+  ];
+  const predictionPoint = {x: 10, y: 299.1}; // 예측값
+  const ctx = document.getElementById('heightChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      datasets: [
+      {
+        label: '식물 길이 (cm)',
+        data: data,
+        borderColor: '#2E86AB',
+        backgroundColor: 'rgba(46, 134, 171, 0.2)',
+        tension: 0.3,
+        pointRadius: 5,
+        fill: true
+      },
+       {
+        label: '예측값 (10주차)',
+        data: [predictionPoint],
+        borderColor: '#F24236',
+        backgroundColor: '#F24236',
+        pointStyle: 'star',
+        pointRadius: 10,
+        pointHoverRadius: 12,
+        showLine: false, // 선은 없음
+        fill: false
+      }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          type: 'linear',
+          title: {
+            display: true,
+            text: '주차 (Week)'
+          },
+          ticks: {
+            stepSize: 1
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: '길이 (Height)'
+          }
+        }
+      },
+      plugins: {
+        legend: { position: 'top' },
+        title: {
+          display: true,
+          text: 'SVR을 이용한 길이 예측'
+        }
+      }
+    }
+  });
+  </script>
+
+</body>
+</html>
