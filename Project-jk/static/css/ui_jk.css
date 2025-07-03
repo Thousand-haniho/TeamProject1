@@ -22,6 +22,9 @@ body {
 }
 
 
+
+
+
 /* Sidebar */
 .sidebar {
     width: 220px;
@@ -286,45 +289,11 @@ body {
     display: none;
 }
 .metric-card.two {
-  background: linear-gradient(135deg, #e8f5e9, #c8e6c9, #ff8a80);
-  background-size: 400% 400%;
-  animation: redWave 10s ease infinite;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
 }
-
-/* 키프레임 정의 */
-@keyframes redWave {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-
-
 .metric-card.blue {
-  background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #4fc3f7);
-  background-size: 400% 400%;
-  animation: blueWave 10s ease infinite;
+    background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
 }
-
-/* 파란 물결 키프레임 */
-@keyframes blueWave {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .metric-card.orange {
     background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
 }
@@ -426,11 +395,37 @@ body {
     color: #333;
 }
 
+.ranking-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 #ranking-category-select {
   background: #4caf50;
   color: white;
   border: none;
+  padding: 7px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#show-chart-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
   padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#crop-select {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 7px 10px;
   font-size: 12px;
   border-radius: 3px;
   cursor: pointer;
