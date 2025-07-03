@@ -3,6 +3,11 @@ from weather import weather_data
 from solar import solar_data
 from compare import compare_data
 import pandas as pd
+import os
+from dotenv import load_dotenv
+from outdoorplant import outdoor_json
+from indoorplant import indoor_json
+
 
 app = Flask(__name__)
 
@@ -33,7 +38,14 @@ def flowershop():
 
 @app.route('/growplant')
 def growplant():
-    return render_template('growplant.html')
+
+    indoor_data = indoor_json()  
+    outdoor_data = outdoor_json()
+    plants = {
+        "indoor": indoor_data,
+        "outdoor": outdoor_data,
+    }
+    return render_template('growplant.html', plants=plants)
 
 @app.route('/api/weather')
 def api_weather():
@@ -79,6 +91,26 @@ def page_not_found(error):
     print('오류 로그:', error) # 서버 콘솔에 출력
     return "페이지가 없습니다. URL를 확인하세요.", 404
 
+# 한이 식물성장예측
+# load_dotenv()
+# api_key = os.getenv('WEATHER_API_KEY')
+
+# @app.route("/predict")
+# def plant_predict():
+#     plants = get_prediction()
+#     return render_template(
+#         'predict.html',
+#         plants=plants
+#     )
+
+# def get_prediction():
+#     predict_indoordict = indoor_json()
+#     predict_outdoordict = outdoor_json()
+#     result = {
+#         "indoor" : predict_indoordict,
+#         "outdoor" : predict_outdoordict
+#     }
+#     return result
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
