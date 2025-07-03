@@ -18,11 +18,11 @@ y_height = df['height'].values
 y_fruit = df['fruitnum'].values
 
 # SVR 모델 정의 및 학습 (길이)
-svr_height = SVR(kernel='rbf', C=100, gamma='scale', epsilon=0.1)
+svr_height = SVR(kernel='rbf', C=100, epsilon=0.1)
 svr_height.fit(X, y_height)
 
 # SVR 모델 정의 및 학습 (열매 개수)
-svr_fruit = SVR(kernel='rbf', C=100, gamma='scale', epsilon=0.1)
+svr_fruit = SVR(kernel='rbf', C=100, epsilon=0.1)
 svr_fruit.fit(X, y_fruit)
 
 # 예측용 데이터 생성
@@ -35,6 +35,7 @@ next_week = X.max() + 1
 pred_height = svr_height.predict([[next_week]])[0]
 pred_fruit = svr_fruit.predict([[next_week]])[0]
 
+print("길이 예측값:", pred_height, "열매수 예측값:", pred_fruit)
 # 그래프 생성
 plt.figure(figsize=(12, 8))
 
