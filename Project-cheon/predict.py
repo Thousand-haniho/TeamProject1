@@ -5,7 +5,7 @@ import numpy as np
 import os
 
 # 1. 모델 불러오기
-model_path = "./saveFiles/strawberry_cnn_model.h5"
+model_path = "D:/project-js/project-js/strawberry_cnn_model.h5"
 model = load_model(model_path)
 
 # 2. 클래스 이름 정의 (카테고리 리스트와 순서 같아야 함)
@@ -20,7 +20,8 @@ def preprocess_image(image_path, target_size=(64, 64)):  # 모델 input shape와
     img_array = np.expand_dims(img_array, axis=0)  # 배치 차원 추가
     return img_array
 
-# # 4. 이미지 경로 지정
+# 테스트용/나중에 필요할때 하장
+# 4. 이미지 경로 지정
 # image_path1 = 'C:/02WorkSpaces/Aihub/strawberry/testfiles/strawberry_gray_mold/10.jpg'
 
 
