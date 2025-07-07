@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>스마트팜 실시간 식물 검색 분석</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: "Malgun Gothic", sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .chart-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #ccc;
+    }
+
+    select {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>식물 종류별 실시간 검색 비율</h2>
+
+  <!-- 식물 종류 선택 박스 -->
+  <select id="plantSelect" aria-label="식물 종류 선택">
+    <option value="1" selected>텃밭식물</option>
+    <option value="2">관엽식물</option>
+  </select>
+
+  <div class="chart-container">
+    <h3 id="categoryTitle">{{ pie_plant1.category_name }}</h3>
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <script>
+    // 서버에서 전달된 데이터 - JSON으로 안전하게 전달됨
+    const piePlants = {
+      1: {
+        categoryName: "{{ pie_plant1.category_name }}",
+        chartData: {{ pie_plant1.chart_data | tojson }}
+      },
+      2: {
+        categoryName: "{{ pie_plant2.category_name }}",
+        chartData: {{ pie_plant2.chart_data | tojson }}
+      }
+    };
+
+    // 차트 초기화 변수
+    let chartInstance = null;
+
+    // 차트 그리기 함수
+    function drawChart(plantKey) {
+      const data = piePlants[plantKey].chartData;
+      const labels = data.map(item => item.label);
+      const values = data.map(item => item.value);
+      const categoryName = piePlants[plantKey].categoryName;
+
+      // 타이틀 변경
+      document.getElementById('categoryTitle').textContent = categoryName;
+
+      // 기존 차트가 있으면 파괴
+      if (chartInstance) {
+        chartInstance.destroy();
+      }
+
+      // 새로운 차트 생성
+      chartInstance = new Chart(document.getElementById('pieChart').getContext('2d'), {
+        type: 'pie',
+        data: {
+          labels: labels,
+          datasets: [{
+            data: values,
+            backgroundColor: plantKey === "1"
+              ? ['#6dbd63', '#ffb347', '#c26dbc', '#62b6cb', '#ffc6c7']
+              : ['#a3d9a5', '#ffd166', '#9d4edd', '#4ea8de', '#ffcad4']
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    }
+
+    // 셀렉트 박스 이벤트 연결
+    document.getElementById('plantSelect').addEventListener('change', (event) => {
+      drawChart(event.target.value);
+    });
+
+    // 페이지 로드시 초기 차트 표시 (텃밭식물)
+    window.onload = () => {
+      drawChart("1");
+    };
+  </script>
+</body>
+
+</html>
